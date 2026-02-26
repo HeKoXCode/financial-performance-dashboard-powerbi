@@ -1,72 +1,97 @@
-# 💰 Financial Performance Dashboard – Power BI
+# 💰 Financial Performance Analytics – Business Intelligence Case Study
 
-This project presents a financial performance analysis dashboard built using the AdventureWorks dataset.
+This project presents a structured financial performance analysis built using the AdventureWorks dataset, focusing on profitability modeling, cost structure evaluation, and sustainable margin analysis.
 
-The objective was to model key financial indicators and evaluate profitability, cost structure, and operational efficiency through an interactive Power BI report.
-
----
-
-## 🎯 Analytical Scope
-
-The dashboard focuses on:
-
-- Revenue (Sales)
-- Cost of Goods Sold (COGS)
-- Gross Margin
-- Net Margin
-- Operational Cost Ratio
-- Accumulated Revenue
-- Geographic revenue distribution
-- Year-over-Year (LY vs Current) comparison
+Rather than simply visualizing sales, this dashboard was designed to evaluate how revenue, costs, and operational structure interact over time.
 
 ---
 
-## 📊 Key Features
+## 🎯 Analytical Objective
 
-- Financial KPI modeling using DAX
-- Margin analysis (Gross & Net)
-- COGS % evaluation
-- Year-over-Year variance indicators
-- Country and regional performance analysis
-- Interactive navigation pages
-- Glossary section explaining financial metrics
+The primary objective was to design a financial analytics environment capable of:
 
----
+- Modeling revenue and cost structure consistency  
+- Evaluating Gross and Net Margin sustainability  
+- Comparing Year-over-Year performance (LY vs Current)  
+- Analyzing operational cost ratios  
+- Assessing geographic revenue distribution  
+- Identifying profitability stability over time  
 
-## 🛠 Tools & Technologies
-
-- Power BI
-- DAX Measures
-- Financial KPI Modeling
-- AdventureWorks Dataset
+The focus goes beyond descriptive reporting and emphasizes structured financial interpretation.
 
 ---
 
-## 📁 Repository Contents
+## 🏗️ KPI Modeling Framework
 
-- `Financial_Report.pbix` → Power BI dashboard file
-- `images/` → Dashboard preview screenshots
-- `README.md` → Project documentation
+The dashboard is organized into three financial layers to ensure analytical clarity and metric consistency.
+
+### 1️⃣ Revenue Layer
+- Total Revenue  
+- Accumulated Revenue  
+- Revenue by Country and Region  
+- Revenue evolution over time  
+
+### 2️⃣ Cost Structure Layer
+- Cost of Goods Sold (COGS)  
+- Total Cost + Shipping  
+- COGS as % of Revenue  
+- Operational Cost Ratio  
+
+### 3️⃣ Profitability Layer
+- Gross Margin (%)  
+- Net Margin (%)  
+- Year-over-Year Margin Comparison  
+- Variance Indicators (Current vs LY)  
+
+All KPIs were modeled using DAX measures to ensure:
+
+- Reusable and centralized calculation logic  
+- Consistent metric definitions across pages  
+- Clean separation between revenue, cost, and profitability logic  
 
 ---
 
-## 📌 Purpose of This Project
+## 📊 Analytical Features
 
-This project demonstrates:
-
-- Business-oriented data analysis
-- Financial metric interpretation
-- KPI modeling best practices
-- Clean dashboard structure and usability
-- Performance comparison and cost analysis logic
+- Year-over-Year comparison indicators (LY vs Current)
+- Margin evolution analysis
+- COGS % evaluation and cost structure diagnostics
+- Geographic revenue distribution (Global & USA views)
+- State/Province level breakdown (USA detail page)
+- Interactive navigation structure
+- Financial glossary for metric clarity
 
 ---
 
 ## 🧠 Business Insight Example
 
-The analysis highlights how profitability is not solely driven by revenue growth, but by maintaining sustainable cost structures and margin stability over time.
+One of the core insights from this analysis is that revenue growth alone does not guarantee profitability stability.
+
+By evaluating COGS %, margin evolution, and operational cost ratios together, the dashboard highlights how cost structure discipline directly impacts long-term sustainability.
+
+Short-term revenue increases may conceal margin erosion if cost proportions are not properly controlled.
 
 ---
 
-**Percy Ignacio Marzoratti Hill**  
-Data Analyst | Business Intelligence | Power BI
+## 🏛️ Structural Design Considerations
+
+- Clear separation between KPI layers (Revenue, Cost, Profitability)
+- Consistent financial ratio definitions across views
+- Navigation designed for executive-level consumption
+- Visual hierarchy prioritizing financial stability indicators over raw sales volume
+- Multi-page structure: Global overview → USA detailed breakdown
+
+The objective was to design a financial reporting environment that supports decision-making rather than simple visualization.
+
+---
+
+## 🛠 Tools & Technologies
+
+- Power BI  
+- DAX Financial Modeling  
+- KPI Variance Logic (Current vs LY)  
+- AdventureWorks Dataset  
+
+---
+
+## 📁 Repository Structure
