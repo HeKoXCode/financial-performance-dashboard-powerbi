@@ -95,6 +95,7 @@ The objective was to design a financial reporting environment that supports deci
 ---
 
 ## 📁 Repository Structure
+
 - Financial_Report.pbix → Power BI dashboard file
 - images/ → Dashboard preview screenshots
 - README.md → Project documentation
