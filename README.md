@@ -95,3 +95,25 @@ The objective was to design a financial reporting environment that supports deci
 ---
 
 ## 📁 Repository Structure
+- Financial_Report.pbix → Power BI dashboard file
+- images/ → Dashboard preview screenshots
+- README.md → Project documentation
+
+
+---
+
+## 📌 Project Focus
+
+This project demonstrates:
+
+- Financial KPI modeling discipline  
+- Structured business metric design  
+- Margin-driven performance analysis  
+- Cost structure evaluation  
+- Clean dashboard navigation and usability  
+- Consistent analytical framework across regions  
+
+---
+
+**Percy Ignacio Marzoratti Hill**  
+Data Analyst | Business Intelligence | Financial Analytics
