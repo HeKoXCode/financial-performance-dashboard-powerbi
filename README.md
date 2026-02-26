@@ -100,7 +100,6 @@ The objective was to design a financial reporting environment that supports deci
 - images/ → Dashboard preview screenshots
 - README.md → Project documentation
 
-
 ---
 
 ## 📌 Project Focus
