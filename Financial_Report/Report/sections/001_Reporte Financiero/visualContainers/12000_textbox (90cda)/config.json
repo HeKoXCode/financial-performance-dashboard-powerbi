@@ -4,10 +4,10 @@
     {
       "id": 0,
       "position": {
-        "x": 250.0,
+        "x": 250,
         "y": 8.88888888888889,
         "z": 12000,
-        "width": 360.0,
+        "width": 440,
         "height": 77.77777777777777,
         "tabOrder": 12000
       }
@@ -24,11 +24,11 @@
               {
                 "textRuns": [
                   {
-                    "value": "REPORTE FINANCIERO",
+                    "value": "DRIVERS DE MARGEN Y VARIACIÓN LY",
                     "textStyle": {
                       "fontWeight": "bold",
                       "fontFamily": "Segoe UI",
-                      "fontSize": "22pt",
+                      "fontSize": "18pt",
                       "color": "#1F4E78"
                     }
                   }

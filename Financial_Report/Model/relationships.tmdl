@@ -34,7 +34,7 @@ relationship 96423fb3-67f7-4009-af0b-7a942ccd113a
 	toColumn: LocalDateTable_0b84b9ce-0744-4199-8d85-1e3a38c20eb3.Date
 
 relationship 0c3fceec-47aa-42b4-bac3-7c71da7dbdd2
-	fromColumn: FactInternetSales.DueDateKey
+	fromColumn: FactInternetSales.OrderDateKey
 	toColumn: DimDate.DateKey
 
 	annotation PBI_IsFromSource = FS
@@ -74,7 +74,6 @@ relationship 1ad4f938-9bb5-408f-80a9-b4c1e739fb47
 	toColumn: LocalDateTable_3345b6b0-06db-4f43-8bcf-6784ac0581e2.Date
 
 relationship 9592c573-2056-de10-107a-bee53a6e77c1
-	crossFilteringBehavior: bothDirections
 	fromColumn: FactInternetSales.CustomerKey
 	toColumn: DimCustomer.CustomerKey
 

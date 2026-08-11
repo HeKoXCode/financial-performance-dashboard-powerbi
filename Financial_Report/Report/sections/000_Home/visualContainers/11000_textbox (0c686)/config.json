@@ -4,10 +4,10 @@
     {
       "id": 0,
       "position": {
-        "x": 260.0,
+        "x": 225,
         "y": 200,
         "z": 11000,
-        "width": 760.0,
+        "width": 650,
         "height": 72.85714285714286,
         "tabOrder": 11000
       }
@@ -24,11 +24,11 @@
               {
                 "textRuns": [
                   {
-                    "value": "ANÁLISIS Y REPORTE FINANCIERO",
+                    "value": "EXECUTIVE OVERVIEW",
                     "textStyle": {
                       "fontWeight": "bold",
                       "fontFamily": "Segoe UI",
-                      "fontSize": "28pt",
+                      "fontSize": "24pt",
                       "color": "#1F4E78"
                     }
                   }

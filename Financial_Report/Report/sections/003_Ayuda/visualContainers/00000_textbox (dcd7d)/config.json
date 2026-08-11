@@ -24,11 +24,11 @@
               {
                 "textRuns": [
                   {
-                    "value": "AYUDA Y GLOSARIO FINANCIERO",
+                    "value": "DEFINICIONES Y FUENTES",
                     "textStyle": {
                       "fontWeight": "bold",
                       "fontFamily": "Segoe UI",
-                      "fontSize": "28pt",
+                      "fontSize": "26pt",
                       "color": "#1F4E78"
                     }
                   }
@@ -38,10 +38,10 @@
               {
                 "textRuns": [
                   {
-                    "value": "Definiciones alineadas con las medidas DAX del modelo.",
+                    "value": "Contrato analítico alineado con el modelo DAX reconciliado.",
                     "textStyle": {
                       "fontFamily": "Segoe UI",
-                      "fontSize": "11pt",
+                      "fontSize": "10pt",
                       "color": "#404040"
                     }
                   }
@@ -53,7 +53,7 @@
                   {
                     "value": "",
                     "textStyle": {
-                      "fontSize": "5pt"
+                      "fontSize": "4pt"
                     }
                   }
                 ]
@@ -65,7 +65,7 @@
                     "textStyle": {
                       "fontWeight": "bold",
                       "fontFamily": "Segoe UI",
-                      "fontSize": "11pt",
+                      "fontSize": "10pt",
                       "color": "#1F4E78"
                     }
                   },
@@ -73,28 +73,7 @@
                     "value": "suma de SalesAmount antes de costos, fletes e impuestos.",
                     "textStyle": {
                       "fontFamily": "Segoe UI",
-                      "fontSize": "11pt",
-                      "color": "#000000"
-                    }
-                  }
-                ]
-              },
-              {
-                "textRuns": [
-                  {
-                    "value": "Ingresos acumulados (YTD): ",
-                    "textStyle": {
-                      "fontWeight": "bold",
-                      "fontFamily": "Segoe UI",
-                      "fontSize": "11pt",
-                      "color": "#1F4E78"
-                    }
-                  },
-                  {
-                    "value": "ingresos acumulados desde el inicio del año hasta la fecha seleccionada.",
-                    "textStyle": {
-                      "fontFamily": "Segoe UI",
-                      "fontSize": "11pt",
+                      "fontSize": "10pt",
                       "color": "#000000"
                     }
                   }
@@ -107,15 +86,15 @@
                     "textStyle": {
                       "fontWeight": "bold",
                       "fontFamily": "Segoe UI",
-                      "fontSize": "11pt",
+                      "fontSize": "10pt",
                       "color": "#1F4E78"
                     }
                   },
                   {
-                    "value": "costo directo de los productos vendidos, calculado como suma de TotalProductCost.",
+                    "value": "suma de TotalProductCost asociada a las ventas.",
                     "textStyle": {
                       "fontFamily": "Segoe UI",
-                      "fontSize": "11pt",
+                      "fontSize": "10pt",
                       "color": "#000000"
                     }
                   }
@@ -124,40 +103,19 @@
               {
                 "textRuns": [
                   {
-                    "value": "Costos de envío: ",
+                    "value": "Costos totales: ",
                     "textStyle": {
                       "fontWeight": "bold",
                       "fontFamily": "Segoe UI",
-                      "fontSize": "11pt",
+                      "fontSize": "10pt",
                       "color": "#1F4E78"
                     }
                   },
                   {
-                    "value": "suma del importe Freight asociado a las ventas.",
+                    "value": "COGS + costos de envío + impuestos.",
                     "textStyle": {
                       "fontFamily": "Segoe UI",
-                      "fontSize": "11pt",
-                      "color": "#000000"
-                    }
-                  }
-                ]
-              },
-              {
-                "textRuns": [
-                  {
-                    "value": "Costo total + envíos: ",
-                    "textStyle": {
-                      "fontWeight": "bold",
-                      "fontFamily": "Segoe UI",
-                      "fontSize": "11pt",
-                      "color": "#1F4E78"
-                    }
-                  },
-                  {
-                    "value": "COGS + costos de envío.",
-                    "textStyle": {
-                      "fontFamily": "Segoe UI",
-                      "fontSize": "11pt",
+                      "fontSize": "10pt",
                       "color": "#000000"
                     }
                   }
@@ -170,7 +128,7 @@
                     "textStyle": {
                       "fontWeight": "bold",
                       "fontFamily": "Segoe UI",
-                      "fontSize": "11pt",
+                      "fontSize": "10pt",
                       "color": "#1F4E78"
                     }
                   },
@@ -178,7 +136,7 @@
                     "value": "Ingresos − COGS.",
                     "textStyle": {
                       "fontFamily": "Segoe UI",
-                      "fontSize": "11pt",
+                      "fontSize": "10pt",
                       "color": "#000000"
                     }
                   }
@@ -191,15 +149,15 @@
                     "textStyle": {
                       "fontWeight": "bold",
                       "fontFamily": "Segoe UI",
-                      "fontSize": "11pt",
+                      "fontSize": "10pt",
                       "color": "#1F4E78"
                     }
                   },
                   {
-                    "value": "Ingresos − COGS − costos de envío − impuestos.",
+                    "value": "Ingresos − costos totales.",
                     "textStyle": {
                       "fontFamily": "Segoe UI",
-                      "fontSize": "11pt",
+                      "fontSize": "10pt",
                       "color": "#000000"
                     }
                   }
@@ -212,7 +170,7 @@
                     "textStyle": {
                       "fontWeight": "bold",
                       "fontFamily": "Segoe UI",
-                      "fontSize": "11pt",
+                      "fontSize": "10pt",
                       "color": "#1F4E78"
                     }
                   },
@@ -220,7 +178,7 @@
                     "value": "Utilidad bruta / Ingresos.",
                     "textStyle": {
                       "fontFamily": "Segoe UI",
-                      "fontSize": "11pt",
+                      "fontSize": "10pt",
                       "color": "#000000"
                     }
                   }
@@ -233,7 +191,7 @@
                     "textStyle": {
                       "fontWeight": "bold",
                       "fontFamily": "Segoe UI",
-                      "fontSize": "11pt",
+                      "fontSize": "10pt",
                       "color": "#1F4E78"
                     }
                   },
@@ -241,7 +199,7 @@
                     "value": "Utilidad neta / Ingresos.",
                     "textStyle": {
                       "fontFamily": "Segoe UI",
-                      "fontSize": "11pt",
+                      "fontSize": "10pt",
                       "color": "#000000"
                     }
                   }
@@ -254,15 +212,15 @@
                     "textStyle": {
                       "fontWeight": "bold",
                       "fontFamily": "Segoe UI",
-                      "fontSize": "11pt",
+                      "fontSize": "10pt",
                       "color": "#1F4E78"
                     }
                   },
                   {
-                    "value": "(COGS + costos de envío) / Ingresos; un valor menor indica mayor eficiencia de costos.",
+                    "value": "(COGS + costos de envío) / Ingresos; excluye impuestos.",
                     "textStyle": {
                       "fontFamily": "Segoe UI",
-                      "fontSize": "11pt",
+                      "fontSize": "10pt",
                       "color": "#000000"
                     }
                   }
@@ -275,15 +233,99 @@
                     "textStyle": {
                       "fontWeight": "bold",
                       "fontFamily": "Segoe UI",
-                      "fontSize": "11pt",
+                      "fontSize": "10pt",
                       "color": "#1F4E78"
                     }
                   },
                   {
-                    "value": "mismo período del año anterior, calculado con SAMEPERIODLASTYEAR.",
+                    "value": "mismo período del año anterior mediante SAMEPERIODLASTYEAR.",
                     "textStyle": {
                       "fontFamily": "Segoe UI",
-                      "fontSize": "11pt",
+                      "fontSize": "10pt",
+                      "color": "#000000"
+                    }
+                  }
+                ]
+              },
+              {
+                "textRuns": [
+                  {
+                    "value": "Fecha analítica: ",
+                    "textStyle": {
+                      "fontWeight": "bold",
+                      "fontFamily": "Segoe UI",
+                      "fontSize": "10pt",
+                      "color": "#1F4E78"
+                    }
+                  },
+                  {
+                    "value": "OrderDateKey relacionado activamente con DimDate[DateKey].",
+                    "textStyle": {
+                      "fontFamily": "Segoe UI",
+                      "fontSize": "10pt",
+                      "color": "#000000"
+                    }
+                  }
+                ]
+              },
+              {
+                "textRuns": [
+                  {
+                    "value": "Fuente: ",
+                    "textStyle": {
+                      "fontWeight": "bold",
+                      "fontFamily": "Segoe UI",
+                      "fontSize": "10pt",
+                      "color": "#1F4E78"
+                    }
+                  },
+                  {
+                    "value": "Microsoft AdventureWorksDW2019, tabla FactInternetSales.",
+                    "textStyle": {
+                      "fontFamily": "Segoe UI",
+                      "fontSize": "10pt",
+                      "color": "#000000"
+                    }
+                  }
+                ]
+              },
+              {
+                "textRuns": [
+                  {
+                    "value": "Cobertura: ",
+                    "textStyle": {
+                      "fontWeight": "bold",
+                      "fontFamily": "Segoe UI",
+                      "fontSize": "10pt",
+                      "color": "#1F4E78"
+                    }
+                  },
+                  {
+                    "value": "2010-12-29 a 2014-01-28; 2010 y 2014 son períodos parciales.",
+                    "textStyle": {
+                      "fontFamily": "Segoe UI",
+                      "fontSize": "10pt",
+                      "color": "#000000"
+                    }
+                  }
+                ]
+              },
+              {
+                "textRuns": [
+                  {
+                    "value": "Validación: ",
+                    "textStyle": {
+                      "fontWeight": "bold",
+                      "fontFamily": "Segoe UI",
+                      "fontSize": "10pt",
+                      "color": "#1F4E78"
+                    }
+                  },
+                  {
+                    "value": "identidades verificadas en total, año, país, estado y categoría.",
+                    "textStyle": {
+                      "fontFamily": "Segoe UI",
+                      "fontSize": "10pt",
                       "color": "#000000"
                     }
                   }

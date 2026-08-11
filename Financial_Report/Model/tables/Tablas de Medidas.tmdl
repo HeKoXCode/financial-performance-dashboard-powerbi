@@ -1,136 +1,210 @@
 table 'Tablas de Medidas'
 
+	/// Units sold in the active filter context.
 	measure 'Cantidad vendida' = SUM(FactInternetSales[OrderQuantity])
-		formatString: 0
-		displayFolder: Medidas Base
+		formatString: #,0
+		displayFolder: 01 Base
 
-	measure 'Clientes únicos' = DISTINCTCOUNT(DimCustomer[CustomerKey])
-		formatString: 0
-		displayFolder: Medidas Base
+	/// Distinct purchasing customers; fact-based so product and geography filters remain effective.
+	measure 'Clientes únicos' = DISTINCTCOUNT(FactInternetSales[CustomerKey])
+		formatString: #,0
+		displayFolder: 01 Base
 
+	/// Cost of goods sold from TotalProductCost; additive in every report context.
 	measure COGS = SUM(FactInternetSales[TotalProductCost])
-		formatString: \$\ #,0;-\$\ #,0;\$\ #,0
-		displayFolder: Medidas Base
+		formatString: $ #,0.00;-$ #,0.00;$ #,0.00
+		displayFolder: 01 Base
 
 		annotation PBI_FormatHint = {"currencyCulture":"es-AR"}
 
+	/// Freight amount associated with internet sales; additive in every report context.
 	measure 'Costo Total Envios' = SUM(FactInternetSales[Freight])
-		formatString: \$\ #,0;-\$\ #,0;\$\ #,0
-		displayFolder: Medidas Base
+		formatString: $ #,0.00;-$ #,0.00;$ #,0.00
+		displayFolder: 01 Base
 
 		annotation PBI_FormatHint = {"currencyCulture":"es-AR"}
 
-	measure 'Costo Total + Envíos' = SUMX(FactInternetSales,FactInternetSales[TotalProductCost] + FactInternetSales[Freight])
-		formatString: \$\ #,0.0;-\$\ #,0.0;\$\ #,0.0
-		displayFolder: Medidas Base
+	/// Product cost plus freight; excludes tax by definition.
+	measure 'Costo Total + Envíos' = [COGS] + [Costo Total Envios]
+		formatString: $ #,0.00;-$ #,0.00;$ #,0.00
+		displayFolder: 02 Reconciliación
 
 		annotation PBI_FormatHint = {"currencyCulture":"es-AR"}
 
+	/// Tax amount associated with internet sales; additive in every report context.
 	measure Impuestos = SUM(FactInternetSales[TaxAmt])
-		formatString: \$\ #,0;-\$\ #,0;\$\ #,0
-		displayFolder: Medidas Base
+		formatString: $ #,0.00;-$ #,0.00;$ #,0.00
+		displayFolder: 01 Base
 
 		annotation PBI_FormatHint = {"currencyCulture":"es-AR"}
 
+	/// Revenue before product cost, freight, and tax; additive in every report context.
 	measure Ingresos = SUM(FactInternetSales[SalesAmount])
-		formatString: \$\ #,0.0;-\$\ #,0.0;\$\ #,0.0
-		displayFolder: Medidas Base
+		formatString: $ #,0.00;-$ #,0.00;$ #,0.00
+		displayFolder: 01 Base
 
 		annotation PBI_FormatHint = {"currencyCulture":"es-AR"}
 
-	measure 'Utilidad bruta' = [ingresos] - [COGS]
-		formatString: \$#,0;(\$#,0);\$#,0
-		displayFolder: Medidas Base
+	/// Gross profit: Revenue minus COGS.
+	measure 'Utilidad bruta' = [Ingresos] - [COGS]
+		formatString: $ #,0.00;-$ #,0.00;$ #,0.00
+		displayFolder: 02 Reconciliación
 
-	measure 'Utilidad neta' = [Ingresos] - [COGS] - [Costo Total Envios] - [Impuestos]
-		formatString: \$\ #,0;-\$\ #,0;\$\ #,0
-		displayFolder: Medidas Base
+	/// Portfolio net profit: Revenue minus COGS, freight, and tax.
+	measure 'Utilidad neta' = [Ingresos] - [Costos totales]
+		formatString: $ #,0.00;-$ #,0.00;$ #,0.00
+		displayFolder: 02 Reconciliación
 
 		annotation PBI_FormatHint = {"currencyCulture":"es-AR"}
 
-	measure '% Margen Bruto' = DIVIDE([Ingresos] - [COGS], [Ingresos])
-		formatString: #,0\ %;-#,0\ %;#,0\ %
-		displayFolder: Medidas Base
+	/// Gross profit divided by revenue in the active filter context.
+	measure '% Margen Bruto' = DIVIDE([Utilidad bruta], [Ingresos])
+		formatString: 0.00%;-0.00%;0.00%
+		displayFolder: 02 Reconciliación
 
+	/// Internet-sales line count in the active filter context.
 	measure Operaciones = COUNTROWS(FactInternetSales)
-		formatString: 0
-		displayFolder: Medidas Base
+		formatString: #,0
+		displayFolder: 01 Base
 
-	measure 'Ingresos Acumulados' = CALCULATE([Ingresos], DATESYTD(DimDate[Date]))
-		formatString: \$\ #,0;-\$\ #,0;\$\ #,0
-		displayFolder: Medidas de Inteligencia de Tiempo
-
-		annotation PBI_FormatHint = {"currencyCulture":"es-AR"}
-
-	measure 'COGS PA' = CALCULATE([COGS], SAMEPERIODLASTYEAR (DimDate[DATE]))
-		formatString: \$\ #,0;-\$\ #,0;\$\ #,0
-		displayFolder: Medidas de Inteligencia de Tiempo
+	/// Backward-compatible alias for Ingresos YTD.
+	measure 'Ingresos Acumulados' = [Ingresos YTD]
+		formatString: $ #,0.00;-$ #,0.00;$ #,0.00
+		displayFolder: 03 Inteligencia de tiempo
 
 		annotation PBI_FormatHint = {"currencyCulture":"es-AR"}
 
+	/// COGS for the same selected period last year (LY).
+	measure 'COGS PA' = CALCULATE([COGS], SAMEPERIODLASTYEAR(DimDate[Date]))
+		formatString: $ #,0.00;-$ #,0.00;$ #,0.00
+		displayFolder: 03 Inteligencia de tiempo
+
+		annotation PBI_FormatHint = {"currencyCulture":"es-AR"}
+
+	/// Gross margin for the same selected period last year (LY).
 	measure '% Margen Bruto PA' = CALCULATE([% Margen Bruto], SAMEPERIODLASTYEAR(DimDate[Date]))
-		formatString: 0.00
-		displayFolder: Medidas de Inteligencia de Tiempo
+		formatString: 0.00%;-0.00%;0.00%
+		displayFolder: 03 Inteligencia de tiempo
 
-	measure '% Margen Neto' = DIVIDE([Utilidad neta],[Ingresos])
-		formatString: 0.00\ %;-0.00\ %;0.00\ %
-		displayFolder: Medidas Base
+	/// Net profit divided by revenue in the active filter context.
+	measure '% Margen Neto' = DIVIDE([Utilidad neta], [Ingresos])
+		formatString: 0.00%;-0.00%;0.00%
+		displayFolder: 02 Reconciliación
 
-	measure 'Ingresos PA' =
+	/// Revenue for the same selected period last year (LY).
+	measure 'Ingresos PA' = CALCULATE([Ingresos], SAMEPERIODLASTYEAR(DimDate[Date]))
+		formatString: $ #,0.00;-$ #,0.00;$ #,0.00
+		displayFolder: 03 Inteligencia de tiempo
 
-			CALCULATE(
-			    [Ingresos],
-			    SAMEPERIODLASTYEAR(DimDate[Date])
-			)
-		formatString: \$#,0;(\$#,0);\$#,0
-		displayFolder: Medidas de Inteligencia de Tiempo
-
-	measure 'Ratio Costo Operacional %' = DIVIDE([COGS] + [Costo Total Envios], [Ingresos])
-		displayFolder: Medidas Base
+	/// COGS plus freight divided by revenue; tax is excluded.
+	measure 'Ratio Costo Operacional %' = DIVIDE([Costo Total + Envíos], [Ingresos])
+		formatString: 0.00%;-0.00%;0.00%
+		displayFolder: 02 Reconciliación
 
 		annotation PBI_FormatHint = {"isGeneralNumber":true}
 
+	/// COGS plus freight for the same selected period last year.
 	measure 'Coste LY' = CALCULATE([Costo Total + Envíos], SAMEPERIODLASTYEAR(DimDate[Date]))
-		displayFolder: Medidas de Inteligencia de Tiempo
+		formatString: $ #,0.00;-$ #,0.00;$ #,0.00
+		displayFolder: 03 Inteligencia de tiempo
 
 		annotation PBI_FormatHint = {"isGeneralNumber":true}
 
+	/// Compatibility placeholder retained for the original report layout.
 	measure KPI_Grafico = 0
-		formatString: \$#,0.###############;(\$#,0.###############);\$#,0.###############
-		displayFolder: Medidas Base
+		formatString: $ #,0.00;-$ #,0.00;$ #,0.00
+		isHidden
+		displayFolder: 99 Diagnóstico
 
-	measure 'Ingresos YTD' = TOTALYTD([Ingresos], (DimDate[Date]))
-		displayFolder: Medidas Base
+	/// Revenue accumulated from the start of the selected calendar year, using OrderDateKey.
+	measure 'Ingresos YTD' = CALCULATE([Ingresos], DATESYTD(DimDate[Date]))
+		formatString: $ #,0.00;-$ #,0.00;$ #,0.00
+		displayFolder: 03 Inteligencia de tiempo
 
 		annotation PBI_FormatHint = {"isGeneralNumber":true}
 
+	/// Year-to-date revenue evaluated one year earlier.
 	measure 'Ingresos YTD LY' = CALCULATE([Ingresos YTD], SAMEPERIODLASTYEAR(DimDate[Date]))
+		formatString: $ #,0.00;-$ #,0.00;$ #,0.00
+		displayFolder: 03 Inteligencia de tiempo
 
 		annotation PBI_FormatHint = {"isGeneralNumber":true}
 
+	/// Operational cost ratio for the same selected period last year.
 	measure 'Ratio Costo Operacional % LY' = CALCULATE([Ratio Costo Operacional %], SAMEPERIODLASTYEAR(DimDate[Date]))
-		displayFolder: Medidas Base
+		formatString: 0.00%;-0.00%;0.00%
+		displayFolder: 03 Inteligencia de tiempo
 
 		annotation PBI_FormatHint = {"isGeneralNumber":true}
 
+	/// Gross margin for the same selected period last year.
 	measure 'Margen Bruto % LY' = CALCULATE([% Margen Bruto], SAMEPERIODLASTYEAR(DimDate[Date]))
-		formatString: 0.00\ %;-0.00\ %;0.00\ %
-		displayFolder: Medidas Base
+		formatString: 0.00%;-0.00%;0.00%
+		displayFolder: 03 Inteligencia de tiempo
 
+	/// Net margin for the same selected period last year.
 	measure 'Margen Neto % LY' = CALCULATE([% Margen Neto], SAMEPERIODLASTYEAR(DimDate[Date]))
-		formatString: 0.00\ %;-0.00\ %;0.00\ %
-		displayFolder: Medidas Base
+		formatString: 0.00%;-0.00%;0.00%
+		displayFolder: 03 Inteligencia de tiempo
 
-	measure 'COGS %' = ```
-			DIVIDE([COGS], [Ingresos])
+	/// COGS divided by revenue in the active filter context.
+	measure 'COGS %' = DIVIDE([COGS], [Ingresos])
+		formatString: 0.00%;-0.00%;0.00%
+		displayFolder: 02 Reconciliación
 
-			```
-		formatString: 0.00\ %;-0.00\ %;0.00\ %
-		displayFolder: Medidas Base
-
+	/// COGS ratio for the same selected period last year.
 	measure 'COGS % LY' = CALCULATE([COGS %], SAMEPERIODLASTYEAR(DimDate[Date]))
-		formatString: 0.00\ %;-0.00\ %;0.00\ %
-		displayFolder: Medidas Base
+		formatString: 0.00%;-0.00%;0.00%
+		displayFolder: 03 Inteligencia de tiempo
+
+	/// Product cost plus freight plus tax; reconciles directly to net profit.
+	measure 'Costos totales' = [COGS] + [Costo Total Envios] + [Impuestos]
+		formatString: $ #,0.00;-$ #,0.00;$ #,0.00
+		displayFolder: 02 Reconciliación
+
+	/// Absolute revenue variance against the same selected period last year.
+	measure 'Ingresos vs LY' = [Ingresos] - [Ingresos PA]
+		formatString: $ #,0.00;-$ #,0.00;$ #,0.00
+		displayFolder: 04 Variaciones
+
+	/// Relative revenue variance against the same selected period last year.
+	measure 'Ingresos vs LY %' = DIVIDE([Ingresos vs LY], [Ingresos PA])
+		formatString: 0.00%;-0.00%;0.00%
+		displayFolder: 04 Variaciones
+
+	/// Gross-margin change versus LY, expressed in percentage points.
+	measure 'Margen bruto vs LY pp' = [% Margen Bruto] - [Margen Bruto % LY]
+		formatString: 0.00%;-0.00%;0.00%
+		displayFolder: 04 Variaciones
+
+	/// Net-margin change versus LY, expressed in percentage points.
+	measure 'Margen neto vs LY pp' = [% Margen Neto] - [Margen Neto % LY]
+		formatString: 0.00%;-0.00%;0.00%
+		displayFolder: 04 Variaciones
+
+	/// Expected to equal zero at every supported granularity.
+	measure 'Reconciliación utilidad bruta' = [Utilidad bruta] - ([Ingresos] - [COGS])
+		formatString: $ #,0.00;-$ #,0.00;$ #,0.00
+		isHidden
+		displayFolder: 99 Diagnóstico
+
+	/// Expected to equal zero at every supported granularity.
+	measure 'Reconciliación utilidad neta' = [Utilidad neta] - ([Ingresos] - [COGS] - [Costo Total Envios] - [Impuestos])
+		formatString: $ #,0.00;-$ #,0.00;$ #,0.00
+		isHidden
+		displayFolder: 99 Diagnóstico
+
+	/// Expected to equal zero at every supported granularity.
+	measure 'Reconciliación margen bruto' = [% Margen Bruto] - DIVIDE([Utilidad bruta], [Ingresos])
+		formatString: 0.00%;-0.00%;0.00%
+		isHidden
+		displayFolder: 99 Diagnóstico
+
+	/// Expected to equal zero at every supported granularity.
+	measure 'Reconciliación margen neto' = [% Margen Neto] - DIVIDE([Utilidad neta], [Ingresos])
+		formatString: 0.00%;-0.00%;0.00%
+		isHidden
+		displayFolder: 99 Diagnóstico
 
 	column Test
 		isHidden

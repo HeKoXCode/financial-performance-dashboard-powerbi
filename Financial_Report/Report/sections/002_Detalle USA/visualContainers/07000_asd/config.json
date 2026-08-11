@@ -105,7 +105,7 @@
             "text": {
               "expr": {
                 "Literal": {
-                  "Value": "'Reporte Financiero'"
+                  "Value": "'Drivers de margen'"
                 }
               }
             },
@@ -171,7 +171,7 @@
             "altText": {
               "expr": {
                 "Literal": {
-                  "Value": "'Navega de vuelta hacia el Reporte Financiero.\n'"
+                  "Value": "'Volver a los drivers de margen y LY.'"
                 }
               }
             }

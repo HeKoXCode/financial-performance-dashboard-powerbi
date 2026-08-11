@@ -4,11 +4,11 @@
     {
       "id": 0,
       "position": {
-        "x": -10000,
-        "y": -10000,
+        "x": 245,
+        "y": 290,
         "z": 13000,
-        "width": 1,
-        "height": 1,
+        "width": 525,
+        "height": 135,
         "tabOrder": 13000
       }
     }
@@ -24,13 +24,42 @@
               {
                 "textRuns": [
                   {
-                    "value": "________________________________________________________________",
+                    "value": "RESULTADO CLAVE",
                     "textStyle": {
-                      "fontSize": "20pt",
-                      "textDecoration": "underline"
+                      "fontWeight": "bold",
+                      "fontFamily": "Segoe UI",
+                      "fontSize": "15pt",
+                      "color": "#1F4E78"
                     }
                   }
-                ]
+                ],
+                "horizontalTextAlignment": "left"
+              },
+              {
+                "textRuns": [
+                  {
+                    "value": "2013 aportó $16,4 M (55,7% del total) y creció 179,9% frente a 2012.",
+                    "textStyle": {
+                      "fontFamily": "Segoe UI",
+                      "fontSize": "12pt",
+                      "color": "#222222"
+                    }
+                  }
+                ],
+                "horizontalTextAlignment": "left"
+              },
+              {
+                "textRuns": [
+                  {
+                    "value": "Margen bruto: 41,4% | Margen neto: 30,9%.",
+                    "textStyle": {
+                      "fontFamily": "Segoe UI",
+                      "fontSize": "11pt",
+                      "color": "#555555"
+                    }
+                  }
+                ],
+                "horizontalTextAlignment": "left"
               }
             ]
           }
@@ -52,6 +81,6 @@
         }
       ]
     },
-    "isHidden": true
+    "isHidden": false
   }
 }

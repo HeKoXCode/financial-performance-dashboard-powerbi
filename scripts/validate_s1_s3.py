@@ -16,7 +16,7 @@ EXPECTED_HIDDEN = {
     "000_Home": {
         "06000_image (291c2)", "07000_image (9eab8)", "08000_image (a2c99)",
         "09000_image (16cc0)", "10000_image (6a55f)", "12000_image (f8239)",
-        "13000_textbox (46ac1)", "14000_image (a7b49)", "15000_textbox (b4ec3)",
+        "14000_image (a7b49)", "17002_shape (00abd)",
     },
     "001_Reporte Financiero": {
         "00000_image (3bd6f)", "10000_image (37104)", "11000_image (0592e)",
@@ -136,9 +136,10 @@ def validate_content(errors: list[str]) -> None:
         if banned in source_text:
             errors.append(f"Banned or inconsistent report text remains: {banned}")
     for expected in (
-        "ANÁLISIS Y REPORTE FINANCIERO", "2010–2014 | ADVENTUREWORKS SAMPLE",
-        "REPORTE FINANCIERO", "DETALLE USA", "AYUDA Y GLOSARIO FINANCIERO",
-        "Ingresos − COGS − costos de envío − impuestos.", "SAMEPERIODLASTYEAR",
+        "EXECUTIVE OVERVIEW", "2010–2014 | ADVENTUREWORKS SAMPLE",
+        "DRIVERS DE MARGEN Y VARIACIÓN LY", "GEOGRAPHIC DRILL-DOWN — USA",
+        "DEFINICIONES Y FUENTES",
+        "Ingresos − costos totales.", "SAMEPERIODLASTYEAR",
     ):
         if expected not in source_text:
             errors.append(f"Expected FIN-S3 content missing: {expected}")
@@ -155,7 +156,7 @@ def validate_readme(errors: list[str]) -> None:
     required = (
         "AdventureWorksDW2019", "learn.microsoft.com", "2010-12-29", "2014-01-28",
         "60,398", "reporting currency", "millions", "Images/overview.png",
-        "Images/usa_detailed.png", "Images/glossary.png", "Limitations",
+        "Images/executive_overview.png", "Images/usa_detailed.png", "Images/glossary.png", "Limitations",
         "What each page answers", "FIN-S1", "FIN-S2", "FIN-S3",
     )
     for token in required:

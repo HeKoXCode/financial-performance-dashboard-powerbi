@@ -119,7 +119,7 @@
             "text": {
               "expr": {
                 "Literal": {
-                  "Value": "'Inicio'"
+                  "Value": "'Resumen ejecutivo'"
                 }
               }
             },
@@ -204,7 +204,7 @@
             "altText": {
               "expr": {
                 "Literal": {
-                  "Value": "'Navega de vuelta hacia la página Home.'"
+                  "Value": "'Volver al resumen ejecutivo.'"
                 }
               }
             }

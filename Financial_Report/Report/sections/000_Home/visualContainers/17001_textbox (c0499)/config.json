@@ -4,11 +4,11 @@
     {
       "id": 0,
       "position": {
-        "x": 1125.5555555555554,
+        "x": 1085,
         "y": 670,
         "z": 17001,
-        "width": 66.66666666666667,
-        "height": 43.333333333333336,
+        "width": 105,
+        "height": 38,
         "tabOrder": 17001
       }
     }
@@ -24,15 +24,16 @@
               {
                 "textRuns": [
                   {
-                    "value": "+Info",
+                    "value": "Definiciones",
                     "textStyle": {
                       "fontWeight": "bold",
                       "fontFamily": "Segoe UI",
-                      "fontSize": "14pt",
+                      "fontSize": "9pt",
                       "color": "#1F4E78"
                     }
                   }
-                ]
+                ],
+                "horizontalTextAlignment": "left"
               }
             ]
           }
@@ -53,6 +54,7 @@
           }
         }
       ]
-    }
+    },
+    "isHidden": false
   }
 }

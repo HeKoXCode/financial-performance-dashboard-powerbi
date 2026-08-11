@@ -4,10 +4,10 @@
     {
       "id": 0,
       "position": {
-        "x": 260.0,
+        "x": 250,
         "y": 15.454545454545453,
         "z": 3000,
-        "width": 320.0,
+        "width": 410,
         "height": 91.81818181818181,
         "tabOrder": 3000
       }
@@ -24,11 +24,11 @@
               {
                 "textRuns": [
                   {
-                    "value": "DETALLE USA",
+                    "value": "GEOGRAPHIC DRILL-DOWN — USA",
                     "textStyle": {
                       "fontWeight": "bold",
                       "fontFamily": "Segoe UI",
-                      "fontSize": "26pt",
+                      "fontSize": "18pt",
                       "color": "#1F4E78"
                     }
                   }
