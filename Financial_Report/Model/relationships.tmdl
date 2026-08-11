@@ -1,0 +1,84 @@
+relationship efa70fea-9923-4284-879e-6e1ece1413a3
+	joinOnDateBehavior: datePartOnly
+	fromColumn: DimProduct.StartDate
+	toColumn: LocalDateTable_c6e028bd-0d15-403b-a7e8-9bbbeb703fe5.Date
+
+relationship 8b5560b5-638c-4089-8a56-c6f9b98f3219
+	joinOnDateBehavior: datePartOnly
+	fromColumn: DimProduct.EndDate
+	toColumn: LocalDateTable_e42bcb38-b04c-462c-bc7d-37ab43800ca7.Date
+
+relationship b2e8e2ff-d7c7-41e1-a93c-ef738cb9889a
+	joinOnDateBehavior: datePartOnly
+	fromColumn: FactInternetSales.OrderDate
+	toColumn: LocalDateTable_9818ab1c-23b6-4046-a46e-cf6ff56600a5.Date
+
+relationship f14ac7ee-50d7-42e1-b6c2-1ff5e6399456
+	joinOnDateBehavior: datePartOnly
+	fromColumn: FactInternetSales.DueDate
+	toColumn: LocalDateTable_3e4d2ad3-b7fc-4abc-804b-71d26f9b9ee3.Date
+
+relationship 502e676c-9e71-4521-a3c3-1dc4ad02feb9
+	joinOnDateBehavior: datePartOnly
+	fromColumn: FactInternetSales.ShipDate
+	toColumn: LocalDateTable_67f450e3-06bb-45e4-9ece-d48f599e4699.Date
+
+relationship d7734776-b3a1-49b2-95dc-c45e0c6f995c
+	joinOnDateBehavior: datePartOnly
+	fromColumn: DimPromotion.StartDate
+	toColumn: LocalDateTable_f44168f4-c672-4529-9dbe-f903bfdd2a84.Date
+
+relationship 96423fb3-67f7-4009-af0b-7a942ccd113a
+	joinOnDateBehavior: datePartOnly
+	fromColumn: DimPromotion.EndDate
+	toColumn: LocalDateTable_0b84b9ce-0744-4199-8d85-1e3a38c20eb3.Date
+
+relationship 0c3fceec-47aa-42b4-bac3-7c71da7dbdd2
+	fromColumn: FactInternetSales.DueDateKey
+	toColumn: DimDate.DateKey
+
+	annotation PBI_IsFromSource = FS
+
+relationship efb21808-550e-4841-bf72-1f0875acc6db
+	fromColumn: FactInternetSales.ProductKey
+	toColumn: DimProduct.ProductKey
+
+	annotation PBI_IsFromSource = FS
+
+relationship 8a8390f2-933e-4976-8c77-6e57f57512d6
+	fromColumn: FactInternetSales.SalesTerritoryKey
+	toColumn: DimSalesTerritory.SalesTerritoryKey
+
+	annotation PBI_IsFromSource = FS
+
+relationship 5895a61f-604b-444a-b59d-cb41869a1fac
+	fromColumn: FactInternetSales.PromotionKey
+	toColumn: DimPromotion.PromotionKey
+
+	annotation PBI_IsFromSource = FS
+
+relationship 32c2ee98-9ab1-4528-a9e1-4fde6c983b5d
+	fromColumn: DimGeography.SalesTerritoryKey
+	toColumn: DimSalesTerritory.SalesTerritoryKey
+
+	annotation PBI_IsFromSource = FS
+
+relationship 96db7b5d-c78b-4d28-83d8-3194f2b8fa00
+	joinOnDateBehavior: datePartOnly
+	fromColumn: DimCustomer.BirthDate
+	toColumn: LocalDateTable_d08932da-65e2-4f72-beb5-14779d086eb7.Date
+
+relationship 1ad4f938-9bb5-408f-80a9-b4c1e739fb47
+	joinOnDateBehavior: datePartOnly
+	fromColumn: DimCustomer.DateFirstPurchase
+	toColumn: LocalDateTable_3345b6b0-06db-4f43-8bcf-6784ac0581e2.Date
+
+relationship 9592c573-2056-de10-107a-bee53a6e77c1
+	crossFilteringBehavior: bothDirections
+	fromColumn: FactInternetSales.CustomerKey
+	toColumn: DimCustomer.CustomerKey
+
+relationship 22e31027-9124-2f0b-2e16-fc31944be22c
+	isActive: false
+	fromColumn: DimCustomer.GeographyKey
+	toColumn: DimGeography.GeographyKey

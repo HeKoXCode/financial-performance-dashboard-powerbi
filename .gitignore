@@ -1,0 +1,7 @@
+__pycache__/
+*.py[cod]
+
+# Local Power BI and analysis scratch files
+*.pbix.tmp
+*.pbit.tmp
+.pbi/

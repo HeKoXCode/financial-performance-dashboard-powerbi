@@ -1,0 +1,114 @@
+{
+  "Commands": [
+    {
+      "SemanticQueryDataShapeCommand": {
+        "Query": {
+          "Version": 2,
+          "From": [
+            {
+              "Name": "t",
+              "Entity": "Tablas de Medidas",
+              "Type": 0
+            },
+            {
+              "Name": "d",
+              "Entity": "DimCustomer",
+              "Type": 0
+            }
+          ],
+          "Select": [
+            {
+              "Measure": {
+                "Expression": {
+                  "SourceRef": {
+                    "Source": "t"
+                  }
+                },
+                "Property": "Ingresos"
+              },
+              "Name": "Tablas de Medidas.Ingresos",
+              "NativeReferenceName": "Ingresos"
+            },
+            {
+              "Column": {
+                "Expression": {
+                  "SourceRef": {
+                    "Source": "d"
+                  }
+                },
+                "Property": "StateProvinceName"
+              },
+              "Name": "DimCustomer.StateProvinceName",
+              "NativeReferenceName": "StateProvinceName"
+            }
+          ],
+          "Where": [
+            {
+              "Condition": {
+                "In": {
+                  "Expressions": [
+                    {
+                      "Column": {
+                        "Expression": {
+                          "SourceRef": {
+                            "Source": "d"
+                          }
+                        },
+                        "Property": "CountryRegionCode"
+                      }
+                    }
+                  ],
+                  "Values": [
+                    [
+                      {
+                        "Literal": {
+                          "Value": "'CA'"
+                        }
+                      }
+                    ]
+                  ]
+                }
+              }
+            }
+          ]
+        },
+        "Binding": {
+          "Primary": {
+            "Groupings": [
+              {
+                "Projections": [
+                  0,
+                  1
+                ]
+              }
+            ]
+          },
+          "DataReduction": {
+            "DataVolume": 4,
+            "Primary": {
+              "Top": {}
+            }
+          },
+          "Aggregates": [
+            {
+              "Select": 0,
+              "Aggregations": [
+                {
+                  "Min": {}
+                },
+                {
+                  "Max": {}
+                }
+              ]
+            }
+          ],
+          "SuppressedJoinPredicates": [
+            0
+          ],
+          "Version": 1
+        },
+        "ExecutionMetricsKind": 1
+      }
+    }
+  ]
+}

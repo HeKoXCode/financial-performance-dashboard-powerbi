@@ -1,0 +1,57 @@
+{
+  "name": "46ac14921878daef71f3",
+  "layouts": [
+    {
+      "id": 0,
+      "position": {
+        "x": -10000,
+        "y": -10000,
+        "z": 13000,
+        "width": 1,
+        "height": 1,
+        "tabOrder": 13000
+      }
+    }
+  ],
+  "singleVisual": {
+    "visualType": "textbox",
+    "drillFilterOtherVisuals": true,
+    "objects": {
+      "general": [
+        {
+          "properties": {
+            "paragraphs": [
+              {
+                "textRuns": [
+                  {
+                    "value": "________________________________________________________________",
+                    "textStyle": {
+                      "fontSize": "20pt",
+                      "textDecoration": "underline"
+                    }
+                  }
+                ]
+              }
+            ]
+          }
+        }
+      ]
+    },
+    "vcObjects": {
+      "background": [
+        {
+          "properties": {
+            "transparency": {
+              "expr": {
+                "Literal": {
+                  "Value": "100D"
+                }
+              }
+            }
+          }
+        }
+      ]
+    },
+    "isHidden": true
+  }
+}

@@ -1,0 +1,1326 @@
+{
+  "name": "61544fafc1378c2fb952",
+  "layouts": [
+    {
+      "id": 0,
+      "position": {
+        "x": 0,
+        "y": 105,
+        "z": 1000,
+        "width": 1280,
+        "height": 337.5,
+        "tabOrder": 1000
+      }
+    }
+  ],
+  "singleVisual": {
+    "visualType": "pivotTable",
+    "projections": {
+      "Values": [
+        {
+          "queryRef": "Tablas de Medidas.Ingresos"
+        },
+        {
+          "queryRef": "Tablas de Medidas.Utilidad neta"
+        },
+        {
+          "queryRef": "Tablas de Medidas.Utilidad bruta"
+        },
+        {
+          "queryRef": "Tablas de Medidas.% Margen Bruto"
+        },
+        {
+          "queryRef": "Tablas de Medidas.% Margen Neto"
+        },
+        {
+          "queryRef": "Tablas de Medidas.COGS"
+        },
+        {
+          "queryRef": "Tablas de Medidas.Costo Total Envios"
+        }
+      ],
+      "Rows": [
+        {
+          "queryRef": "DimCustomer.StateProvinceName",
+          "active": true
+        },
+        {
+          "queryRef": "DimCustomer.StateProvinceCode",
+          "active": true
+        },
+        {
+          "queryRef": "DimCustomer.City"
+        }
+      ],
+      "Columns": [
+        {
+          "queryRef": "DimProduct.Category Name",
+          "active": true
+        },
+        {
+          "queryRef": "GC_Variaciones_Tiempo.Variaciones",
+          "active": true
+        }
+      ]
+    },
+    "prototypeQuery": {
+      "Version": 2,
+      "From": [
+        {
+          "Name": "d1",
+          "Entity": "DimProduct",
+          "Type": 0
+        },
+        {
+          "Name": "g",
+          "Entity": "GC_Variaciones_Tiempo",
+          "Type": 0
+        },
+        {
+          "Name": "d2",
+          "Entity": "DimCustomer",
+          "Type": 0
+        },
+        {
+          "Name": "t",
+          "Entity": "Tablas de Medidas",
+          "Type": 0
+        }
+      ],
+      "Select": [
+        {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Source": "d1"
+              }
+            },
+            "Property": "Category Name"
+          },
+          "Name": "DimProduct.Category Name",
+          "NativeReferenceName": "Category Name"
+        },
+        {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Source": "g"
+              }
+            },
+            "Property": "Variaciones"
+          },
+          "Name": "GC_Variaciones_Tiempo.Variaciones",
+          "NativeReferenceName": "Variaciones"
+        },
+        {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Source": "d2"
+              }
+            },
+            "Property": "City"
+          },
+          "Name": "DimCustomer.City",
+          "NativeReferenceName": "City"
+        },
+        {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Source": "d2"
+              }
+            },
+            "Property": "StateProvinceCode"
+          },
+          "Name": "DimCustomer.StateProvinceCode",
+          "NativeReferenceName": "StateProvinceCode"
+        },
+        {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Source": "d2"
+              }
+            },
+            "Property": "StateProvinceName"
+          },
+          "Name": "DimCustomer.StateProvinceName",
+          "NativeReferenceName": "StateProvinceName"
+        },
+        {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Source": "t"
+              }
+            },
+            "Property": "Utilidad neta"
+          },
+          "Name": "Tablas de Medidas.Utilidad neta",
+          "NativeReferenceName": "Utilidad neta"
+        },
+        {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Source": "t"
+              }
+            },
+            "Property": "Ingresos"
+          },
+          "Name": "Tablas de Medidas.Ingresos",
+          "NativeReferenceName": "Ingresos"
+        },
+        {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Source": "t"
+              }
+            },
+            "Property": "Utilidad bruta"
+          },
+          "Name": "Tablas de Medidas.Utilidad bruta",
+          "NativeReferenceName": "Utilidad bruta"
+        },
+        {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Source": "t"
+              }
+            },
+            "Property": "% Margen Bruto"
+          },
+          "Name": "Tablas de Medidas.% Margen Bruto",
+          "NativeReferenceName": "% Margen Bruto"
+        },
+        {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Source": "t"
+              }
+            },
+            "Property": "% Margen Neto"
+          },
+          "Name": "Tablas de Medidas.% Margen Neto",
+          "NativeReferenceName": "% Margen Neto"
+        },
+        {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Source": "t"
+              }
+            },
+            "Property": "COGS"
+          },
+          "Name": "Tablas de Medidas.COGS",
+          "NativeReferenceName": "COGS"
+        },
+        {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Source": "t"
+              }
+            },
+            "Property": "Costo Total Envios"
+          },
+          "Name": "Tablas de Medidas.Costo Total Envios",
+          "NativeReferenceName": "Costo Total Envios"
+        }
+      ],
+      "OrderBy": [
+        {
+          "Direction": 1,
+          "Expression": {
+            "Column": {
+              "Expression": {
+                "SourceRef": {
+                  "Source": "d2"
+                }
+              },
+              "Property": "StateProvinceName"
+            }
+          }
+        }
+      ]
+    },
+    "queryFieldParametersByRole": {
+      "Values": [
+        {
+          "index": 0,
+          "length": 7,
+          "expr": {
+            "Column": {
+              "Expression": {
+                "SourceRef": {
+                  "Entity": "BaseKPI"
+                }
+              },
+              "Property": "BaseKPI"
+            }
+          }
+        }
+      ]
+    },
+    "expansionStates": [
+      {
+        "roles": [
+          "Rows"
+        ],
+        "levels": [
+          {
+            "queryRefs": [
+              "DimCustomer.StateProvinceName"
+            ],
+            "isCollapsed": true,
+            "identityKeys": [
+              {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "DimCustomer"
+                    }
+                  },
+                  "Property": "StateProvinceName"
+                }
+              }
+            ],
+            "isPinned": true
+          },
+          {
+            "queryRefs": [
+              "DimCustomer.StateProvinceCode"
+            ],
+            "isCollapsed": true,
+            "identityKeys": [
+              {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "DimCustomer"
+                    }
+                  },
+                  "Property": "StateProvinceCode"
+                }
+              }
+            ],
+            "isPinned": true
+          },
+          {
+            "queryRefs": [
+              "DimCustomer.City"
+            ],
+            "isCollapsed": true,
+            "isPinned": true
+          }
+        ],
+        "root": {
+          "identityValues": null,
+          "children": [
+            {
+              "identityValues": [
+                {
+                  "Literal": {
+                    "Value": "'Alabama'"
+                  }
+                }
+              ],
+              "children": [
+                {
+                  "identityValues": [
+                    {
+                      "Literal": {
+                        "Value": "'AL'"
+                      }
+                    }
+                  ],
+                  "isToggled": true
+                }
+              ]
+            },
+            {
+              "identityValues": [
+                {
+                  "Literal": {
+                    "Value": "'Yveline'"
+                  }
+                }
+              ],
+              "isToggled": true
+            }
+          ]
+        }
+      }
+    ],
+    "columnProperties": {
+      "Tablas de Medidas.Utilidad neta": {
+        "displayName": "Utilidad neta"
+      },
+      "Tablas de Medidas.Ingresos": {
+        "displayName": "Ingresos"
+      },
+      "Tablas de Medidas.Utilidad bruta": {
+        "displayName": "Utilidad bruta"
+      },
+      "Tablas de Medidas.% Margen Bruto": {
+        "displayName": "% Margen Bruto"
+      },
+      "Tablas de Medidas.% Margen Neto": {
+        "displayName": "% Margen Neto"
+      },
+      "Tablas de Medidas.COGS": {
+        "displayName": "COGS"
+      },
+      "Tablas de Medidas.Costo Total Envios": {
+        "displayName": "Costo Total Envios"
+      }
+    },
+    "drillFilterOtherVisuals": true,
+    "filterSortOrder": 3,
+    "objects": {
+      "subTotals": [
+        {
+          "properties": {
+            "columnSubtotals": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            },
+            "rowSubtotals": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "columnHeaders": [
+        {
+          "properties": {
+            "bold": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            },
+            "backColor": {
+              "solid": {
+                "color": {
+                  "expr": {
+                    "Literal": {
+                      "Value": "'#D97706'"
+                    }
+                  }
+                }
+              }
+            },
+            "alignment": {
+              "expr": {
+                "Literal": {
+                  "Value": "'Center'"
+                }
+              }
+            },
+            "titleAlignment": {
+              "expr": {
+                "Literal": {
+                  "Value": "'Center'"
+                }
+              }
+            },
+            "fontFamily": {
+              "expr": {
+                "Literal": {
+                  "Value": "'''Segoe UI'''"
+                }
+              }
+            },
+            "fontSize": {
+              "expr": {
+                "Literal": {
+                  "Value": "10D"
+                }
+              }
+            },
+            "underline": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            },
+            "wordWrap": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "columnTotal": [
+        {
+          "properties": {
+            "bold": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            },
+            "fontSize": {
+              "expr": {
+                "Literal": {
+                  "Value": "10D"
+                }
+              }
+            },
+            "backColor": {
+              "solid": {
+                "color": {
+                  "expr": {
+                    "ThemeDataColor": {
+                      "ColorId": 0,
+                      "Percent": 0
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      ],
+      "values": [
+        {
+          "properties": {
+            "bold": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            },
+            "fontFamily": {
+              "expr": {
+                "Literal": {
+                  "Value": "'''Segoe UI'''"
+                }
+              }
+            },
+            "fontSize": {
+              "expr": {
+                "Literal": {
+                  "Value": "10D"
+                }
+              }
+            },
+            "valuesOnRow": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "general": [
+        {
+          "properties": {
+            "layout": {
+              "expr": {
+                "Literal": {
+                  "Value": "'Tabular'"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "columnWidth": [
+        {
+          "properties": {
+            "value": {
+              "expr": {
+                "Literal": {
+                  "Value": "94.66907249398386D"
+                }
+              }
+            }
+          },
+          "selector": {
+            "data": [
+              {
+                "scopeId": {
+                  "Comparison": {
+                    "ComparisonKind": 0,
+                    "Left": {
+                      "Column": {
+                        "Expression": {
+                          "SourceRef": {
+                            "Entity": "DimProduct"
+                          }
+                        },
+                        "Property": "Category Name"
+                      }
+                    },
+                    "Right": {
+                      "Literal": {
+                        "Value": "'Bicicleta'"
+                      }
+                    }
+                  }
+                }
+              },
+              {
+                "scopeId": {
+                  "Comparison": {
+                    "ComparisonKind": 0,
+                    "Left": {
+                      "Column": {
+                        "Expression": {
+                          "SourceRef": {
+                            "Entity": "GC_Variaciones_Tiempo"
+                          }
+                        },
+                        "Property": "Variaciones"
+                      }
+                    },
+                    "Right": {
+                      "Literal": {
+                        "Value": "'Variacion %'"
+                      }
+                    }
+                  }
+                }
+              }
+            ]
+          }
+        },
+        {
+          "properties": {
+            "value": {
+              "expr": {
+                "Literal": {
+                  "Value": "109.93235550429971D"
+                }
+              }
+            }
+          },
+          "selector": {
+            "data": [
+              {
+                "scopeId": {
+                  "Comparison": {
+                    "ComparisonKind": 0,
+                    "Left": {
+                      "Column": {
+                        "Expression": {
+                          "SourceRef": {
+                            "Entity": "DimProduct"
+                          }
+                        },
+                        "Property": "Category Name"
+                      }
+                    },
+                    "Right": {
+                      "Literal": {
+                        "Value": "'Componente'"
+                      }
+                    }
+                  }
+                }
+              },
+              {
+                "scopeId": {
+                  "Comparison": {
+                    "ComparisonKind": 0,
+                    "Left": {
+                      "Column": {
+                        "Expression": {
+                          "SourceRef": {
+                            "Entity": "GC_Variaciones_Tiempo"
+                          }
+                        },
+                        "Property": "Variaciones"
+                      }
+                    },
+                    "Right": {
+                      "Literal": {
+                        "Value": "'Variacion %'"
+                      }
+                    }
+                  }
+                }
+              }
+            ]
+          }
+        },
+        {
+          "properties": {
+            "value": {
+              "expr": {
+                "Literal": {
+                  "Value": "98.5871015552479D"
+                }
+              }
+            }
+          },
+          "selector": {
+            "data": [
+              {
+                "scopeId": {
+                  "Comparison": {
+                    "ComparisonKind": 0,
+                    "Left": {
+                      "Column": {
+                        "Expression": {
+                          "SourceRef": {
+                            "Entity": "DimProduct"
+                          }
+                        },
+                        "Property": "Category Name"
+                      }
+                    },
+                    "Right": {
+                      "Literal": {
+                        "Value": "'Otros'"
+                      }
+                    }
+                  }
+                }
+              },
+              {
+                "scopeId": {
+                  "Comparison": {
+                    "ComparisonKind": 0,
+                    "Left": {
+                      "Column": {
+                        "Expression": {
+                          "SourceRef": {
+                            "Entity": "GC_Variaciones_Tiempo"
+                          }
+                        },
+                        "Property": "Variaciones"
+                      }
+                    },
+                    "Right": {
+                      "Literal": {
+                        "Value": "'Variacion %'"
+                      }
+                    }
+                  }
+                }
+              }
+            ]
+          }
+        },
+        {
+          "properties": {
+            "value": {
+              "expr": {
+                "Literal": {
+                  "Value": "93.89056131500928D"
+                }
+              }
+            }
+          },
+          "selector": {
+            "data": [
+              {
+                "scopeId": {
+                  "Comparison": {
+                    "ComparisonKind": 0,
+                    "Left": {
+                      "Column": {
+                        "Expression": {
+                          "SourceRef": {
+                            "Entity": "DimProduct"
+                          }
+                        },
+                        "Property": "Category Name"
+                      }
+                    },
+                    "Right": {
+                      "Literal": {
+                        "Value": "'Prenda'"
+                      }
+                    }
+                  }
+                }
+              },
+              {
+                "scopeId": {
+                  "Comparison": {
+                    "ComparisonKind": 0,
+                    "Left": {
+                      "Column": {
+                        "Expression": {
+                          "SourceRef": {
+                            "Entity": "GC_Variaciones_Tiempo"
+                          }
+                        },
+                        "Property": "Variaciones"
+                      }
+                    },
+                    "Right": {
+                      "Literal": {
+                        "Value": "'Actual'"
+                      }
+                    }
+                  }
+                }
+              }
+            ]
+          }
+        },
+        {
+          "properties": {
+            "value": {
+              "expr": {
+                "Literal": {
+                  "Value": "102.86364014424521D"
+                }
+              }
+            }
+          },
+          "selector": {
+            "data": [
+              {
+                "scopeId": {
+                  "Comparison": {
+                    "ComparisonKind": 0,
+                    "Left": {
+                      "Column": {
+                        "Expression": {
+                          "SourceRef": {
+                            "Entity": "DimProduct"
+                          }
+                        },
+                        "Property": "Category Name"
+                      }
+                    },
+                    "Right": {
+                      "Literal": {
+                        "Value": "'Accesorio'"
+                      }
+                    }
+                  }
+                }
+              },
+              {
+                "scopeId": {
+                  "Comparison": {
+                    "ComparisonKind": 0,
+                    "Left": {
+                      "Column": {
+                        "Expression": {
+                          "SourceRef": {
+                            "Entity": "GC_Variaciones_Tiempo"
+                          }
+                        },
+                        "Property": "Variaciones"
+                      }
+                    },
+                    "Right": {
+                      "Literal": {
+                        "Value": "'Variacion'"
+                      }
+                    }
+                  }
+                }
+              }
+            ]
+          }
+        },
+        {
+          "properties": {},
+          "selector": {
+            "data": [
+              {
+                "scopeId": {
+                  "Comparison": {
+                    "ComparisonKind": 0,
+                    "Left": {
+                      "Column": {
+                        "Expression": {
+                          "SourceRef": {
+                            "Entity": "DimProduct"
+                          }
+                        },
+                        "Property": "Category Name"
+                      }
+                    },
+                    "Right": {
+                      "Literal": {
+                        "Value": "'Accesorio'"
+                      }
+                    }
+                  }
+                }
+              },
+              {
+                "scopeId": {
+                  "Comparison": {
+                    "ComparisonKind": 0,
+                    "Left": {
+                      "Column": {
+                        "Expression": {
+                          "SourceRef": {
+                            "Entity": "GC_Variaciones_Tiempo"
+                          }
+                        },
+                        "Property": "Variaciones"
+                      }
+                    },
+                    "Right": {
+                      "Literal": {
+                        "Value": "'Variacion %'"
+                      }
+                    }
+                  }
+                }
+              }
+            ]
+          }
+        },
+        {
+          "properties": {
+            "value": {
+              "expr": {
+                "Literal": {
+                  "Value": "139.56858519369646D"
+                }
+              }
+            }
+          },
+          "selector": {
+            "data": [
+              {
+                "scopeId": {
+                  "Comparison": {
+                    "ComparisonKind": 0,
+                    "Left": {
+                      "Column": {
+                        "Expression": {
+                          "SourceRef": {
+                            "Entity": "DimProduct"
+                          }
+                        },
+                        "Property": "Category Name"
+                      }
+                    },
+                    "Right": {
+                      "Literal": {
+                        "Value": "'Bicicleta'"
+                      }
+                    }
+                  }
+                }
+              },
+              {
+                "scopeId": {
+                  "Comparison": {
+                    "ComparisonKind": 0,
+                    "Left": {
+                      "Column": {
+                        "Expression": {
+                          "SourceRef": {
+                            "Entity": "GC_Variaciones_Tiempo"
+                          }
+                        },
+                        "Property": "Variaciones"
+                      }
+                    },
+                    "Right": {
+                      "Literal": {
+                        "Value": "'Periodo Anterior'"
+                      }
+                    }
+                  }
+                }
+              }
+            ]
+          }
+        },
+        {
+          "properties": {
+            "value": {
+              "expr": {
+                "Literal": {
+                  "Value": "94.89774374562109D"
+                }
+              }
+            }
+          },
+          "selector": {
+            "data": [
+              {
+                "scopeId": {
+                  "Comparison": {
+                    "ComparisonKind": 0,
+                    "Left": {
+                      "Column": {
+                        "Expression": {
+                          "SourceRef": {
+                            "Entity": "DimProduct"
+                          }
+                        },
+                        "Property": "Category Name"
+                      }
+                    },
+                    "Right": {
+                      "Literal": {
+                        "Value": "'Bicicleta'"
+                      }
+                    }
+                  }
+                }
+              },
+              {
+                "scopeId": {
+                  "Comparison": {
+                    "ComparisonKind": 0,
+                    "Left": {
+                      "Column": {
+                        "Expression": {
+                          "SourceRef": {
+                            "Entity": "GC_Variaciones_Tiempo"
+                          }
+                        },
+                        "Property": "Variaciones"
+                      }
+                    },
+                    "Right": {
+                      "Literal": {
+                        "Value": "'Variacion'"
+                      }
+                    }
+                  }
+                }
+              }
+            ]
+          }
+        },
+        {
+          "properties": {
+            "value": {
+              "expr": {
+                "Literal": {
+                  "Value": "127.62051711519825D"
+                }
+              }
+            }
+          },
+          "selector": {
+            "data": [
+              {
+                "scopeId": {
+                  "Comparison": {
+                    "ComparisonKind": 0,
+                    "Left": {
+                      "Column": {
+                        "Expression": {
+                          "SourceRef": {
+                            "Entity": "DimProduct"
+                          }
+                        },
+                        "Property": "Category Name"
+                      }
+                    },
+                    "Right": {
+                      "Literal": {
+                        "Value": "'Prenda'"
+                      }
+                    }
+                  }
+                }
+              },
+              {
+                "scopeId": {
+                  "Comparison": {
+                    "ComparisonKind": 0,
+                    "Left": {
+                      "Column": {
+                        "Expression": {
+                          "SourceRef": {
+                            "Entity": "GC_Variaciones_Tiempo"
+                          }
+                        },
+                        "Property": "Variaciones"
+                      }
+                    },
+                    "Right": {
+                      "Literal": {
+                        "Value": "'Periodo Anterior'"
+                      }
+                    }
+                  }
+                }
+              }
+            ]
+          }
+        },
+        {
+          "properties": {
+            "value": {
+              "expr": {
+                "Literal": {
+                  "Value": "86.9318291637474D"
+                }
+              }
+            }
+          },
+          "selector": {
+            "data": [
+              {
+                "scopeId": {
+                  "Comparison": {
+                    "ComparisonKind": 0,
+                    "Left": {
+                      "Column": {
+                        "Expression": {
+                          "SourceRef": {
+                            "Entity": "DimProduct"
+                          }
+                        },
+                        "Property": "Category Name"
+                      }
+                    },
+                    "Right": {
+                      "Literal": {
+                        "Value": "'Prenda'"
+                      }
+                    }
+                  }
+                }
+              },
+              {
+                "scopeId": {
+                  "Comparison": {
+                    "ComparisonKind": 0,
+                    "Left": {
+                      "Column": {
+                        "Expression": {
+                          "SourceRef": {
+                            "Entity": "GC_Variaciones_Tiempo"
+                          }
+                        },
+                        "Property": "Variaciones"
+                      }
+                    },
+                    "Right": {
+                      "Literal": {
+                        "Value": "'Variacion'"
+                      }
+                    }
+                  }
+                }
+              }
+            ]
+          }
+        },
+        {
+          "properties": {
+            "value": {
+              "expr": {
+                "Literal": {
+                  "Value": "102.58587837516434D"
+                }
+              }
+            }
+          },
+          "selector": {
+            "data": [
+              {
+                "scopeId": {
+                  "Comparison": {
+                    "ComparisonKind": 0,
+                    "Left": {
+                      "Column": {
+                        "Expression": {
+                          "SourceRef": {
+                            "Entity": "DimProduct"
+                          }
+                        },
+                        "Property": "Category Name"
+                      }
+                    },
+                    "Right": {
+                      "Literal": {
+                        "Value": "'Prenda'"
+                      }
+                    }
+                  }
+                }
+              },
+              {
+                "scopeId": {
+                  "Comparison": {
+                    "ComparisonKind": 0,
+                    "Left": {
+                      "Column": {
+                        "Expression": {
+                          "SourceRef": {
+                            "Entity": "GC_Variaciones_Tiempo"
+                          }
+                        },
+                        "Property": "Variaciones"
+                      }
+                    },
+                    "Right": {
+                      "Literal": {
+                        "Value": "'Variacion %'"
+                      }
+                    }
+                  }
+                }
+              }
+            ]
+          }
+        }
+      ],
+      "blankRows": [
+        {
+          "properties": {
+            "showBlankRows": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "grid": [
+        {
+          "properties": {
+            "gridHorizontalColor": {
+              "solid": {
+                "color": {
+                  "expr": {
+                    "ThemeDataColor": {
+                      "ColorId": 1,
+                      "Percent": 0.6
+                    }
+                  }
+                }
+              }
+            },
+            "gridHorizontalWeight": {
+              "expr": {
+                "Literal": {
+                  "Value": "2D"
+                }
+              }
+            },
+            "outlineStyle": {
+              "expr": {
+                "Literal": {
+                  "Value": "0D"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "rowHeaders": [
+        {
+          "properties": {
+            "fontFamily": {
+              "expr": {
+                "Literal": {
+                  "Value": "'''Segoe UI'''"
+                }
+              }
+            }
+          }
+        }
+      ]
+    },
+    "vcObjects": {
+      "stylePreset": [
+        {
+          "properties": {
+            "name": {
+              "expr": {
+                "Literal": {
+                  "Value": "'Minimal'"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "background": [
+        {
+          "properties": {
+            "color": {
+              "solid": {
+                "color": {
+                  "expr": {
+                    "Literal": {
+                      "Value": "'#1F4E78'"
+                    }
+                  }
+                }
+              }
+            },
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            },
+            "transparency": {
+              "expr": {
+                "Literal": {
+                  "Value": "33D"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "dropShadow": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "border": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            }
+          }
+        }
+      ]
+    }
+  }
+}

@@ -1,0 +1,44 @@
+{
+  "name": "0c686093d5e24d797ebc",
+  "layouts": [
+    {
+      "id": 0,
+      "position": {
+        "x": 260.0,
+        "y": 200,
+        "z": 11000,
+        "width": 760.0,
+        "height": 72.85714285714286,
+        "tabOrder": 11000
+      }
+    }
+  ],
+  "singleVisual": {
+    "visualType": "textbox",
+    "drillFilterOtherVisuals": true,
+    "objects": {
+      "general": [
+        {
+          "properties": {
+            "paragraphs": [
+              {
+                "textRuns": [
+                  {
+                    "value": "ANÁLISIS Y REPORTE FINANCIERO",
+                    "textStyle": {
+                      "fontWeight": "bold",
+                      "fontFamily": "Segoe UI",
+                      "fontSize": "28pt",
+                      "color": "#1F4E78"
+                    }
+                  }
+                ],
+                "horizontalTextAlignment": "center"
+              }
+            ]
+          }
+        }
+      ]
+    }
+  }
+}

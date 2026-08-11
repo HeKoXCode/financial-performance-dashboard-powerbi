@@ -1,0 +1,280 @@
+table FactInternetSales
+
+	column ProductKey
+		dataType: int64
+		formatString: 0
+		summarizeBy: none
+		sourceColumn: ProductKey
+
+		annotation SummarizationSetBy = Automatic
+
+	column OrderDateKey
+		dataType: int64
+		formatString: 0
+		summarizeBy: count
+		sourceColumn: OrderDateKey
+
+		annotation SummarizationSetBy = Automatic
+
+	column DueDateKey
+		dataType: int64
+		formatString: 0
+		summarizeBy: none
+		sourceColumn: DueDateKey
+
+		annotation SummarizationSetBy = Automatic
+
+	column ShipDateKey
+		dataType: int64
+		formatString: 0
+		summarizeBy: count
+		sourceColumn: ShipDateKey
+
+		annotation SummarizationSetBy = Automatic
+
+	column CustomerKey
+		dataType: int64
+		formatString: 0
+		summarizeBy: none
+		sourceColumn: CustomerKey
+
+		annotation SummarizationSetBy = Automatic
+
+	column PromotionKey
+		dataType: int64
+		formatString: 0
+		summarizeBy: none
+		sourceColumn: PromotionKey
+
+		annotation SummarizationSetBy = Automatic
+
+	column CurrencyKey
+		dataType: int64
+		formatString: 0
+		summarizeBy: count
+		sourceColumn: CurrencyKey
+
+		annotation SummarizationSetBy = Automatic
+
+	column SalesTerritoryKey
+		dataType: int64
+		formatString: 0
+		summarizeBy: none
+		sourceColumn: SalesTerritoryKey
+
+		annotation SummarizationSetBy = Automatic
+
+	column SalesOrderNumber
+		dataType: string
+		summarizeBy: none
+		sourceColumn: SalesOrderNumber
+
+		annotation SummarizationSetBy = Automatic
+
+	column SalesOrderLineNumber
+		dataType: int64
+		formatString: 0
+		summarizeBy: sum
+		sourceColumn: SalesOrderLineNumber
+
+		annotation SummarizationSetBy = Automatic
+
+	column RevisionNumber
+		dataType: int64
+		formatString: 0
+		summarizeBy: sum
+		sourceColumn: RevisionNumber
+
+		annotation SummarizationSetBy = Automatic
+
+	column OrderQuantity
+		dataType: int64
+		formatString: 0
+		summarizeBy: sum
+		sourceColumn: OrderQuantity
+
+		annotation SummarizationSetBy = Automatic
+
+	column UnitPrice
+		dataType: decimal
+		formatString: \$\ #,0.###############;-\$\ #,0.###############;\$\ #,0.###############
+		summarizeBy: sum
+		sourceColumn: UnitPrice
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"currencyCulture":"es-AR"}
+
+	column ExtendedAmount
+		dataType: decimal
+		formatString: \$\ #,0.###############;-\$\ #,0.###############;\$\ #,0.###############
+		summarizeBy: sum
+		sourceColumn: ExtendedAmount
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"currencyCulture":"es-AR"}
+
+	column UnitPriceDiscountPct
+		dataType: double
+		summarizeBy: sum
+		sourceColumn: UnitPriceDiscountPct
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column DiscountAmount
+		dataType: double
+		summarizeBy: sum
+		sourceColumn: DiscountAmount
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column ProductStandardCost
+		dataType: decimal
+		formatString: \$\ #,0.###############;-\$\ #,0.###############;\$\ #,0.###############
+		summarizeBy: sum
+		sourceColumn: ProductStandardCost
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"currencyCulture":"es-AR"}
+
+	column TotalProductCost
+		dataType: decimal
+		formatString: \$\ #,0.###############;-\$\ #,0.###############;\$\ #,0.###############
+		summarizeBy: sum
+		sourceColumn: TotalProductCost
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"currencyCulture":"es-AR"}
+
+	column SalesAmount
+		dataType: decimal
+		formatString: \$\ #,0.###############;-\$\ #,0.###############;\$\ #,0.###############
+		summarizeBy: sum
+		sourceColumn: SalesAmount
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"currencyCulture":"es-AR"}
+
+	column TaxAmt
+		dataType: decimal
+		formatString: \$\ #,0.###############;-\$\ #,0.###############;\$\ #,0.###############
+		summarizeBy: sum
+		sourceColumn: TaxAmt
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"currencyCulture":"es-AR"}
+
+	column Freight
+		dataType: decimal
+		formatString: \$\ #,0.###############;-\$\ #,0.###############;\$\ #,0.###############
+		summarizeBy: sum
+		sourceColumn: Freight
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"currencyCulture":"es-AR"}
+
+	column OrderDate
+		dataType: dateTime
+		formatString: Long Date
+		summarizeBy: none
+		sourceColumn: OrderDate
+
+		variation Variación
+			isDefault
+			relationship: b2e8e2ff-d7c7-41e1-a93c-ef738cb9889a
+			defaultHierarchy: LocalDateTable_9818ab1c-23b6-4046-a46e-cf6ff56600a5.'Jerarquía de fechas'
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column DueDate
+		dataType: dateTime
+		formatString: Long Date
+		summarizeBy: none
+		sourceColumn: DueDate
+
+		variation Variación
+			isDefault
+			relationship: f14ac7ee-50d7-42e1-b6c2-1ff5e6399456
+			defaultHierarchy: LocalDateTable_3e4d2ad3-b7fc-4abc-804b-71d26f9b9ee3.'Jerarquía de fechas'
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column ShipDate
+		dataType: dateTime
+		formatString: Long Date
+		summarizeBy: none
+		sourceColumn: ShipDate
+
+		variation Variación
+			isDefault
+			relationship: 502e676c-9e71-4521-a3c3-1dc4ad02feb9
+			defaultHierarchy: LocalDateTable_67f450e3-06bb-45e4-9ece-d48f599e4699.'Jerarquía de fechas'
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column OrderDateHour
+		dataType: dateTime
+		formatString: Long Time
+		summarizeBy: none
+		sourceColumn: OrderDateHour
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Time
+
+	column DueDateHour
+		dataType: dateTime
+		formatString: Long Time
+		summarizeBy: none
+		sourceColumn: DueDateHour
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Time
+
+	column ShipDateHour
+		dataType: dateTime
+		formatString: Long Time
+		summarizeBy: none
+		sourceColumn: ShipDateHour
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Time
+
+	partition FactInternetSales = m
+		mode: import
+		queryGroup: Consultas
+		source =
+				let
+				    Origen = Sql.Databases("localhost\SQLEXPRESS"),
+				    AdventureWorksDW2019 = Origen{[Name="AdventureWorksDW2019"]}[Data],
+				    dbo_FactInternetSales = AdventureWorksDW2019{[Schema="dbo",Item="FactInternetSales"]}[Data],
+				    #"Columnas quitadas" = Table.RemoveColumns(dbo_FactInternetSales,{"DimCurrency", "DimCustomer", "DimDate(DueDateKey)", "DimDate(OrderDateKey)", "DimDate(ShipDateKey)", "DimProduct", "DimPromotion", "DimSalesTerritory", "FactInternetSalesReason", "CarrierTrackingNumber", "CustomerPONumber"}),
+				    #"Columna duplicada" = Table.DuplicateColumn(#"Columnas quitadas", "OrderDate", "OrderDate - Copia"),
+				    #"Columna duplicada1" = Table.DuplicateColumn(#"Columna duplicada", "DueDate", "DueDate - Copia"),
+				    #"Columna duplicada2" = Table.DuplicateColumn(#"Columna duplicada1", "ShipDate", "ShipDate - Copia"),
+				    #"Columnas con nombre cambiado" = Table.RenameColumns(#"Columna duplicada2",{{"OrderDate - Copia", "OrderDateHour"}, {"DueDate - Copia", "DueDateHour"}, {"ShipDate - Copia", "ShipDateHour"}}),
+				    #"Tipo cambiado" = Table.TransformColumnTypes(#"Columnas con nombre cambiado",{{"ShipDateHour", type time}, {"DueDateHour", type time}, {"OrderDateHour", type time}, {"ShipDate", type date}, {"DueDate", type date}, {"OrderDate", type date}})
+				in
+				    #"Tipo cambiado"
+
+	annotation PBI_ResultType = Table
+
+	annotation PBI_NavigationStepName = Navegación

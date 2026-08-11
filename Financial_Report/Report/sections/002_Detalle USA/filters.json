@@ -1,0 +1,57 @@
+[
+  {
+    "name": "9bbcedf263ec4de2335b",
+    "expression": {
+      "Column": {
+        "Expression": {
+          "SourceRef": {
+            "Entity": "DimCustomer"
+          }
+        },
+        "Property": "CountryRegionCode"
+      }
+    },
+    "filter": {
+      "Version": 2,
+      "From": [
+        {
+          "Name": "d",
+          "Entity": "DimCustomer",
+          "Type": 0
+        }
+      ],
+      "Where": [
+        {
+          "Condition": {
+            "In": {
+              "Expressions": [
+                {
+                  "Column": {
+                    "Expression": {
+                      "SourceRef": {
+                        "Source": "d"
+                      }
+                    },
+                    "Property": "CountryRegionCode"
+                  }
+                }
+              ],
+              "Values": [
+                [
+                  {
+                    "Literal": {
+                      "Value": "'US'"
+                    }
+                  }
+                ]
+              ]
+            }
+          }
+        }
+      ]
+    },
+    "type": "Categorical",
+    "howCreated": 1,
+    "objects": {}
+  }
+]

@@ -1,0 +1,150 @@
+table 'Tablas de Medidas'
+
+	measure 'Cantidad vendida' = SUM(FactInternetSales[OrderQuantity])
+		formatString: 0
+		displayFolder: Medidas Base
+
+	measure 'Clientes únicos' = DISTINCTCOUNT(DimCustomer[CustomerKey])
+		formatString: 0
+		displayFolder: Medidas Base
+
+	measure COGS = SUM(FactInternetSales[TotalProductCost])
+		formatString: \$\ #,0;-\$\ #,0;\$\ #,0
+		displayFolder: Medidas Base
+
+		annotation PBI_FormatHint = {"currencyCulture":"es-AR"}
+
+	measure 'Costo Total Envios' = SUM(FactInternetSales[Freight])
+		formatString: \$\ #,0;-\$\ #,0;\$\ #,0
+		displayFolder: Medidas Base
+
+		annotation PBI_FormatHint = {"currencyCulture":"es-AR"}
+
+	measure 'Costo Total + Envíos' = SUMX(FactInternetSales,FactInternetSales[TotalProductCost] + FactInternetSales[Freight])
+		formatString: \$\ #,0.0;-\$\ #,0.0;\$\ #,0.0
+		displayFolder: Medidas Base
+
+		annotation PBI_FormatHint = {"currencyCulture":"es-AR"}
+
+	measure Impuestos = SUM(FactInternetSales[TaxAmt])
+		formatString: \$\ #,0;-\$\ #,0;\$\ #,0
+		displayFolder: Medidas Base
+
+		annotation PBI_FormatHint = {"currencyCulture":"es-AR"}
+
+	measure Ingresos = SUM(FactInternetSales[SalesAmount])
+		formatString: \$\ #,0.0;-\$\ #,0.0;\$\ #,0.0
+		displayFolder: Medidas Base
+
+		annotation PBI_FormatHint = {"currencyCulture":"es-AR"}
+
+	measure 'Utilidad bruta' = [ingresos] - [COGS]
+		formatString: \$#,0;(\$#,0);\$#,0
+		displayFolder: Medidas Base
+
+	measure 'Utilidad neta' = [Ingresos] - [COGS] - [Costo Total Envios] - [Impuestos]
+		formatString: \$\ #,0;-\$\ #,0;\$\ #,0
+		displayFolder: Medidas Base
+
+		annotation PBI_FormatHint = {"currencyCulture":"es-AR"}
+
+	measure '% Margen Bruto' = DIVIDE([Ingresos] - [COGS], [Ingresos])
+		formatString: #,0\ %;-#,0\ %;#,0\ %
+		displayFolder: Medidas Base
+
+	measure Operaciones = COUNTROWS(FactInternetSales)
+		formatString: 0
+		displayFolder: Medidas Base
+
+	measure 'Ingresos Acumulados' = CALCULATE([Ingresos], DATESYTD(DimDate[Date]))
+		formatString: \$\ #,0;-\$\ #,0;\$\ #,0
+		displayFolder: Medidas de Inteligencia de Tiempo
+
+		annotation PBI_FormatHint = {"currencyCulture":"es-AR"}
+
+	measure 'COGS PA' = CALCULATE([COGS], SAMEPERIODLASTYEAR (DimDate[DATE]))
+		formatString: \$\ #,0;-\$\ #,0;\$\ #,0
+		displayFolder: Medidas de Inteligencia de Tiempo
+
+		annotation PBI_FormatHint = {"currencyCulture":"es-AR"}
+
+	measure '% Margen Bruto PA' = CALCULATE([% Margen Bruto], SAMEPERIODLASTYEAR(DimDate[Date]))
+		formatString: 0.00
+		displayFolder: Medidas de Inteligencia de Tiempo
+
+	measure '% Margen Neto' = DIVIDE([Utilidad neta],[Ingresos])
+		formatString: 0.00\ %;-0.00\ %;0.00\ %
+		displayFolder: Medidas Base
+
+	measure 'Ingresos PA' =
+
+			CALCULATE(
+			    [Ingresos],
+			    SAMEPERIODLASTYEAR(DimDate[Date])
+			)
+		formatString: \$#,0;(\$#,0);\$#,0
+		displayFolder: Medidas de Inteligencia de Tiempo
+
+	measure 'Ratio Costo Operacional %' = DIVIDE([COGS] + [Costo Total Envios], [Ingresos])
+		displayFolder: Medidas Base
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'Coste LY' = CALCULATE([Costo Total + Envíos], SAMEPERIODLASTYEAR(DimDate[Date]))
+		displayFolder: Medidas de Inteligencia de Tiempo
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure KPI_Grafico = 0
+		formatString: \$#,0.###############;(\$#,0.###############);\$#,0.###############
+		displayFolder: Medidas Base
+
+	measure 'Ingresos YTD' = TOTALYTD([Ingresos], (DimDate[Date]))
+		displayFolder: Medidas Base
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'Ingresos YTD LY' = CALCULATE([Ingresos YTD], SAMEPERIODLASTYEAR(DimDate[Date]))
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'Ratio Costo Operacional % LY' = CALCULATE([Ratio Costo Operacional %], SAMEPERIODLASTYEAR(DimDate[Date]))
+		displayFolder: Medidas Base
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'Margen Bruto % LY' = CALCULATE([% Margen Bruto], SAMEPERIODLASTYEAR(DimDate[Date]))
+		formatString: 0.00\ %;-0.00\ %;0.00\ %
+		displayFolder: Medidas Base
+
+	measure 'Margen Neto % LY' = CALCULATE([% Margen Neto], SAMEPERIODLASTYEAR(DimDate[Date]))
+		formatString: 0.00\ %;-0.00\ %;0.00\ %
+		displayFolder: Medidas Base
+
+	measure 'COGS %' = ```
+			DIVIDE([COGS], [Ingresos])
+
+			```
+		formatString: 0.00\ %;-0.00\ %;0.00\ %
+		displayFolder: Medidas Base
+
+	measure 'COGS % LY' = CALCULATE([COGS %], SAMEPERIODLASTYEAR(DimDate[Date]))
+		formatString: 0.00\ %;-0.00\ %;0.00\ %
+		displayFolder: Medidas Base
+
+	column Test
+		isHidden
+		formatString: 0
+		displayFolder: Test
+		summarizeBy: sum
+		sourceColumn: [Cogs2]
+
+		annotation SummarizationSetBy = Automatic
+
+	partition 'Tablas de Medidas' = calculated
+		mode: import
+		source = Row("Cogs2", BLANK())
+
+	annotation PBI_Id = f6112dccbe104dbf9a69f5e8a506ad4d
+
+	annotation 436ba87b-9c83-4389-a31b-ebd06a36be98 = {"Expression":""}

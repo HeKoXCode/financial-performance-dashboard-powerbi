@@ -1,0 +1,65 @@
+{
+  "objects": {
+    "categoryLabels": [
+      {
+        "properties": {
+          "underline": {
+            "expr": {
+              "Literal": {
+                "Value": "true"
+              }
+            }
+          }
+        }
+      }
+    ]
+  },
+  "projectionOrdering": {
+    "Values": [
+      0
+    ]
+  },
+  "queryMetadata": {
+    "Select": [
+      {
+        "Restatement": "Operaciones",
+        "Name": "Tablas de Medidas.Operaciones",
+        "Type": 3
+      }
+    ]
+  },
+  "visualElements": [
+    {
+      "DataRoles": [
+        {
+          "Name": "Values",
+          "Projection": 0,
+          "isActive": false
+        }
+      ]
+    }
+  ],
+  "selects": [
+    {
+      "displayName": "Operaciones",
+      "queryName": "Tablas de Medidas.Operaciones",
+      "roles": {
+        "Values": true
+      },
+      "type": {
+        "category": null,
+        "underlyingType": 260
+      },
+      "expr": {
+        "Measure": {
+          "Expression": {
+            "SourceRef": {
+              "Entity": "Tablas de Medidas"
+            }
+          },
+          "Property": "Operaciones"
+        }
+      }
+    }
+  ]
+}

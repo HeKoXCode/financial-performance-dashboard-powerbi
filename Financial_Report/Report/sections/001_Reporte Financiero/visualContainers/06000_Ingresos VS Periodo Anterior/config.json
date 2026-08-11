@@ -1,0 +1,142 @@
+{
+  "name": "038361e5f4630b24852e",
+  "layouts": [
+    {
+      "id": 0,
+      "position": {
+        "x": 960,
+        "y": 115,
+        "z": 6000,
+        "width": 320,
+        "height": 135,
+        "tabOrder": 6000
+      }
+    }
+  ],
+  "singleVisual": {
+    "visualType": "card",
+    "projections": {
+      "Values": [
+        {
+          "queryRef": "Tablas de Medidas.Ingresos Acumulados"
+        }
+      ]
+    },
+    "prototypeQuery": {
+      "Version": 2,
+      "From": [
+        {
+          "Name": "t",
+          "Entity": "Tablas de Medidas",
+          "Type": 0
+        }
+      ],
+      "Select": [
+        {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Source": "t"
+              }
+            },
+            "Property": "Ingresos Acumulados"
+          },
+          "Name": "Tablas de Medidas.Ingresos Acumulados",
+          "NativeReferenceName": "Ingresos Acumulados"
+        }
+      ],
+      "OrderBy": [
+        {
+          "Direction": 2,
+          "Expression": {
+            "Measure": {
+              "Expression": {
+                "SourceRef": {
+                  "Source": "t"
+                }
+              },
+              "Property": "Ingresos Acumulados"
+            }
+          }
+        }
+      ]
+    },
+    "drillFilterOtherVisuals": true,
+    "hasDefaultSort": true,
+    "objects": {
+      "categoryLabels": [
+        {
+          "properties": {
+            "underline": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            }
+          }
+        }
+      ]
+    },
+    "vcObjects": {
+      "title": [
+        {
+          "properties": {
+            "text": {
+              "expr": {
+                "Literal": {
+                  "Value": "'Ingresos vs periodo anterior'"
+                }
+              }
+            },
+            "alignment": {
+              "expr": {
+                "Literal": {
+                  "Value": "'center'"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "dropShadow": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            },
+            "color": {
+              "solid": {
+                "color": {
+                  "expr": {
+                    "ThemeDataColor": {
+                      "ColorId": 0,
+                      "Percent": -0.3
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      ],
+      "visualHeader": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            }
+          }
+        }
+      ]
+    }
+  }
+}

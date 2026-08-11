@@ -1,0 +1,123 @@
+{
+  "Commands": [
+    {
+      "SemanticQueryDataShapeCommand": {
+        "Query": {
+          "Version": 2,
+          "From": [
+            {
+              "Name": "t",
+              "Entity": "Tablas de Medidas",
+              "Type": 0
+            },
+            {
+              "Name": "d",
+              "Entity": "DimCustomer",
+              "Type": 0
+            },
+            {
+              "Name": "d1",
+              "Entity": "DimGeography",
+              "Type": 0
+            }
+          ],
+          "Select": [
+            {
+              "Measure": {
+                "Expression": {
+                  "SourceRef": {
+                    "Source": "t"
+                  }
+                },
+                "Property": "Ingresos"
+              },
+              "Name": "Tablas de Medidas.Ingresos",
+              "NativeReferenceName": "Ingresos"
+            },
+            {
+              "Measure": {
+                "Expression": {
+                  "SourceRef": {
+                    "Source": "t"
+                  }
+                },
+                "Property": "% Margen Bruto"
+              },
+              "Name": "Tablas de Medidas.% Margen Bruto",
+              "NativeReferenceName": "% Margen Bruto"
+            },
+            {
+              "Column": {
+                "Expression": {
+                  "SourceRef": {
+                    "Source": "d"
+                  }
+                },
+                "Property": "StateProvinceName"
+              },
+              "Name": "DimCustomer.StateProvinceName",
+              "NativeReferenceName": "StateProvinceName"
+            }
+          ],
+          "Where": [
+            {
+              "Condition": {
+                "In": {
+                  "Expressions": [
+                    {
+                      "Column": {
+                        "Expression": {
+                          "SourceRef": {
+                            "Source": "d1"
+                          }
+                        },
+                        "Property": "CountryRegionCode"
+                      }
+                    }
+                  ],
+                  "Values": [
+                    [
+                      {
+                        "Literal": {
+                          "Value": "'US'"
+                        }
+                      }
+                    ]
+                  ]
+                }
+              }
+            }
+          ]
+        },
+        "Binding": {
+          "Primary": {
+            "Groupings": [
+              {
+                "Projections": [
+                  0,
+                  1,
+                  2
+                ]
+              }
+            ]
+          },
+          "DataReduction": {
+            "DataVolume": 4,
+            "Primary": {
+              "OverlappingPointsSample": {
+                "X": {
+                  "Index": 0
+                },
+                "Y": {
+                  "Index": 1
+                }
+              }
+            }
+          },
+          "Version": 1
+        },
+        "ExecutionMetricsKind": 1
+      }
+    }
+  ]
+}

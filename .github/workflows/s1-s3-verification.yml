@@ -1,0 +1,30 @@
+name: FIN S1-S3 verification
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Verify idempotent transformation
+        run: |
+          python scripts/update_financial_report_s1_s3.py
+          git diff --exit-code -- Financial_Report
+
+      - name: Validate FIN-S1 to FIN-S3
+        run: python scripts/validate_s1_s3.py

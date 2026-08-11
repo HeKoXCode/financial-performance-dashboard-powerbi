@@ -1,0 +1,104 @@
+[
+  {
+    "name": "4de532e9de61b4340247",
+    "expression": {
+      "Column": {
+        "Expression": {
+          "SourceRef": {
+            "Entity": "DimProduct"
+          }
+        },
+        "Property": "Category Name"
+      }
+    },
+    "type": "Categorical",
+    "howCreated": 0,
+    "isHiddenInViewMode": false,
+    "ordinal": 0
+  },
+  {
+    "name": "1afc5448a09b70961c8c",
+    "expression": {
+      "Column": {
+        "Expression": {
+          "SourceRef": {
+            "Entity": "GC_Variaciones_Tiempo"
+          }
+        },
+        "Property": "Variaciones"
+      }
+    },
+    "type": "Categorical",
+    "howCreated": 0,
+    "isHiddenInViewMode": false,
+    "ordinal": 1
+  },
+  {
+    "name": "10f55db9a54a0f3b56c0",
+    "expression": {
+      "Column": {
+        "Expression": {
+          "SourceRef": {
+            "Entity": "DimGeography"
+          }
+        },
+        "Property": "City"
+      }
+    },
+    "type": "Categorical",
+    "howCreated": 1,
+    "isHiddenInViewMode": false,
+    "ordinal": 2
+  },
+  {
+    "name": "2b1704cd5dc757187ec2",
+    "expression": {
+      "Measure": {
+        "Expression": {
+          "SourceRef": {
+            "Entity": "Tablas de Medidas"
+          }
+        },
+        "Property": "Ingresos"
+      }
+    },
+    "type": "Advanced",
+    "howCreated": 0,
+    "isHiddenInViewMode": false,
+    "ordinal": 3
+  },
+  {
+    "name": "3c72581dd16e74608dd7",
+    "expression": {
+      "Column": {
+        "Expression": {
+          "SourceRef": {
+            "Entity": "DimGeography"
+          }
+        },
+        "Property": "StateProvinceCode"
+      }
+    },
+    "type": "Categorical",
+    "howCreated": 1,
+    "isHiddenInViewMode": false,
+    "ordinal": 4
+  },
+  {
+    "name": "830e84f51b60f1689480",
+    "expression": {
+      "Column": {
+        "Expression": {
+          "SourceRef": {
+            "Entity": "DimGeography"
+          }
+        },
+        "Property": "StateProvinceName"
+      }
+    },
+    "type": "Categorical",
+    "howCreated": 1,
+    "isHiddenInViewMode": false,
+    "ordinal": 5
+  }
+]

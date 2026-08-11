@@ -1,0 +1,44 @@
+{
+  "relationships": [
+    {
+      "source": "390e9f1f71cd5c7e0a4f",
+      "target": "37104877fcb5bf7e1111",
+      "type": 3
+    },
+    {
+      "source": "390e9f1f71cd5c7e0a4f",
+      "target": "0592ef44e39e546694a1",
+      "type": 3
+    },
+    {
+      "source": "6b45e1642fde47a5b0dc",
+      "target": "390e9f1f71cd5c7e0a4f",
+      "type": 3
+    },
+    {
+      "source": "6b45e1642fde47a5b0dc",
+      "target": "0592ef44e39e546694a1",
+      "type": 3
+    },
+    {
+      "source": "6b45e1642fde47a5b0dc",
+      "target": "37104877fcb5bf7e1111",
+      "type": 3
+    },
+    {
+      "source": "59032b30fde9181dfea5",
+      "target": "37104877fcb5bf7e1111",
+      "type": 3
+    },
+    {
+      "source": "59032b30fde9181dfea5",
+      "target": "6b45e1642fde47a5b0dc",
+      "type": 3
+    },
+    {
+      "source": "59032b30fde9181dfea5",
+      "target": "390e9f1f71cd5c7e0a4f",
+      "type": 3
+    }
+  ]
+}

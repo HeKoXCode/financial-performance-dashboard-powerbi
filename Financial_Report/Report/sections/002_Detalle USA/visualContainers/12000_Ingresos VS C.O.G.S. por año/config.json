@@ -1,0 +1,248 @@
+{
+  "name": "cbef1c52fef512de6cf4",
+  "layouts": [
+    {
+      "id": 0,
+      "position": {
+        "x": 641.1111111111111,
+        "y": 442.22222222222223,
+        "z": 12000,
+        "width": 638.8888888888889,
+        "height": 277.77777777777777,
+        "tabOrder": 12000
+      }
+    }
+  ],
+  "singleVisual": {
+    "visualType": "lineChart",
+    "projections": {
+      "Y": [
+        {
+          "queryRef": "Tablas de Medidas.Ingresos"
+        },
+        {
+          "queryRef": "Tablas de Medidas.COGS"
+        }
+      ],
+      "Category": [
+        {
+          "queryRef": "DimDate.CalendarYear",
+          "active": true
+        }
+      ]
+    },
+    "prototypeQuery": {
+      "Version": 2,
+      "From": [
+        {
+          "Name": "t",
+          "Entity": "Tablas de Medidas",
+          "Type": 0
+        },
+        {
+          "Name": "d",
+          "Entity": "DimDate",
+          "Type": 0
+        }
+      ],
+      "Select": [
+        {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Source": "t"
+              }
+            },
+            "Property": "Ingresos"
+          },
+          "Name": "Tablas de Medidas.Ingresos",
+          "NativeReferenceName": "Ingresos"
+        },
+        {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Source": "t"
+              }
+            },
+            "Property": "COGS"
+          },
+          "Name": "Tablas de Medidas.COGS",
+          "NativeReferenceName": "COGS"
+        },
+        {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Source": "d"
+              }
+            },
+            "Property": "CalendarYear"
+          },
+          "Name": "DimDate.CalendarYear",
+          "NativeReferenceName": "CalendarYear"
+        }
+      ],
+      "OrderBy": [
+        {
+          "Direction": 2,
+          "Expression": {
+            "Measure": {
+              "Expression": {
+                "SourceRef": {
+                  "Source": "t"
+                }
+              },
+              "Property": "Ingresos"
+            }
+          }
+        }
+      ]
+    },
+    "drillFilterOtherVisuals": true,
+    "hasDefaultSort": true,
+    "objects": {
+      "valueAxis": [
+        {
+          "properties": {
+            "gridlineStyle": {
+              "expr": {
+                "Literal": {
+                  "Value": "'dotted'"
+                }
+              }
+            },
+            "gridlineThickness": {
+              "expr": {
+                "Literal": {
+                  "Value": "3D"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "lineStyles": [
+        {
+          "properties": {
+            "strokeLineJoin": {
+              "expr": {
+                "Literal": {
+                  "Value": "'round'"
+                }
+              }
+            },
+            "strokeWidth": {
+              "expr": {
+                "Literal": {
+                  "Value": "3D"
+                }
+              }
+            },
+            "lineChartType": {
+              "expr": {
+                "Literal": {
+                  "Value": "'smooth'"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "labels": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "plotArea": [
+        {
+          "properties": {
+            "transparency": {
+              "expr": {
+                "Literal": {
+                  "Value": "86D"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "categoryAxis": [
+        {
+          "properties": {
+            "showAxisTitle": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            },
+            "titleText": {
+              "expr": {
+                "Literal": {
+                  "Value": "'Año'"
+                }
+              }
+            }
+          }
+        }
+      ]
+    },
+    "vcObjects": {
+      "title": [
+        {
+          "properties": {
+            "text": {
+              "expr": {
+                "Literal": {
+                  "Value": "'Ingresos vs COGS por año'"
+                }
+              }
+            },
+            "alignment": {
+              "expr": {
+                "Literal": {
+                  "Value": "'center'"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "dropShadow": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "border": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            }
+          }
+        }
+      ]
+    }
+  }
+}

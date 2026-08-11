@@ -1,0 +1,93 @@
+{
+  "name": "eba58906bd7f3ca6c5ef",
+  "layouts": [
+    {
+      "id": 0,
+      "position": {
+        "x": 0,
+        "y": 105.55555555555556,
+        "z": 13000,
+        "width": 1280,
+        "height": 10,
+        "tabOrder": 13000
+      }
+    }
+  ],
+  "singleVisual": {
+    "visualType": "shape",
+    "drillFilterOtherVisuals": true,
+    "objects": {
+      "shape": [
+        {
+          "properties": {
+            "tileShape": {
+              "expr": {
+                "Literal": {
+                  "Value": "'rectangle'"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "rotation": [
+        {
+          "properties": {
+            "shapeAngle": {
+              "expr": {
+                "Literal": {
+                  "Value": "0L"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "fill": [
+        {
+          "properties": {
+            "fillColor": {
+              "solid": {
+                "color": {
+                  "expr": {
+                    "Literal": {
+                      "Value": "'#1F4E78'"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "selector": {
+            "id": "default"
+          }
+        },
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "outline": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            }
+          }
+        }
+      ]
+    }
+  },
+  "howCreated": "InsertVisualButton"
+}

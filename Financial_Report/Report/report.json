@@ -1,0 +1,136 @@
+{
+  "id": 0,
+  "layoutOptimization": 0,
+  "pods": [
+    {
+      "boundSection": "407b8c458a36f014e8b4",
+      "config": "{}",
+      "name": "643552012abc6c126ebc"
+    },
+    {
+      "boundSection": "228dede9df0207b97e3d",
+      "config": "{}",
+      "name": "c31aac59ec64d365d2bb"
+    }
+  ],
+  "resourcePackages": [
+    {
+      "resourcePackage": {
+        "disabled": false,
+        "items": [
+          {
+            "name": "CY24SU10",
+            "path": "BaseThemes/CY24SU10.json",
+            "type": 202
+          }
+        ],
+        "name": "SharedResources",
+        "type": 2
+      }
+    },
+    {
+      "resourcePackage": {
+        "disabled": false,
+        "items": [
+          {
+            "name": "Giant_Logo001808287370148709.png",
+            "path": "Giant_Logo001808287370148709.png",
+            "type": 100
+          },
+          {
+            "name": "Star36262482210074193.png",
+            "path": "Star36262482210074193.png",
+            "type": 100
+          },
+          {
+            "name": "Star15372366411204117.png",
+            "path": "Star15372366411204117.png",
+            "type": 100
+          },
+          {
+            "name": "Star27942669256070068.png",
+            "path": "Star27942669256070068.png",
+            "type": 100
+          },
+          {
+            "name": "EE_UU40564897959752366.png",
+            "path": "EE_UU40564897959752366.png",
+            "type": 100
+          },
+          {
+            "name": "Giant_Logo07325174839254134.png",
+            "path": "Giant_Logo07325174839254134.png",
+            "type": 100
+          },
+          {
+            "name": "Alpinist9642834747873729.png",
+            "path": "Alpinist9642834747873729.png",
+            "type": 100
+          },
+          {
+            "name": "flag3004595208644001.png",
+            "path": "flag3004595208644001.png",
+            "type": 100
+          },
+          {
+            "name": "istockphoto-1390124452-612x6127072102189151998.jpg",
+            "path": "istockphoto-1390124452-612x6127072102189151998.jpg",
+            "type": 100
+          },
+          {
+            "name": "1269235025090789172060435.png",
+            "path": "1269235025090789172060435.png",
+            "type": 100
+          },
+          {
+            "name": "as15902581530492136.png",
+            "path": "as15902581530492136.png",
+            "type": 100
+          },
+          {
+            "name": "EE_UU07454337319128213.png",
+            "path": "EE_UU07454337319128213.png",
+            "type": 100
+          },
+          {
+            "name": "imgbin_86ede2d0ed5b9c65860fd6933836396201752805.png",
+            "path": "imgbin_86ede2d0ed5b9c65860fd6933836396201752805.png",
+            "type": 100
+          },
+          {
+            "name": "flag-of-canada-clip-art-canada6640234885980925.png",
+            "path": "flag-of-canada-clip-art-canada6640234885980925.png",
+            "type": 100
+          },
+          {
+            "name": "EE_UU8734623614918486.png",
+            "path": "EE_UU8734623614918486.png",
+            "type": 100
+          },
+          {
+            "name": "AventureWorks4594331883197572.png",
+            "path": "AventureWorks4594331883197572.png",
+            "type": 100
+          },
+          {
+            "name": "istockphoto-1390124452-612x61223731901000917732.jpg",
+            "path": "istockphoto-1390124452-612x61223731901000917732.jpg",
+            "type": 100
+          },
+          {
+            "name": "Plata24500407185698295.png",
+            "path": "Plata24500407185698295.png",
+            "type": 100
+          },
+          {
+            "name": "Plata12699521835319306.png",
+            "path": "Plata12699521835319306.png",
+            "type": 100
+          }
+        ],
+        "name": "RegisteredResources",
+        "type": 1
+      }
+    }
+  ]
+}

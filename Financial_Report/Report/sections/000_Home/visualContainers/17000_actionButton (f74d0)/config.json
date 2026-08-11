@@ -1,0 +1,68 @@
+{
+  "name": "f74d02c4e6fa843eb9e4",
+  "layouts": [
+    {
+      "id": 0,
+      "position": {
+        "x": 1221.4285714285716,
+        "y": 662.8571428571429,
+        "z": 17000,
+        "width": 58.57142857142858,
+        "height": 57.142857142857146,
+        "tabOrder": 17000
+      }
+    }
+  ],
+  "singleVisual": {
+    "visualType": "actionButton",
+    "drillFilterOtherVisuals": true,
+    "objects": {
+      "icon": [
+        {
+          "properties": {
+            "shapeType": {
+              "expr": {
+                "Literal": {
+                  "Value": "'information'"
+                }
+              }
+            }
+          },
+          "selector": {
+            "id": "default"
+          }
+        }
+      ]
+    },
+    "vcObjects": {
+      "visualLink": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            },
+            "type": {
+              "expr": {
+                "Literal": {
+                  "Value": "'PageNavigation'"
+                }
+              }
+            },
+            "navigationSection": {
+              "expr": {
+                "Literal": {
+                  "Value": "'d5e11029eca603162510'"
+                }
+              }
+            }
+          }
+        }
+      ]
+    }
+  },
+  "howCreated": "InsertVisualButton"
+}

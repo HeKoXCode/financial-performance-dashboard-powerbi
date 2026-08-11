@@ -1,0 +1,39 @@
+{
+  "name": "6a55fd7d13116e122060",
+  "layouts": [
+    {
+      "id": 0,
+      "position": {
+        "x": -10000,
+        "y": -10000,
+        "z": 10000,
+        "width": 1,
+        "height": 1,
+        "tabOrder": 10000
+      }
+    }
+  ],
+  "singleVisual": {
+    "visualType": "image",
+    "drillFilterOtherVisuals": true,
+    "objects": {
+      "general": [
+        {
+          "properties": {
+            "imageUrl": {
+              "expr": {
+                "ResourcePackageItem": {
+                  "PackageName": "RegisteredResources",
+                  "PackageType": 1,
+                  "ItemName": "istockphoto-1390124452-612x6127072102189151998.jpg"
+                }
+              }
+            }
+          }
+        }
+      ]
+    },
+    "isHidden": true
+  },
+  "howCreated": "InsertVisualButton"
+}

@@ -1,0 +1,174 @@
+table DimDate
+	dataCategory: Time
+
+	column DateKey
+		dataType: int64
+		formatString: 0
+		summarizeBy: none
+		sourceColumn: DateKey
+
+		annotation SummarizationSetBy = Automatic
+
+	column Date
+		dataType: dateTime
+		isKey
+		formatString: Long Date
+		summarizeBy: none
+		sourceColumn: Date
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column DayNumberOfWeek
+		dataType: int64
+		formatString: 0
+		summarizeBy: sum
+		sourceColumn: DayNumberOfWeek
+
+		annotation SummarizationSetBy = Automatic
+
+	column EnglishDayNameOfWeek
+		dataType: string
+		summarizeBy: none
+		sourceColumn: EnglishDayNameOfWeek
+
+		annotation SummarizationSetBy = Automatic
+
+	column SpanishDayNameOfWeek
+		dataType: string
+		summarizeBy: none
+		sourceColumn: SpanishDayNameOfWeek
+
+		annotation SummarizationSetBy = Automatic
+
+	column FrenchDayNameOfWeek
+		dataType: string
+		summarizeBy: none
+		sourceColumn: FrenchDayNameOfWeek
+
+		annotation SummarizationSetBy = Automatic
+
+	column DayNumberOfMonth
+		dataType: int64
+		formatString: 0
+		summarizeBy: sum
+		sourceColumn: DayNumberOfMonth
+
+		annotation SummarizationSetBy = Automatic
+
+	column DayNumberOfYear
+		dataType: int64
+		formatString: 0
+		summarizeBy: sum
+		sourceColumn: DayNumberOfYear
+
+		annotation SummarizationSetBy = Automatic
+
+	column WeekNumberOfYear
+		dataType: int64
+		formatString: 0
+		summarizeBy: sum
+		sourceColumn: WeekNumberOfYear
+
+		annotation SummarizationSetBy = Automatic
+
+	column EnglishMonthName
+		dataType: string
+		summarizeBy: none
+		sourceColumn: EnglishMonthName
+
+		annotation SummarizationSetBy = Automatic
+
+	column SpanishMonthName
+		dataType: string
+		summarizeBy: none
+		sourceColumn: SpanishMonthName
+
+		annotation SummarizationSetBy = Automatic
+
+	column MonthNumberOfYear
+		dataType: int64
+		formatString: 0
+		summarizeBy: sum
+		sourceColumn: MonthNumberOfYear
+
+		annotation SummarizationSetBy = Automatic
+
+	column CalendarQuarter
+		dataType: int64
+		formatString: 0
+		summarizeBy: sum
+		sourceColumn: CalendarQuarter
+
+		annotation SummarizationSetBy = Automatic
+
+	column CalendarYear
+		dataType: int64
+		formatString: 0
+		summarizeBy: sum
+		sourceColumn: CalendarYear
+
+		annotation SummarizationSetBy = Automatic
+
+	column CalendarSemester
+		dataType: int64
+		formatString: 0
+		summarizeBy: sum
+		sourceColumn: CalendarSemester
+
+		annotation SummarizationSetBy = Automatic
+
+	column FiscalQuarter
+		dataType: int64
+		formatString: 0
+		summarizeBy: sum
+		sourceColumn: FiscalQuarter
+
+		annotation SummarizationSetBy = Automatic
+
+	column FiscalYear
+		dataType: int64
+		formatString: 0
+		summarizeBy: sum
+		sourceColumn: FiscalYear
+
+		annotation SummarizationSetBy = Automatic
+
+	column FiscalSemester
+		dataType: int64
+		formatString: 0
+		summarizeBy: sum
+		sourceColumn: FiscalSemester
+
+		annotation SummarizationSetBy = Automatic
+
+	column CalendarioSemestre
+		dataType: string
+		summarizeBy: none
+		sourceColumn: CalendarioSemestre
+
+		annotation SummarizationSetBy = Automatic
+
+	partition DimDate = m
+		mode: import
+		queryGroup: Consultas
+		source =
+				let
+				    Origen = Sql.Databases("localhost\SQLEXPRESS"),
+				    AdventureWorksDW2019 = Origen{[Name="AdventureWorksDW2019"]}[Data],
+				    dbo_DimDate = AdventureWorksDW2019{[Schema="dbo",Item="DimDate"]}[Data],
+				    #"Columnas quitadas" = Table.RemoveColumns(dbo_DimDate,{"FactCallCenter", "FactCurrencyRate", "FactFinance", "FactInternetSales(DateKey)", "FactInternetSales(DateKey) 2", "FactInternetSales(DateKey) 3", "FactProductInventory", "FactResellerSales(DateKey)", "FactResellerSales(DateKey) 2", "FactResellerSales(DateKey) 3", "FactSalesQuota", "FactSurveyResponse", "FrenchMonthName"}),
+				    #"Columnas con nombre cambiado" = Table.RenameColumns(#"Columnas quitadas",{{"FullDateAlternateKey", "Date"}}),
+				    #"Columna duplicada" = Table.DuplicateColumn(#"Columnas con nombre cambiado", "CalendarSemester", "CalendarSemester - Copia"),
+				    #"Tipo cambiado" = Table.TransformColumnTypes(#"Columna duplicada",{{"CalendarSemester - Copia", type text}}),
+				    #"Valor reemplazado" = Table.ReplaceValue(#"Tipo cambiado","1","Primero",Replacer.ReplaceText,{"CalendarSemester - Copia"}),
+				    #"Valor reemplazado1" = Table.ReplaceValue(#"Valor reemplazado","2","Segundo",Replacer.ReplaceText,{"CalendarSemester - Copia"}),
+				    #"Filas filtradas" = Table.SelectRows(#"Valor reemplazado1", each true),
+				    #"Columnas con nombre cambiado1" = Table.RenameColumns(#"Filas filtradas",{{"CalendarSemester - Copia", "CalendarioSemestre"}})
+				in
+				    #"Columnas con nombre cambiado1"
+
+	annotation PBI_ResultType = Table
+
+	annotation PBI_NavigationStepName = Navegación

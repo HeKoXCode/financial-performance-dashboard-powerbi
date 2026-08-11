@@ -1,0 +1,72 @@
+{
+  "name": "a1ebe80396f86a48a607",
+  "layouts": [
+    {
+      "id": 0,
+      "position": {
+        "x": 735.0,
+        "y": 40,
+        "z": 16000,
+        "width": 520.0,
+        "height": 104.28571428571429,
+        "tabOrder": 16000
+      }
+    }
+  ],
+  "singleVisual": {
+    "visualType": "textbox",
+    "drillFilterOtherVisuals": true,
+    "objects": {
+      "general": [
+        {
+          "properties": {
+            "paragraphs": [
+              {
+                "textRuns": [
+                  {
+                    "value": "2010–2014 | ADVENTUREWORKS SAMPLE",
+                    "textStyle": {
+                      "fontWeight": "bold",
+                      "fontFamily": "Segoe UI",
+                      "fontSize": "18pt",
+                      "color": "#FFFFFF"
+                    }
+                  }
+                ],
+                "horizontalTextAlignment": "center"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    "vcObjects": {
+      "dropShadow": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "background": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            }
+          }
+        }
+      ]
+    }
+  }
+}

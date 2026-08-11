@@ -1,0 +1,145 @@
+{
+  "name": "b5d72243dde644a2c73e",
+  "layouts": [
+    {
+      "id": 0,
+      "position": {
+        "x": 320,
+        "y": 260,
+        "z": 17006,
+        "width": 320,
+        "height": 160,
+        "tabOrder": 17006
+      }
+    }
+  ],
+  "singleVisual": {
+    "visualType": "gauge",
+    "projections": {
+      "Y": [
+        {
+          "queryRef": "Tablas de Medidas.% Margen Bruto"
+        }
+      ],
+      "TargetValue": [
+        {
+          "queryRef": "Tablas de Medidas.Margen Bruto % LY"
+        }
+      ]
+    },
+    "prototypeQuery": {
+      "Version": 2,
+      "From": [
+        {
+          "Name": "t",
+          "Entity": "Tablas de Medidas",
+          "Type": 0
+        }
+      ],
+      "Select": [
+        {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Source": "t"
+              }
+            },
+            "Property": "% Margen Bruto"
+          },
+          "Name": "Tablas de Medidas.% Margen Bruto",
+          "NativeReferenceName": "% Margen Bruto"
+        },
+        {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Source": "t"
+              }
+            },
+            "Property": "Margen Bruto % LY"
+          },
+          "Name": "Tablas de Medidas.Margen Bruto % LY",
+          "NativeReferenceName": "Margen Bruto % LY"
+        }
+      ],
+      "OrderBy": [
+        {
+          "Direction": 2,
+          "Expression": {
+            "Measure": {
+              "Expression": {
+                "SourceRef": {
+                  "Source": "t"
+                }
+              },
+              "Property": "% Margen Bruto"
+            }
+          }
+        }
+      ]
+    },
+    "columnProperties": {
+      "Tablas de Medidas.Ratio Costo Operacional %": {
+        "formatString": null
+      },
+      "Tablas de Medidas.% Margen Bruto": {
+        "formatString": "0 %;-0 %;0 %"
+      }
+    },
+    "drillFilterOtherVisuals": true,
+    "hasDefaultSort": true,
+    "objects": {
+      "dataPoint": [
+        {
+          "properties": {
+            "target": {
+              "solid": {
+                "color": {
+                  "expr": {
+                    "ThemeDataColor": {
+                      "ColorId": 9,
+                      "Percent": -0.5
+                    }
+                  }
+                }
+              }
+            },
+            "fill": {
+              "solid": {
+                "color": {
+                  "expr": {
+                    "Literal": {
+                      "Value": "'#1F4E78'"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      ]
+    },
+    "vcObjects": {
+      "title": [
+        {
+          "properties": {
+            "text": {
+              "expr": {
+                "Literal": {
+                  "Value": "'% Margen bruto vs LY'"
+                }
+              }
+            },
+            "alignment": {
+              "expr": {
+                "Literal": {
+                  "Value": "'center'"
+                }
+              }
+            }
+          }
+        }
+      ]
+    }
+  }
+}

@@ -1,0 +1,273 @@
+table DimCustomer
+
+	column CustomerKey
+		dataType: int64
+		formatString: 0
+		summarizeBy: none
+		sourceColumn: CustomerKey
+
+		annotation SummarizationSetBy = Automatic
+
+	column GeographyKey
+		dataType: int64
+		formatString: 0
+		summarizeBy: count
+		sourceColumn: GeographyKey
+
+		annotation SummarizationSetBy = Automatic
+
+	column CustomerAlternateKey
+		dataType: string
+		summarizeBy: none
+		sourceColumn: CustomerAlternateKey
+
+		annotation SummarizationSetBy = Automatic
+
+	column FirstName
+		dataType: string
+		summarizeBy: none
+		sourceColumn: FirstName
+
+		annotation SummarizationSetBy = Automatic
+
+	column MiddleName
+		dataType: string
+		summarizeBy: none
+		sourceColumn: MiddleName
+
+		annotation SummarizationSetBy = Automatic
+
+	column LastName
+		dataType: string
+		summarizeBy: none
+		sourceColumn: LastName
+
+		annotation SummarizationSetBy = Automatic
+
+	column NameStyle
+		dataType: boolean
+		formatString: """TRUE"";""TRUE"";""FALSE"""
+		summarizeBy: none
+		sourceColumn: NameStyle
+
+		annotation SummarizationSetBy = Automatic
+
+	column BirthDate
+		dataType: dateTime
+		formatString: Long Date
+		summarizeBy: none
+		sourceColumn: BirthDate
+
+		variation Variación
+			isDefault
+			relationship: 96db7b5d-c78b-4d28-83d8-3194f2b8fa00
+			defaultHierarchy: LocalDateTable_d08932da-65e2-4f72-beb5-14779d086eb7.'Jerarquía de fechas'
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column MaritalStatus
+		dataType: string
+		summarizeBy: none
+		sourceColumn: MaritalStatus
+
+		annotation SummarizationSetBy = Automatic
+
+	column Gender
+		dataType: string
+		summarizeBy: none
+		sourceColumn: Gender
+
+		annotation SummarizationSetBy = Automatic
+
+	column EmailAddress
+		dataType: string
+		summarizeBy: none
+		sourceColumn: EmailAddress
+
+		annotation SummarizationSetBy = Automatic
+
+	column YearlyIncome
+		dataType: int64
+		formatString: 0
+		summarizeBy: sum
+		sourceColumn: YearlyIncome
+
+		annotation SummarizationSetBy = Automatic
+
+	column TotalChildren
+		dataType: int64
+		formatString: 0
+		summarizeBy: sum
+		sourceColumn: TotalChildren
+
+		annotation SummarizationSetBy = Automatic
+
+	column NumberChildrenAtHome
+		dataType: int64
+		formatString: 0
+		summarizeBy: sum
+		sourceColumn: NumberChildrenAtHome
+
+		annotation SummarizationSetBy = Automatic
+
+	column EnglishEducation
+		dataType: string
+		summarizeBy: none
+		sourceColumn: EnglishEducation
+
+		annotation SummarizationSetBy = Automatic
+
+	column SpanishEducation
+		dataType: string
+		summarizeBy: none
+		sourceColumn: SpanishEducation
+
+		annotation SummarizationSetBy = Automatic
+
+	column EnglishOccupation
+		dataType: string
+		summarizeBy: none
+		sourceColumn: EnglishOccupation
+
+		annotation SummarizationSetBy = Automatic
+
+	column SpanishOccupation
+		dataType: string
+		summarizeBy: none
+		sourceColumn: SpanishOccupation
+
+		annotation SummarizationSetBy = Automatic
+
+	column HouseOwnerFlag
+		dataType: int64
+		formatString: 0
+		summarizeBy: sum
+		sourceColumn: HouseOwnerFlag
+
+		annotation SummarizationSetBy = Automatic
+
+	column NumberCarsOwned
+		dataType: int64
+		formatString: 0
+		summarizeBy: sum
+		sourceColumn: NumberCarsOwned
+
+		annotation SummarizationSetBy = Automatic
+
+	column AddressLine1
+		dataType: string
+		summarizeBy: none
+		sourceColumn: AddressLine1
+
+		annotation SummarizationSetBy = Automatic
+
+	column Phone
+		dataType: string
+		summarizeBy: none
+		sourceColumn: Phone
+
+		annotation SummarizationSetBy = Automatic
+
+	column DateFirstPurchase
+		dataType: dateTime
+		formatString: Long Date
+		summarizeBy: none
+		sourceColumn: DateFirstPurchase
+
+		variation Variación
+			isDefault
+			relationship: 1ad4f938-9bb5-408f-80a9-b4c1e739fb47
+			defaultHierarchy: LocalDateTable_3345b6b0-06db-4f43-8bcf-6784ac0581e2.'Jerarquía de fechas'
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column CommuteDistance
+		dataType: string
+		summarizeBy: none
+		sourceColumn: CommuteDistance
+
+		annotation SummarizationSetBy = Automatic
+
+	column CountryRegionCode
+		dataType: string
+		summarizeBy: none
+		sourceColumn: CountryRegionCode
+
+		annotation SummarizationSetBy = Automatic
+
+	column City
+		dataType: string
+		summarizeBy: none
+		sourceColumn: City
+
+		annotation SummarizationSetBy = Automatic
+
+	column StateProvinceCode
+		dataType: string
+		summarizeBy: none
+		sourceColumn: StateProvinceCode
+
+		annotation SummarizationSetBy = Automatic
+
+	column StateProvinceName
+		dataType: string
+		summarizeBy: none
+		sourceColumn: StateProvinceName
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Año de Nacimiento'
+		dataType: int64
+		formatString: 0
+		summarizeBy: sum
+		sourceColumn: Año de Nacimiento
+
+		annotation SummarizationSetBy = Automatic
+
+	column Edad
+		dataType: int64
+		formatString: 0
+		summarizeBy: sum
+		sourceColumn: Edad
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Rango Etario'
+		dataType: string
+		summarizeBy: none
+		sourceColumn: Rango Etario
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Nombre Completo'
+		dataType: string
+		summarizeBy: none
+		sourceColumn: Nombre Completo
+
+		annotation SummarizationSetBy = Automatic
+
+	partition DimCustomer = m
+		mode: import
+		queryGroup: Consultas
+		source =
+				let
+				    Origen = Sql.Databases("localhost\SQLEXPRESS"),
+				    AdventureWorksDW2019 = Origen{[Name="AdventureWorksDW2019"]}[Data],
+				    dbo_DimCustomer = AdventureWorksDW2019{[Schema="dbo",Item="DimCustomer"]}[Data],
+				    #"Columnas seleccionadas" = Table.SelectColumns(dbo_DimCustomer,{"CustomerKey", "GeographyKey", "CustomerAlternateKey", "FirstName", "MiddleName", "LastName", "NameStyle", "BirthDate", "MaritalStatus", "Gender", "EmailAddress", "YearlyIncome", "TotalChildren", "NumberChildrenAtHome", "EnglishEducation", "SpanishEducation", "EnglishOccupation", "SpanishOccupation", "HouseOwnerFlag", "NumberCarsOwned", "AddressLine1", "Phone", "DateFirstPurchase", "CommuteDistance"}),
+				    #"Consultas combinadas" = Table.NestedJoin(#"Columnas seleccionadas", {"GeographyKey"}, DimGeography, {"GeographyKey"}, "DimGeography", JoinKind.LeftOuter),
+				    #"Geografía expandida" = Table.ExpandTableColumn(#"Consultas combinadas", "DimGeography", {"CountryRegionCode", "City", "StateProvinceCode", "StateProvinceName"}, {"CountryRegionCode", "City", "StateProvinceCode", "StateProvinceName"}),
+				    #"Año insertado" = Table.AddColumn(#"Geografía expandida", "Año de Nacimiento", each Date.Year([BirthDate]), Int64.Type),
+				    #"Edad agregada" = Table.AddColumn(#"Año insertado", "Edad", each Año - [Año de Nacimiento], Int64.Type),
+				    #"Rango etario agregado" = Table.AddColumn(#"Edad agregada", "Rango Etario", each if [Edad] < 18 then "Menor de edad" else if [Edad] <= 25 then "Joven Adulto" else if [Edad] <= 60 then "Adulto" else "Mayor", type text),
+				    #"Nombre completo agregado" = Table.AddColumn(#"Rango etario agregado", "Nombre Completo", each Text.Combine({[FirstName], " ", [LastName]}), type text)
+				in
+				    #"Nombre completo agregado"
+
+	annotation PBI_ResultType = Table
+
+	annotation PBI_NavigationStepName = Navegación
