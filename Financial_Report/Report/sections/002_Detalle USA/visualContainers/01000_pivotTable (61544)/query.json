@@ -36,54 +36,6 @@
               "Column": {
                 "Expression": {
                   "SourceRef": {
-                    "Source": "d1"
-                  }
-                },
-                "Property": "Category Name"
-              },
-              "Name": "DimProduct.Category Name",
-              "NativeReferenceName": "Category Name"
-            },
-            {
-              "Column": {
-                "Expression": {
-                  "SourceRef": {
-                    "Source": "g"
-                  }
-                },
-                "Property": "Variaciones"
-              },
-              "Name": "GC_Variaciones_Tiempo.Variaciones",
-              "NativeReferenceName": "Variaciones"
-            },
-            {
-              "Column": {
-                "Expression": {
-                  "SourceRef": {
-                    "Source": "d2"
-                  }
-                },
-                "Property": "City"
-              },
-              "Name": "DimCustomer.City",
-              "NativeReferenceName": "City"
-            },
-            {
-              "Column": {
-                "Expression": {
-                  "SourceRef": {
-                    "Source": "d2"
-                  }
-                },
-                "Property": "StateProvinceCode"
-              },
-              "Name": "DimCustomer.StateProvinceCode",
-              "NativeReferenceName": "StateProvinceCode"
-            },
-            {
-              "Column": {
-                "Expression": {
-                  "SourceRef": {
                     "Source": "d2"
                   }
                 },
@@ -99,10 +51,10 @@
                     "Source": "t"
                   }
                 },
-                "Property": "Utilidad neta"
+                "Property": "Ingresos"
               },
-              "Name": "Tablas de Medidas.Utilidad neta",
-              "NativeReferenceName": "Utilidad neta"
+              "Name": "Tablas de Medidas.Ingresos",
+              "NativeReferenceName": "Ingresos"
             },
             {
               "Measure": {
@@ -111,10 +63,10 @@
                     "Source": "t"
                   }
                 },
-                "Property": "Ingresos"
+                "Property": "Utilidad neta"
               },
-              "Name": "Tablas de Medidas.Ingresos",
-              "NativeReferenceName": "Ingresos"
+              "Name": "Tablas de Medidas.Utilidad neta",
+              "NativeReferenceName": "Utilidad neta"
             },
             {
               "Measure": {
@@ -227,74 +179,22 @@
             "Groupings": [
               {
                 "Projections": [
-                  4
-                ],
-                "Subtotal": 1
-              },
-              {
-                "Projections": [
-                  3
-                ],
-                "Subtotal": 1
-              }
-            ],
-            "Expansion": {
-              "From": [
-                {
-                  "Name": "d",
-                  "Entity": "DimCustomer",
-                  "Type": 0
-                }
-              ],
-              "Levels": [
-                {
-                  "Expressions": [
-                    {
-                      "Column": {
-                        "Expression": {
-                          "SourceRef": {
-                            "Source": "d"
-                          }
-                        },
-                        "Property": "StateProvinceName"
-                      }
-                    }
-                  ],
-                  "Default": 0
-                }
-              ],
-              "Instances": {
-                "Children": [
-                  {
-                    "Values": [
-                      {
-                        "Literal": {
-                          "Value": "'Yveline'"
-                        }
-                      }
-                    ]
-                  }
+                  0
                 ]
               }
-            }
+            ]
           },
           "Secondary": {
             "Groupings": [
               {
                 "Projections": [
-                  0
-                ]
-              },
-              {
-                "Projections": [
                   1,
+                  2,
+                  3,
+                  4,
                   5,
                   6,
-                  7,
-                  8,
-                  9,
-                  10,
-                  11
+                  7
                 ]
               }
             ]

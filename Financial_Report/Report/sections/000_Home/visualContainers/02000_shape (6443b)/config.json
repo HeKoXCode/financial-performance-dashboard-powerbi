@@ -4,11 +4,11 @@
     {
       "id": 0,
       "position": {
-        "x": 90,
-        "y": 0,
+        "x": -10000,
+        "y": -10000,
         "z": 2000,
-        "width": 1190,
-        "height": 110,
+        "width": 1,
+        "height": 1,
         "tabOrder": 2000
       }
     }
@@ -83,7 +83,8 @@
           }
         }
       ]
-    }
+    },
+    "isHidden": true
   },
   "howCreated": "InsertVisualButton"
 }

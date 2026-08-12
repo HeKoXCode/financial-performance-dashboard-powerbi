@@ -4,12 +4,12 @@
     {
       "id": 0,
       "position": {
-        "x": 0,
-        "y": 105,
-        "z": 1000,
-        "width": 1280,
-        "height": 337.5,
-        "tabOrder": 1000
+        "x": 24,
+        "y": 164,
+        "z": 120,
+        "width": 1232,
+        "height": 280,
+        "tabOrder": 120
       }
     }
   ],
@@ -43,23 +43,6 @@
         {
           "queryRef": "DimCustomer.StateProvinceName",
           "active": true
-        },
-        {
-          "queryRef": "DimCustomer.StateProvinceCode",
-          "active": true
-        },
-        {
-          "queryRef": "DimCustomer.City"
-        }
-      ],
-      "Columns": [
-        {
-          "queryRef": "DimProduct.Category Name",
-          "active": true
-        },
-        {
-          "queryRef": "GC_Variaciones_Tiempo.Variaciones",
-          "active": true
         }
       ]
     },
@@ -92,54 +75,6 @@
           "Column": {
             "Expression": {
               "SourceRef": {
-                "Source": "d1"
-              }
-            },
-            "Property": "Category Name"
-          },
-          "Name": "DimProduct.Category Name",
-          "NativeReferenceName": "Category Name"
-        },
-        {
-          "Column": {
-            "Expression": {
-              "SourceRef": {
-                "Source": "g"
-              }
-            },
-            "Property": "Variaciones"
-          },
-          "Name": "GC_Variaciones_Tiempo.Variaciones",
-          "NativeReferenceName": "Variaciones"
-        },
-        {
-          "Column": {
-            "Expression": {
-              "SourceRef": {
-                "Source": "d2"
-              }
-            },
-            "Property": "City"
-          },
-          "Name": "DimCustomer.City",
-          "NativeReferenceName": "City"
-        },
-        {
-          "Column": {
-            "Expression": {
-              "SourceRef": {
-                "Source": "d2"
-              }
-            },
-            "Property": "StateProvinceCode"
-          },
-          "Name": "DimCustomer.StateProvinceCode",
-          "NativeReferenceName": "StateProvinceCode"
-        },
-        {
-          "Column": {
-            "Expression": {
-              "SourceRef": {
                 "Source": "d2"
               }
             },
@@ -155,10 +90,10 @@
                 "Source": "t"
               }
             },
-            "Property": "Utilidad neta"
+            "Property": "Ingresos"
           },
-          "Name": "Tablas de Medidas.Utilidad neta",
-          "NativeReferenceName": "Utilidad neta"
+          "Name": "Tablas de Medidas.Ingresos",
+          "NativeReferenceName": "Ingresos"
         },
         {
           "Measure": {
@@ -167,10 +102,10 @@
                 "Source": "t"
               }
             },
-            "Property": "Ingresos"
+            "Property": "Utilidad neta"
           },
-          "Name": "Tablas de Medidas.Ingresos",
-          "NativeReferenceName": "Ingresos"
+          "Name": "Tablas de Medidas.Utilidad neta",
+          "NativeReferenceName": "Utilidad neta"
         },
         {
           "Measure": {
@@ -231,21 +166,6 @@
           },
           "Name": "Tablas de Medidas.Costo Total Envios",
           "NativeReferenceName": "Costo Total Envios"
-        }
-      ],
-      "OrderBy": [
-        {
-          "Direction": 1,
-          "Expression": {
-            "Column": {
-              "Expression": {
-                "SourceRef": {
-                  "Source": "d2"
-                }
-              },
-              "Property": "StateProvinceName"
-            }
-          }
         }
       ]
     },
@@ -418,7 +338,7 @@
                 "color": {
                   "expr": {
                     "Literal": {
-                      "Value": "'#D97706'"
+                      "Value": "'#163A5F'"
                     }
                   }
                 }
@@ -448,7 +368,7 @@
             "fontSize": {
               "expr": {
                 "Literal": {
-                  "Value": "10D"
+                  "Value": "9D"
                 }
               }
             },
@@ -463,6 +383,17 @@
               "expr": {
                 "Literal": {
                   "Value": "false"
+                }
+              }
+            },
+            "fontColor": {
+              "solid": {
+                "color": {
+                  "expr": {
+                    "Literal": {
+                      "Value": "'#FFFFFF'"
+                    }
+                  }
                 }
               }
             }
@@ -521,7 +452,7 @@
             "fontSize": {
               "expr": {
                 "Literal": {
-                  "Value": "10D"
+                  "Value": "9D"
                 }
               }
             },
@@ -1211,9 +1142,8 @@
               "solid": {
                 "color": {
                   "expr": {
-                    "ThemeDataColor": {
-                      "ColorId": 1,
-                      "Percent": 0.6
+                    "Literal": {
+                      "Value": "'#D7E0E8'"
                     }
                   }
                 }
@@ -1232,6 +1162,20 @@
                   "Value": "0D"
                 }
               }
+            },
+            "gridVertical": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            },
+            "gridHorizontal": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
             }
           }
         }
@@ -1243,6 +1187,13 @@
               "expr": {
                 "Literal": {
                   "Value": "'''Segoe UI'''"
+                }
+              }
+            },
+            "fontSize": {
+              "expr": {
+                "Literal": {
+                  "Value": "9D"
                 }
               }
             }
@@ -1267,17 +1218,6 @@
       "background": [
         {
           "properties": {
-            "color": {
-              "solid": {
-                "color": {
-                  "expr": {
-                    "Literal": {
-                      "Value": "'#1F4E78'"
-                    }
-                  }
-                }
-              }
-            },
             "show": {
               "expr": {
                 "Literal": {
@@ -1285,10 +1225,21 @@
                 }
               }
             },
+            "color": {
+              "solid": {
+                "color": {
+                  "expr": {
+                    "Literal": {
+                      "Value": "'#FFFFFF'"
+                    }
+                  }
+                }
+              }
+            },
             "transparency": {
               "expr": {
                 "Literal": {
-                  "Value": "33D"
+                  "Value": "0D"
                 }
               }
             }
@@ -1315,6 +1266,109 @@
               "expr": {
                 "Literal": {
                   "Value": "true"
+                }
+              }
+            },
+            "color": {
+              "solid": {
+                "color": {
+                  "expr": {
+                    "Literal": {
+                      "Value": "'#D7E0E8'"
+                    }
+                  }
+                }
+              }
+            },
+            "radius": {
+              "expr": {
+                "Literal": {
+                  "Value": "8D"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "title": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            },
+            "text": {
+              "expr": {
+                "Literal": {
+                  "Value": "'Rendimiento por estado'"
+                }
+              }
+            },
+            "alignment": {
+              "expr": {
+                "Literal": {
+                  "Value": "'left'"
+                }
+              }
+            },
+            "fontFamily": {
+              "expr": {
+                "Literal": {
+                  "Value": "'''Segoe UI'''"
+                }
+              }
+            },
+            "fontSize": {
+              "expr": {
+                "Literal": {
+                  "Value": "12D"
+                }
+              }
+            },
+            "fontColor": {
+              "solid": {
+                "color": {
+                  "expr": {
+                    "Literal": {
+                      "Value": "'#1F2937'"
+                    }
+                  }
+                }
+              }
+            },
+            "titleWrap": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "visualHeader": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "general": [
+        {
+          "properties": {
+            "altText": {
+              "expr": {
+                "Literal": {
+                  "Value": "'Matriz por estado con ingresos, utilidad bruta, márgenes y COGS.'"
                 }
               }
             }

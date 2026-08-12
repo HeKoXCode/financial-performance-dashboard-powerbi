@@ -1,0 +1,71 @@
+{
+  "name": "3895a4bc84bc132c7da1",
+  "layouts": [
+    {
+      "id": 0,
+      "position": {
+        "x": 24,
+        "y": 47,
+        "z": 21,
+        "width": 650,
+        "height": 34,
+        "tabOrder": 21
+      }
+    }
+  ],
+  "singleVisual": {
+    "visualType": "textbox",
+    "drillFilterOtherVisuals": true,
+    "objects": {
+      "general": [
+        {
+          "properties": {
+            "paragraphs": [
+              {
+                "textRuns": [
+                  {
+                    "value": "Detalle por estado · comparación de rentabilidad · alcance fijo CountryRegionCode = US",
+                    "textStyle": {
+                      "fontFamily": "Segoe UI",
+                      "fontSize": "9pt",
+                      "color": "#D9E4EE"
+                    }
+                  }
+                ],
+                "horizontalTextAlignment": "left"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    "vcObjects": {
+      "background": [
+        {
+          "properties": {
+            "transparency": {
+              "expr": {
+                "Literal": {
+                  "Value": "100D"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "general": [
+        {
+          "properties": {
+            "altText": {
+              "expr": {
+                "Literal": {
+                  "Value": "'Detalle por estado · comparación de rentabilidad · alcance fijo CountryRegionCode = US'"
+                }
+              }
+            }
+          }
+        }
+      ]
+    }
+  }
+}

@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Validate the committed or freshly generated FIN-C1 PDF release evidence."""
+"""Validate the committed or freshly generated FIN-C3 PDF release evidence."""
 
 from __future__ import annotations
 
@@ -10,7 +10,7 @@ from pypdf import PdfReader
 
 
 ROOT = Path(__file__).resolve().parents[1]
-DEFAULT_PDF = ROOT / "output" / "pdf" / "financial_c1_release_evidence.pdf"
+DEFAULT_PDF = ROOT / "output" / "pdf" / "financial_c3_release_evidence.pdf"
 
 
 def parse_args() -> argparse.Namespace:
@@ -28,7 +28,7 @@ def main() -> int:
         raise SystemExit(f"Expected 6 release-evidence pages; found {len(reader.pages)}")
     text = "\n".join(page.extract_text() or "" for page in reader.pages)
     for token in (
-        "FIN-C1 release evidence",
+        "FIN-C3 release evidence",
         "60,398",
         "68 / 68",
         "Executive Overview",
@@ -36,7 +36,7 @@ def main() -> int:
         "Geographic Drill-down",
         "Definiciones y fuentes",
         "Expected variation policy",
-        "release/financial-c1-manifest.json",
+        "release/financial-c3-manifest.json",
     ):
         if token not in text:
             raise SystemExit(f"Release PDF text missing: {token}")
@@ -45,7 +45,7 @@ def main() -> int:
         height = round(float(page.mediabox.height))
         if (width, height) != expected:
             raise SystemExit(f"Unexpected PDF page size: {(width, height)}")
-    print("FIN-C1 PDF evidence validation PASSED")
+    print("FIN-C3 PDF evidence validation PASSED")
     print("  - six pages, expected headings, and 16:9 page geometry verified")
     return 0
 

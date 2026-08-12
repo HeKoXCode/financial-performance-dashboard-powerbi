@@ -4,12 +4,12 @@
     {
       "id": 0,
       "position": {
-        "x": 1040.4334356233574,
-        "y": 1.2028132203738235,
-        "z": 0,
-        "width": 239.35983085439088,
-        "height": 107.0503766132703,
-        "tabOrder": 0
+        "x": 1030,
+        "y": 98,
+        "z": 110,
+        "width": 226,
+        "height": 56,
+        "tabOrder": 110
       }
     }
   ],
@@ -159,35 +159,14 @@
             "text": {
               "expr": {
                 "Literal": {
-                  "Value": "'Filtros'"
+                  "Value": "'Métrica'"
                 }
               }
             },
             "alignment": {
               "expr": {
                 "Literal": {
-                  "Value": "'center'"
-                }
-              }
-            },
-            "fontSize": {
-              "expr": {
-                "Literal": {
-                  "Value": "15D"
-                }
-              }
-            },
-            "bold": {
-              "expr": {
-                "Literal": {
-                  "Value": "true"
-                }
-              }
-            },
-            "underline": {
-              "expr": {
-                "Literal": {
-                  "Value": "false"
+                  "Value": "'left'"
                 }
               }
             },
@@ -195,6 +174,31 @@
               "expr": {
                 "Literal": {
                   "Value": "'''Segoe UI'''"
+                }
+              }
+            },
+            "fontSize": {
+              "expr": {
+                "Literal": {
+                  "Value": "12D"
+                }
+              }
+            },
+            "fontColor": {
+              "solid": {
+                "color": {
+                  "expr": {
+                    "Literal": {
+                      "Value": "'#1F2937'"
+                    }
+                  }
+                }
+              }
+            },
+            "titleWrap": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
                 }
               }
             }
@@ -207,26 +211,7 @@
             "show": {
               "expr": {
                 "Literal": {
-                  "Value": "true"
-                }
-              }
-            },
-            "transparency": {
-              "expr": {
-                "Literal": {
-                  "Value": "100D"
-                }
-              }
-            },
-            "background": {
-              "solid": {
-                "color": {
-                  "expr": {
-                    "ThemeDataColor": {
-                      "ColorId": 0,
-                      "Percent": 0
-                    }
-                  }
+                  "Value": "false"
                 }
               }
             }
@@ -239,7 +224,7 @@
             "altText": {
               "expr": {
                 "Literal": {
-                  "Value": "'Filtra un parámetro.'"
+                  "Value": "'Selector de métrica para el detalle USA.'"
                 }
               }
             }
@@ -262,14 +247,28 @@
       "background": [
         {
           "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            },
             "color": {
               "solid": {
                 "color": {
                   "expr": {
                     "Literal": {
-                      "Value": "'#F2F2F2'"
+                      "Value": "'#FFFFFF'"
                     }
                   }
+                }
+              }
+            },
+            "transparency": {
+              "expr": {
+                "Literal": {
+                  "Value": "0D"
                 }
               }
             }
@@ -283,6 +282,24 @@
               "expr": {
                 "Literal": {
                   "Value": "true"
+                }
+              }
+            },
+            "color": {
+              "solid": {
+                "color": {
+                  "expr": {
+                    "Literal": {
+                      "Value": "'#D7E0E8'"
+                    }
+                  }
+                }
+              }
+            },
+            "radius": {
+              "expr": {
+                "Literal": {
+                  "Value": "8D"
                 }
               }
             }

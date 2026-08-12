@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Build the deterministic FIN-C1 PDF evidence pack from verified report captures."""
+"""Build the deterministic FIN-C3 PDF evidence pack from verified report captures."""
 
 from __future__ import annotations
 
@@ -14,7 +14,7 @@ from reportlab.pdfgen import canvas
 
 
 ROOT = Path(__file__).resolve().parents[1]
-DEFAULT_OUTPUT = ROOT / "output" / "pdf" / "financial_c1_release_evidence.pdf"
+DEFAULT_OUTPUT = ROOT / "output" / "pdf" / "financial_c3_release_evidence.pdf"
 PAGE = (960, 540)
 NAVY = HexColor("#12344D")
 BLUE = HexColor("#2F75B5")
@@ -53,7 +53,7 @@ def draw_header(pdf: canvas.Canvas, title: str, page: int) -> None:
     pdf.setFont("Helvetica-Bold", 15)
     pdf.drawString(28, PAGE[1] - 27, title)
     pdf.setFont("Helvetica", 8)
-    pdf.drawRightString(PAGE[0] - 28, PAGE[1] - 26, f"FIN-C1 | page {page}")
+    pdf.drawRightString(PAGE[0] - 28, PAGE[1] - 26, f"FIN-C3 | page {page}")
 
 
 def draw_footer(pdf: canvas.Canvas) -> None:
@@ -77,9 +77,9 @@ def cover(pdf: canvas.Canvas, rows: dict[tuple[str, str], dict[str, str]]) -> No
     pdf.setFont("Helvetica-Bold", 30)
     pdf.drawString(54, 450, "Financial Performance Dashboard")
     pdf.setFont("Helvetica-Bold", 19)
-    pdf.drawString(54, 416, "FIN-C1 release evidence")
+    pdf.drawString(54, 416, "FIN-C3 release evidence")
     pdf.setFont("Helvetica", 11)
-    pdf.drawString(54, 390, "Independent SQL reconciliation, compiled PBIT, KPI contract, and visual proof")
+    pdf.drawString(54, 390, "Independent reconciliation, compiled PBIT, dashboard redesign, and visual proof")
 
     cards = (
         ("FACT ROWS", "60,398"),
@@ -106,6 +106,7 @@ def cover(pdf: canvas.Canvas, rows: dict[tuple[str, str], dict[str, str]]) -> No
         "- SQL recomputation from base columns matches DAX within $0.01 and 1e-10.",
         "- PBIT package contains 35 measures, OrderDateKey, and four final pages.",
         "- PBIX, PBIT, source snapshot, KPI evidence, images, and manifest are hashed.",
+        "- FIN-C2/C3 navigation, visual selection, sizing, and accessible layout are validated.",
         "- 2010 and 2014 remain partial periods; annual conclusions use complete years.",
     )
     pdf.setFont("Helvetica", 10.5)
@@ -176,7 +177,7 @@ def appendix(pdf: canvas.Canvas) -> None:
     pdf.roundRect(36, 54, PAGE[0] - 72, 46, 7, fill=1, stroke=0)
     pdf.setFillColor(NAVY)
     pdf.setFont("Helvetica-Bold", 9.5)
-    pdf.drawString(50, 79, "Machine-readable contract: release/financial-c1-manifest.json")
+    pdf.drawString(50, 79, "Machine-readable contract: release/financial-c3-manifest.json")
     pdf.setFont("Helvetica", 8.5)
     pdf.drawString(50, 63, "Full formulas and context rules: DOCS/dax_measure_catalog.md")
     pdf.showPage()
@@ -201,7 +202,7 @@ def main() -> int:
         pageCompression=1,
         invariant=1,
     )
-    pdf.setTitle("Financial Performance Dashboard - FIN-C1 release evidence")
+    pdf.setTitle("Financial Performance Dashboard - FIN-C3 release evidence")
     pdf.setAuthor("HeKoXCode")
     pdf.setSubject("Power BI analytical release verification")
     cover(pdf, rows)
@@ -209,7 +210,7 @@ def main() -> int:
         screenshot_page(pdf, title, image_path, page)
     appendix(pdf)
     pdf.save()
-    print(f"FIN-C1 PDF evidence built: {args.output}")
+    print(f"FIN-C3 PDF evidence built: {args.output}")
     return 0
 
 

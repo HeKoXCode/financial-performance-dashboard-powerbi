@@ -1,4 +1,4 @@
-name: FIN S1-C1 verification
+name: FIN S1-C3 verification
 
 on:
   push:
@@ -25,12 +25,14 @@ jobs:
         run: |
           python scripts/update_financial_report_s1_s3.py
           python scripts/update_financial_report_i1_i3.py
+          python scripts/update_financial_report_c2_c3.py
           git diff --exit-code -- Financial_Report
 
-      - name: Validate FIN-S1 to FIN-I3
+      - name: Validate FIN-S1 to FIN-C3
         run: |
           python scripts/validate_s1_s3.py
           python scripts/validate_i1_i3.py
+          python scripts/validate_c2_c3.py
 
       - name: Reconcile independent SQL with DAX
         run: |
@@ -45,9 +47,9 @@ jobs:
 
       - name: Rebuild and validate release evidence
         run: |
-          python scripts/build_release_evidence.py --output "${RUNNER_TEMP}/financial_c1_release_evidence.pdf"
-          python scripts/validate_release_artifacts.py --pdf "${RUNNER_TEMP}/financial_c1_release_evidence.pdf"
-          cmp --silent "${RUNNER_TEMP}/financial_c1_release_evidence.pdf" output/pdf/financial_c1_release_evidence.pdf
+          python scripts/build_release_evidence.py --output "${RUNNER_TEMP}/financial_c3_release_evidence.pdf"
+          python scripts/validate_release_artifacts.py --pdf "${RUNNER_TEMP}/financial_c3_release_evidence.pdf"
+          cmp --silent "${RUNNER_TEMP}/financial_c3_release_evidence.pdf" output/pdf/financial_c3_release_evidence.pdf
           python scripts/validate_release_artifacts.py
           python scripts/build_release_manifest.py --check
 

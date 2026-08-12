@@ -4,11 +4,11 @@
     {
       "id": 0,
       "position": {
-        "x": 245,
-        "y": 290,
+        "x": -10000,
+        "y": -10000,
         "z": 13000,
-        "width": 525,
-        "height": 135,
+        "width": 1,
+        "height": 1,
         "tabOrder": 13000
       }
     }
@@ -81,6 +81,6 @@
         }
       ]
     },
-    "isHidden": false
+    "isHidden": true
   }
 }

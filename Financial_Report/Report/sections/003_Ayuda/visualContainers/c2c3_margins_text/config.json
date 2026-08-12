@@ -1,0 +1,182 @@
+{
+  "name": "2f276730775b6221080b",
+  "layouts": [
+    {
+      "id": 0,
+      "position": {
+        "x": 656,
+        "y": 127,
+        "z": 100,
+        "width": 580,
+        "height": 216,
+        "tabOrder": 100
+      }
+    }
+  ],
+  "singleVisual": {
+    "visualType": "textbox",
+    "drillFilterOtherVisuals": true,
+    "objects": {
+      "general": [
+        {
+          "properties": {
+            "paragraphs": [
+              {
+                "textRuns": [
+                  {
+                    "value": "Márgenes y variaciones",
+                    "textStyle": {
+                      "fontFamily": "Segoe UI",
+                      "fontSize": "13pt",
+                      "color": "#2F75B5",
+                      "fontWeight": "bold"
+                    }
+                  }
+                ],
+                "horizontalTextAlignment": "left"
+              },
+              {
+                "textRuns": [
+                  {
+                    "value": "Margen bruto: ",
+                    "textStyle": {
+                      "fontFamily": "Segoe UI",
+                      "fontSize": "9pt",
+                      "color": "#1F2937",
+                      "fontWeight": "bold"
+                    }
+                  },
+                  {
+                    "value": "Utilidad bruta / Ingresos.",
+                    "textStyle": {
+                      "fontFamily": "Segoe UI",
+                      "fontSize": "9pt",
+                      "color": "#5B6573"
+                    }
+                  }
+                ],
+                "horizontalTextAlignment": "left"
+              },
+              {
+                "textRuns": [
+                  {
+                    "value": "Margen neto: ",
+                    "textStyle": {
+                      "fontFamily": "Segoe UI",
+                      "fontSize": "9pt",
+                      "color": "#1F2937",
+                      "fontWeight": "bold"
+                    }
+                  },
+                  {
+                    "value": "Utilidad neta / Ingresos.",
+                    "textStyle": {
+                      "fontFamily": "Segoe UI",
+                      "fontSize": "9pt",
+                      "color": "#5B6573"
+                    }
+                  }
+                ],
+                "horizontalTextAlignment": "left"
+              },
+              {
+                "textRuns": [
+                  {
+                    "value": "Ratio costo operacional: ",
+                    "textStyle": {
+                      "fontFamily": "Segoe UI",
+                      "fontSize": "9pt",
+                      "color": "#1F2937",
+                      "fontWeight": "bold"
+                    }
+                  },
+                  {
+                    "value": "(COGS + costos de envío) / Ingresos; excluye impuestos.",
+                    "textStyle": {
+                      "fontFamily": "Segoe UI",
+                      "fontSize": "9pt",
+                      "color": "#5B6573"
+                    }
+                  }
+                ],
+                "horizontalTextAlignment": "left"
+              },
+              {
+                "textRuns": [
+                  {
+                    "value": "LY: ",
+                    "textStyle": {
+                      "fontFamily": "Segoe UI",
+                      "fontSize": "9pt",
+                      "color": "#1F2937",
+                      "fontWeight": "bold"
+                    }
+                  },
+                  {
+                    "value": "mismo período del año anterior mediante SAMEPERIODLASTYEAR.",
+                    "textStyle": {
+                      "fontFamily": "Segoe UI",
+                      "fontSize": "9pt",
+                      "color": "#5B6573"
+                    }
+                  }
+                ],
+                "horizontalTextAlignment": "left"
+              },
+              {
+                "textRuns": [
+                  {
+                    "value": "Variación pp: ",
+                    "textStyle": {
+                      "fontFamily": "Segoe UI",
+                      "fontSize": "9pt",
+                      "color": "#1F2937",
+                      "fontWeight": "bold"
+                    }
+                  },
+                  {
+                    "value": "diferencia absoluta entre porcentajes expresada en puntos porcentuales.",
+                    "textStyle": {
+                      "fontFamily": "Segoe UI",
+                      "fontSize": "9pt",
+                      "color": "#5B6573"
+                    }
+                  }
+                ],
+                "horizontalTextAlignment": "left"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    "vcObjects": {
+      "background": [
+        {
+          "properties": {
+            "transparency": {
+              "expr": {
+                "Literal": {
+                  "Value": "100D"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "general": [
+        {
+          "properties": {
+            "altText": {
+              "expr": {
+                "Literal": {
+                  "Value": "'Márgenes y variaciones. Margen bruto: Utilidad bruta / Ingresos. Margen neto: Utilidad neta / Ingresos. Ratio costo operacional: (COGS + costos de envío) / Ingresos; excluye impuestos. LY: mismo período del año anterior mediante SAMEPERIODLASTYEAR. Variación pp: diferencia absoluta entre porcentajes expresada en puntos porcentuales.'"
+                }
+              }
+            }
+          }
+        }
+      ]
+    }
+  }
+}

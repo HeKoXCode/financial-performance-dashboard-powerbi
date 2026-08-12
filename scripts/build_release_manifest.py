@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Build or check the machine-readable FIN-C1 release manifest."""
+"""Build or check the machine-readable FIN-C3 release manifest."""
 
 from __future__ import annotations
 
@@ -13,7 +13,7 @@ from pathlib import Path
 
 
 ROOT = Path(__file__).resolve().parents[1]
-DEFAULT_OUTPUT = ROOT / "release" / "financial-c1-manifest.json"
+DEFAULT_OUTPUT = ROOT / "release" / "financial-c3-manifest.json"
 ARTIFACTS = (
     "Financial_Report.pbix",
     "Financial_Report.pbit",
@@ -26,7 +26,7 @@ ARTIFACTS = (
     "Images/overview.png",
     "Images/usa_detailed.png",
     "Images/glossary.png",
-    "output/pdf/financial_c1_release_evidence.pdf",
+    "output/pdf/financial_c3_release_evidence.pdf",
 )
 
 
@@ -74,7 +74,7 @@ def build_manifest(release_date: str) -> dict:
         "schema_version": "1.0.0",
         "project": "financial-performance-dashboard-powerbi",
         "release": {
-            "stage": "FIN-C1",
+            "stage": "FIN-C3",
             "date": release_date,
             "status": "verified-local",
         },
@@ -94,6 +94,16 @@ def build_manifest(release_date: str) -> dict:
             "sql_dax_contexts": len(sql_rows),
             "context_counts": dict(sorted(context_counts.items())),
             "dax_evidence_rows": len(dax_rows),
+        },
+        "dashboard_contract": {
+            "canvas": "1280x720",
+            "capture": "1920x1080",
+            "navigation_pages": 4,
+            "executive_kpi_cards": 4,
+            "driver_kpi_cards": 4,
+            "visible_country_maps": 1,
+            "visible_gauges": 0,
+            "design_stage": "FIN-C2/C3",
         },
         "tolerances": {
             "money_absolute": 0.01,
@@ -176,7 +186,7 @@ def main() -> int:
                 "Release manifest drift detected; rebuild with "
                 f"--release-date {release_date}"
             )
-        print("FIN-C1 release manifest validation PASSED")
+        print("FIN-C3 release manifest validation PASSED")
         return 0
 
     if not args.release_date:
@@ -187,7 +197,7 @@ def main() -> int:
         json.dumps(manifest, ensure_ascii=False, indent=2, sort_keys=True) + "\n",
         encoding="utf-8",
     )
-    print(f"FIN-C1 release manifest built: {args.output}")
+    print(f"FIN-C3 release manifest built: {args.output}")
     return 0
 
 

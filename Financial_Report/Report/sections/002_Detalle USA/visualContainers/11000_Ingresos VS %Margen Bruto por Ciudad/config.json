@@ -4,12 +4,12 @@
     {
       "id": 0,
       "position": {
-        "x": 0,
-        "y": 442.5,
-        "z": 11000,
-        "width": 640,
-        "height": 277.5,
-        "tabOrder": 11000
+        "x": 24,
+        "y": 464,
+        "z": 120,
+        "width": 600,
+        "height": 232,
+        "tabOrder": 120
       }
     }
   ],
@@ -129,14 +129,7 @@
             "show": {
               "expr": {
                 "Literal": {
-                  "Value": "true"
-                }
-              }
-            },
-            "fontFamily": {
-              "expr": {
-                "Literal": {
-                  "Value": "'''Segoe UI'''"
+                  "Value": "false"
                 }
               }
             }
@@ -213,6 +206,13 @@
                   "Value": "'''Segoe UI'''"
                 }
               }
+            },
+            "gridlineThickness": {
+              "expr": {
+                "Literal": {
+                  "Value": "1D"
+                }
+              }
             }
           }
         }
@@ -270,7 +270,7 @@
             "gridlineThickness": {
               "expr": {
                 "Literal": {
-                  "Value": "2D"
+                  "Value": "1D"
                 }
               }
             }
@@ -290,7 +290,7 @@
             "bubbleSize": {
               "expr": {
                 "Literal": {
-                  "Value": "-5L"
+                  "Value": "-12L"
                 }
               }
             }
@@ -359,17 +359,24 @@
       "title": [
         {
           "properties": {
-            "alignment": {
+            "show": {
               "expr": {
                 "Literal": {
-                  "Value": "'center'"
+                  "Value": "true"
                 }
               }
             },
             "text": {
               "expr": {
                 "Literal": {
-                  "Value": "'Ingresos vs margen bruto por ciudad'"
+                  "Value": "'Ingresos vs margen bruto por estado'"
+                }
+              }
+            },
+            "alignment": {
+              "expr": {
+                "Literal": {
+                  "Value": "'left'"
                 }
               }
             },
@@ -387,10 +394,21 @@
                 }
               }
             },
-            "underline": {
+            "fontColor": {
+              "solid": {
+                "color": {
+                  "expr": {
+                    "Literal": {
+                      "Value": "'#1F2937'"
+                    }
+                  }
+                }
+              }
+            },
+            "titleWrap": {
               "expr": {
                 "Literal": {
-                  "Value": "false"
+                  "Value": "true"
                 }
               }
             }
@@ -400,27 +418,98 @@
       "visualHeader": [
         {
           "properties": {
-            "background": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "background": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            },
+            "color": {
               "solid": {
                 "color": {
                   "expr": {
-                    "ThemeDataColor": {
-                      "ColorId": 0,
-                      "Percent": 0
+                    "Literal": {
+                      "Value": "'#FFFFFF'"
                     }
                   }
                 }
               }
             },
-            "border": {
+            "transparency": {
+              "expr": {
+                "Literal": {
+                  "Value": "0D"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "border": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            },
+            "color": {
               "solid": {
                 "color": {
                   "expr": {
-                    "ThemeDataColor": {
-                      "ColorId": 0,
-                      "Percent": 0
+                    "Literal": {
+                      "Value": "'#D7E0E8'"
                     }
                   }
+                }
+              }
+            },
+            "radius": {
+              "expr": {
+                "Literal": {
+                  "Value": "8D"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "dropShadow": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "general": [
+        {
+          "properties": {
+            "altText": {
+              "expr": {
+                "Literal": {
+                  "Value": "'Dispersión de ingresos y margen bruto por estado, sin etiquetas superpuestas.'"
                 }
               }
             }

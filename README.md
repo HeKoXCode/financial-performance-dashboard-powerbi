@@ -2,11 +2,11 @@
 
 [![Power BI](https://img.shields.io/badge/Power%20BI-F2C811?logo=powerbi&logoColor=black)](https://powerbi.microsoft.com/)
 [![Dataset](https://img.shields.io/badge/Dataset-AdventureWorksDW2019-1F4E78)](https://learn.microsoft.com/en-us/sql/samples/adventureworks-install-configure)
-[![FIN C1](https://img.shields.io/badge/Portfolio%20audit-FIN--C1%20verified-2F75B5)](DOCS/c1_verification.md)
+[![FIN C3](https://img.shields.io/badge/Portfolio%20audit-FIN--C3%20verified-2F75B5)](DOCS/c2_c3_verification.md)
 
 An executive Power BI case study that connects revenue, product cost, freight, tax, and profitability in one reconciled financial model. It combines a decision-first overview, margin and prior-year drivers, a strictly scoped USA drill-down, and definitions close to their DAX implementation.
 
-> Portfolio stage: **FIN-S1 through FIN-C1 completed locally**. The analytical release is validated and ready for publication.
+> Portfolio stage: **FIN-S1 through FIN-C3 completed locally**. The analytical release and full dashboard redesign are validated and ready for publication.
 
 ## Dashboard preview
 
@@ -40,6 +40,18 @@ The report answers four connected questions:
 - How much revenue is absorbed by product cost, freight, and tax?
 - Which countries, states, provinces, cities, and product categories concentrate performance?
 - Are current KPIs improving or deteriorating against the same selected period last year?
+
+## FIN-C2/C3 dashboard redesign
+
+The current report is a complete redesign of the audited legacy layout, not a cosmetic recolor. It introduces **consistent four-page navigation**, a KPI-first executive page, a restrained chart inventory, a fixed USA scope cue, and a grouped methodology page.
+
+- Four gauges were replaced by compact, directly comparable KPI cards.
+- Three country/state maps were reduced to one country map; state analysis stays on the USA page.
+- The executive page now combines headline KPIs, a shared-unit period trend, an evidence-backed finding, a recommended action, and the partial-period warning.
+- The USA matrix was enlarged for traceability; scatter labels were disabled to eliminate collisions while preserving native tooltips.
+- Every visible non-decorative visual has alternative text, and every page fits the 1280×720 canvas used for the verified 1920×1080 captures.
+
+The design decisions, before/after audit, sizing contract, and validation scope are recorded in [DOCS/c2_c3_verification.md](DOCS/c2_c3_verification.md).
 
 ## KPI contract
 
@@ -138,8 +150,10 @@ The documented default source is `localhost\SQLEXPRESS`. `DimCustomer` is loaded
 ```powershell
 python scripts/update_financial_report_s1_s3.py
 python scripts/update_financial_report_i1_i3.py
+python scripts/update_financial_report_c2_c3.py
 python scripts/validate_s1_s3.py
 python scripts/validate_i1_i3.py
+python scripts/validate_c2_c3.py
 python scripts/run_sql_reconciliation.py
 python scripts/validate_pbit_package.py Financial_Report.pbit
 python scripts/build_release_manifest.py --check
@@ -165,7 +179,7 @@ python scripts/build_release_evidence.py
 python scripts/validate_release_artifacts.py
 ```
 
-The final release contract is machine-readable in [release/financial-c1-manifest.json](release/financial-c1-manifest.json). It records KPI values, tolerances, tool versions, artifact hashes, and expected reasons for variation. With the PBIX open in Power BI Desktop, clean 1920×1080 captures of all four pages can be regenerated on Windows with `scripts/capture_powerbi_pages.ps1`.
+The current release contract is machine-readable in [release/financial-c3-manifest.json](release/financial-c3-manifest.json). It records KPI values, the dashboard contract, tolerances, tool versions, artifact hashes, and expected reasons for variation. The corresponding evidence pack is [output/pdf/financial_c3_release_evidence.pdf](output/pdf/financial_c3_release_evidence.pdf). With the PBIX open in Power BI Desktop, clean 1920×1080 captures of all four pages can be regenerated on Windows with `scripts/capture_powerbi_pages.ps1`.
 
 CI also downloads the pinned Linux build of `pbi-tools Core 1.2.0`, verifies the installer SHA-256, compiles a fresh data-free PBIT, and validates its package, model, relationships, pages, narrative, and absence of private workstation references.
 
@@ -188,7 +202,8 @@ A native `.pbip` was deliberately not fabricated. Microsoft currently documents 
 │   ├── dax_reconciliation.csv  # Numerical evidence at five granularities
 │   ├── sql_reconciliation.csv  # Independent SQL result for the same 68 contexts
 │   ├── i1_i3_verification.md   # Intermediate-stage verification record
-│   └── c1_verification.md      # FIN-C1 release-gate record and limitations
+│   ├── c1_verification.md      # FIN-C1 analytical release-gate record
+│   └── c2_c3_verification.md   # FIN-C2/C3 dashboard-redesign record
 ├── DATA/                       # Compressed non-PII SQL input projection
 ├── sql/                        # Independent KPI query
 ├── release/                    # Machine-readable release manifest and hashes
@@ -206,6 +221,8 @@ A native `.pbip` was deliberately not fabricated. Microsoft currently documents 
 - **FIN-I2 — versionability:** synchronized TMDL/report source, compiled PBIT, repeatable update/export scripts, automated drift checks, and an explicit native-PBIP decision.
 - **FIN-I3 — analytical narrative:** rebuilt the four-page flow around result, driver, action, drill-down, and data contract; added exact findings and partial-period warnings.
 - **FIN-C1 — analytical release:** added independent SQL/DAX reconciliation, pinned PBIT compilation in CI, artifact/KPI hashes, expected-variation policy, automated visual capture, and a validated PDF evidence pack.
+- **FIN-C2 — dashboard redevelopment:** rebuilt the four pages around a consistent navigation shell, KPI-first hierarchy, one purposeful map, a larger USA detail surface, and grouped definitions.
+- **FIN-C3 — visual release:** verified sizing, chart selection, accessibility metadata, source/PBIX/PBIT consistency, clean captures, and a new FIN-C3 manifest/PDF evidence pack.
 
 ## Limitations
 

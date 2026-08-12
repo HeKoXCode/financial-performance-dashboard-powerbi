@@ -4,6 +4,8 @@ Audit date: **2026-08-12**
 
 Status: **Complete locally; ready to publish**
 
+> Historical analytical gate: FIN-C1 remains the numerical/reproducibility baseline. The current dashboard layout and current release artifacts are verified in [c2_c3_verification.md](c2_c3_verification.md), `release/financial-c3-manifest.json`, and `output/pdf/financial_c3_release_evidence.pdf`.
+
 ## Result
 
 FIN-C1 turns the Power BI case study into a controlled analytical release. The repository now has an independent SQL calculation path, a pinned CI compilation gate for the data-free template, machine-readable KPI and artifact hashes, clean report-page evidence, and a deterministic six-page PDF handoff.

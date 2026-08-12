@@ -869,81 +869,33 @@
   },
   "projectionOrdering": {
     "Values": [
-      6,
-      5,
-      7,
-      8,
-      9,
-      10,
-      11
-    ],
-    "Rows": [
-      4,
+      1,
+      2,
       3,
-      2
+      4,
+      5,
+      6,
+      7
     ],
-    "Columns": [
-      0,
-      1
-    ]
-  },
-  "projectionActiveItems": {
     "Rows": [
-      {
-        "queryRef": "DimCustomer.StateProvinceName",
-        "suppressConcat": false
-      },
-      {
-        "queryRef": "DimCustomer.StateProvinceCode",
-        "suppressConcat": false
-      }
-    ],
-    "Columns": [
-      {
-        "queryRef": "DimProduct.Category Name",
-        "suppressConcat": false
-      },
-      {
-        "queryRef": "GC_Variaciones_Tiempo.Variaciones",
-        "suppressConcat": false
-      }
+      0
     ]
   },
   "queryMetadata": {
     "Select": [
-      {
-        "Restatement": "Category Name",
-        "Name": "DimProduct.Category Name",
-        "Type": 2048
-      },
-      {
-        "Restatement": "Variaciones",
-        "Name": "GC_Variaciones_Tiempo.Variaciones",
-        "Type": 2048
-      },
-      {
-        "Restatement": "City",
-        "Name": "DimCustomer.City",
-        "Type": 2048
-      },
-      {
-        "Restatement": "StateProvinceCode",
-        "Name": "DimCustomer.StateProvinceCode",
-        "Type": 2048
-      },
       {
         "Restatement": "StateProvinceName",
         "Name": "DimCustomer.StateProvinceName",
         "Type": 2048
       },
       {
-        "Restatement": "Utilidad neta",
-        "Name": "Tablas de Medidas.Utilidad neta",
+        "Restatement": "Ingresos",
+        "Name": "Tablas de Medidas.Ingresos",
         "Type": 1
       },
       {
-        "Restatement": "Ingresos",
-        "Name": "Tablas de Medidas.Ingresos",
+        "Restatement": "Utilidad neta",
+        "Name": "Tablas de Medidas.Utilidad neta",
         "Type": 1
       },
       {
@@ -1057,8 +1009,28 @@
     {
       "DataRoles": [
         {
+          "Name": "Rows",
+          "Projection": 0,
+          "isActive": true
+        },
+        {
           "Name": "Values",
-          "Projection": 6,
+          "Projection": 1,
+          "isActive": false
+        },
+        {
+          "Name": "Values",
+          "Projection": 2,
+          "isActive": false
+        },
+        {
+          "Name": "Values",
+          "Projection": 3,
+          "isActive": false
+        },
+        {
+          "Name": "Values",
+          "Projection": 4,
           "isActive": false
         },
         {
@@ -1068,142 +1040,18 @@
         },
         {
           "Name": "Values",
+          "Projection": 6,
+          "isActive": false
+        },
+        {
+          "Name": "Values",
           "Projection": 7,
           "isActive": false
-        },
-        {
-          "Name": "Values",
-          "Projection": 8,
-          "isActive": false
-        },
-        {
-          "Name": "Values",
-          "Projection": 9,
-          "isActive": false
-        },
-        {
-          "Name": "Values",
-          "Projection": 10,
-          "isActive": false
-        },
-        {
-          "Name": "Values",
-          "Projection": 11,
-          "isActive": false
-        },
-        {
-          "Name": "Rows",
-          "Projection": 4,
-          "isActive": true
-        },
-        {
-          "Name": "Rows",
-          "Projection": 3,
-          "isActive": true
-        },
-        {
-          "Name": "Rows",
-          "Projection": 2,
-          "isActive": false
-        },
-        {
-          "Name": "Columns",
-          "Projection": 0,
-          "isActive": true
-        },
-        {
-          "Name": "Columns",
-          "Projection": 1,
-          "isActive": true
         }
       ]
     }
   ],
   "selects": [
-    {
-      "displayName": "Category Name",
-      "queryName": "DimProduct.Category Name",
-      "roles": {
-        "Columns": true
-      },
-      "type": {
-        "category": null,
-        "underlyingType": 1
-      },
-      "expr": {
-        "Column": {
-          "Expression": {
-            "SourceRef": {
-              "Entity": "DimProduct"
-            }
-          },
-          "Property": "Category Name"
-        }
-      }
-    },
-    {
-      "displayName": "Variaciones",
-      "queryName": "GC_Variaciones_Tiempo.Variaciones",
-      "roles": {
-        "Columns": true
-      },
-      "type": {
-        "category": null,
-        "underlyingType": 1
-      },
-      "expr": {
-        "Column": {
-          "Expression": {
-            "SourceRef": {
-              "Entity": "GC_Variaciones_Tiempo"
-            }
-          },
-          "Property": "Variaciones"
-        }
-      }
-    },
-    {
-      "displayName": "City",
-      "queryName": "DimCustomer.City",
-      "roles": {
-        "Rows": true
-      },
-      "type": {
-        "category": null,
-        "underlyingType": 1
-      },
-      "expr": {
-        "Column": {
-          "Expression": {
-            "SourceRef": {
-              "Entity": "DimCustomer"
-            }
-          },
-          "Property": "City"
-        }
-      }
-    },
-    {
-      "displayName": "StateProvinceCode",
-      "queryName": "DimCustomer.StateProvinceCode",
-      "roles": {
-        "Rows": true
-      },
-      "type": {
-        "category": null,
-        "underlyingType": 1
-      },
-      "expr": {
-        "Column": {
-          "Expression": {
-            "SourceRef": {
-              "Entity": "DimCustomer"
-            }
-          },
-          "Property": "StateProvinceCode"
-        }
-      }
-    },
     {
       "displayName": "StateProvinceName",
       "queryName": "DimCustomer.StateProvinceName",
@@ -1228,40 +1076,6 @@
       }
     },
     {
-      "displayName": "Utilidad neta",
-      "queryName": "Tablas de Medidas.Utilidad neta",
-      "roles": {
-        "Values": true
-      },
-      "type": {
-        "category": null,
-        "underlyingType": 259
-      },
-      "expr": {
-        "Measure": {
-          "Expression": {
-            "SourceRef": {
-              "Entity": "Tablas de Medidas"
-            }
-          },
-          "Property": "Utilidad neta"
-        }
-      },
-      "sourceFieldParameters": [
-        {
-          "expr": {
-            "_kind": 2,
-            "source": {
-              "_kind": 0,
-              "entity": "BaseKPI"
-            },
-            "ref": "BaseKPI"
-          },
-          "displayName": "BaseKPI"
-        }
-      ]
-    },
-    {
       "displayName": "Ingresos",
       "queryName": "Tablas de Medidas.Ingresos",
       "roles": {
@@ -1279,6 +1093,40 @@
             }
           },
           "Property": "Ingresos"
+        }
+      },
+      "sourceFieldParameters": [
+        {
+          "expr": {
+            "_kind": 2,
+            "source": {
+              "_kind": 0,
+              "entity": "BaseKPI"
+            },
+            "ref": "BaseKPI"
+          },
+          "displayName": "BaseKPI"
+        }
+      ]
+    },
+    {
+      "displayName": "Utilidad neta",
+      "queryName": "Tablas de Medidas.Utilidad neta",
+      "roles": {
+        "Values": true
+      },
+      "type": {
+        "category": null,
+        "underlyingType": 259
+      },
+      "expr": {
+        "Measure": {
+          "Expression": {
+            "SourceRef": {
+              "Entity": "Tablas de Medidas"
+            }
+          },
+          "Property": "Utilidad neta"
         }
       },
       "sourceFieldParameters": [
