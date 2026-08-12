@@ -1,4 +1,4 @@
-name: FIN S1-I3 verification
+name: FIN S1-C1 verification
 
 on:
   push:
@@ -31,3 +31,68 @@ jobs:
         run: |
           python scripts/validate_s1_s3.py
           python scripts/validate_i1_i3.py
+
+      - name: Reconcile independent SQL with DAX
+        run: |
+          python scripts/run_sql_reconciliation.py
+          git diff --exit-code -- DOCS/sql_reconciliation.csv
+
+      - name: Validate committed PBIT package
+        run: python scripts/validate_pbit_package.py Financial_Report.pbit
+
+      - name: Install release-evidence dependencies
+        run: python -m pip install --requirement requirements-release.txt
+
+      - name: Rebuild and validate release evidence
+        run: |
+          python scripts/build_release_evidence.py --output "${RUNNER_TEMP}/financial_c1_release_evidence.pdf"
+          python scripts/validate_release_artifacts.py --pdf "${RUNNER_TEMP}/financial_c1_release_evidence.pdf"
+          cmp --silent "${RUNNER_TEMP}/financial_c1_release_evidence.pdf" output/pdf/financial_c1_release_evidence.pdf
+          python scripts/validate_release_artifacts.py
+          python scripts/build_release_manifest.py --check
+
+  compile-pbit:
+    runs-on: ubuntu-latest
+    env:
+      PBI_TOOLS_VERSION: "1.2.0"
+      PBI_TOOLS_SHA256: "ac3a3434f837e49fab1ba69a29cac78b3fb11fc1476c91a7ee87a85ef0131d5e"
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Set up .NET
+        uses: actions/setup-dotnet@v4
+        with:
+          dotnet-version: "8.0.x"
+
+      - name: Download and verify pinned pbi-tools Core
+        run: |
+          curl --fail --location --silent --show-error \
+            --output "${RUNNER_TEMP}/pbi-tools.zip" \
+            "https://github.com/pbi-tools/pbi-tools/releases/download/${PBI_TOOLS_VERSION}/pbi-tools.core.${PBI_TOOLS_VERSION}_linux-x64.zip"
+          echo "${PBI_TOOLS_SHA256}  ${RUNNER_TEMP}/pbi-tools.zip" | sha256sum --check --strict
+          mkdir -p "${RUNNER_TEMP}/pbi-tools"
+          unzip -q "${RUNNER_TEMP}/pbi-tools.zip" -d "${RUNNER_TEMP}/pbi-tools"
+          chmod +x "${RUNNER_TEMP}/pbi-tools/pbi-tools.core"
+
+      - name: Compile and validate data-free PBIT
+        run: |
+          mkdir -p "${RUNNER_TEMP}/build"
+          "${RUNNER_TEMP}/pbi-tools/pbi-tools.core" compile \
+            Financial_Report \
+            "${RUNNER_TEMP}/build/Financial_Report.pbit" \
+            PBIT \
+            true
+          python scripts/validate_pbit_package.py "${RUNNER_TEMP}/build/Financial_Report.pbit"
+
+      - name: Upload compiled PBIT proof
+        uses: actions/upload-artifact@v4
+        with:
+          name: financial-report-pbit
+          path: ${{ runner.temp }}/build/Financial_Report.pbit
+          if-no-files-found: error

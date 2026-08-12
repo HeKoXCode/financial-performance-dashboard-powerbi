@@ -123,6 +123,6 @@ powershell -ExecutionPolicy Bypass -File scripts/export_dax_reconciliation.ps1
 
 The first script updates the relationship and measures. The second queries the active model and rewrites `DOCS/dax_reconciliation.csv`. Neither script contains credentials or a workstation-specific source path.
 
-## Remaining boundary
+## Subsequent completion
 
-FIN-I1–I3 closes the intermediate portfolio scope. The next audit item is **FIN-C1**: automate a distributable analytical release and publish the validated branch. Forecasting, budgets, FX conversion, and partial-period normalization remain deliberately outside the current business model.
+FIN-I1–I3 closed the intermediate portfolio scope. **FIN-C1 was completed locally on 2026-08-12** with independent SQL reconciliation, pinned CI compilation of the PBIT, a release manifest, automated captures, and a validated PDF evidence pack. See [c1_verification.md](c1_verification.md). Forecasting, budgets, FX conversion, and partial-period normalization remain deliberately outside the current business model.

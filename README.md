@@ -2,11 +2,11 @@
 
 [![Power BI](https://img.shields.io/badge/Power%20BI-F2C811?logo=powerbi&logoColor=black)](https://powerbi.microsoft.com/)
 [![Dataset](https://img.shields.io/badge/Dataset-AdventureWorksDW2019-1F4E78)](https://learn.microsoft.com/en-us/sql/samples/adventureworks-install-configure)
-[![FIN I1–I3](https://img.shields.io/badge/Portfolio%20audit-FIN--I1%E2%80%93I3%20complete-2F75B5)](DOCS/i1_i3_verification.md)
+[![FIN C1](https://img.shields.io/badge/Portfolio%20audit-FIN--C1%20verified-2F75B5)](DOCS/c1_verification.md)
 
 An executive Power BI case study that connects revenue, product cost, freight, tax, and profitability in one reconciled financial model. It combines a decision-first overview, margin and prior-year drivers, a strictly scoped USA drill-down, and definitions close to their DAX implementation.
 
-> Portfolio stage: **FIN-S1 through FIN-I3 completed**. The next planned stage is **FIN-C1**, automated analytical release and publication.
+> Portfolio stage: **FIN-S1 through FIN-C1 completed locally**. The analytical release is validated and ready for publication.
 
 ## Dashboard preview
 
@@ -105,6 +105,17 @@ Net margin   = Net profit / Revenue
 
 The year-level rows also verify that each available LY value equals the preceding year's current revenue. See [DOCS/i1_i3_verification.md](DOCS/i1_i3_verification.md) for the verification record and reproduction commands.
 
+## Independent SQL release gate
+
+FIN-C1 adds a second calculation path that does not execute DAX. A committed, compressed, non-PII projection of the embedded PBIX snapshot is loaded into an in-memory SQLite database; [sql/reconcile_kpis.sql](sql/reconcile_kpis.sql) then recomputes the financial identities from base columns.
+
+- **60,398** source facts are loaded.
+- **68** total, year, country, state, and category contexts are independently recomputed.
+- Money must match the DAX evidence within **$0.01**; ratios within **1e-10**.
+- The generated result is committed as [DOCS/sql_reconciliation.csv](DOCS/sql_reconciliation.csv).
+
+This proves agreement between SQL and the DAX outputs for the distributed snapshot. It is deliberately not presented as a connection to a production SQL Server instance.
+
 ## Reproduce the report
 
 ### Fast path: inspect the embedded result
@@ -129,6 +140,9 @@ python scripts/update_financial_report_s1_s3.py
 python scripts/update_financial_report_i1_i3.py
 python scripts/validate_s1_s3.py
 python scripts/validate_i1_i3.py
+python scripts/run_sql_reconciliation.py
+python scripts/validate_pbit_package.py Financial_Report.pbit
+python scripts/build_release_manifest.py --check
 ```
 
 With the PBIX open in Power BI Desktop on Windows, the live model and reconciliation evidence can also be regenerated:
@@ -140,6 +154,20 @@ python scripts/sync_report_layout_to_pbix.py
 ```
 
 The PowerShell scripts discover the local Analysis Services endpoint created by the open report. The Python transformations are idempotent and the GitHub workflow fails if committed report source drifts from their output.
+
+### Build the distributable evidence
+
+Install the pinned release-only dependencies, then rebuild and validate the six-page evidence pack:
+
+```powershell
+python -m pip install -r requirements-release.txt
+python scripts/build_release_evidence.py
+python scripts/validate_release_artifacts.py
+```
+
+The final release contract is machine-readable in [release/financial-c1-manifest.json](release/financial-c1-manifest.json). It records KPI values, tolerances, tool versions, artifact hashes, and expected reasons for variation. With the PBIX open in Power BI Desktop, clean 1920×1080 captures of all four pages can be regenerated on Windows with `scripts/capture_powerbi_pages.ps1`.
+
+CI also downloads the pinned Linux build of `pbi-tools Core 1.2.0`, verifies the installer SHA-256, compiles a fresh data-free PBIT, and validates its package, model, relationships, pages, narrative, and absence of private workstation references.
 
 ## Version-control format
 
@@ -158,8 +186,14 @@ A native `.pbip` was deliberately not fabricated. Microsoft currently documents 
 ├── DOCS/
 │   ├── dax_measure_catalog.md  # Formula, unit, context, and LY contract
 │   ├── dax_reconciliation.csv  # Numerical evidence at five granularities
-│   └── i1_i3_verification.md   # Intermediate-stage verification record
-├── scripts/                    # Idempotent transforms, live-model tools, validation
+│   ├── sql_reconciliation.csv  # Independent SQL result for the same 68 contexts
+│   ├── i1_i3_verification.md   # Intermediate-stage verification record
+│   └── c1_verification.md      # FIN-C1 release-gate record and limitations
+├── DATA/                       # Compressed non-PII SQL input projection
+├── sql/                        # Independent KPI query
+├── release/                    # Machine-readable release manifest and hashes
+├── output/pdf/                 # Six-page distributable evidence pack
+├── scripts/                    # Idempotent transforms, capture, build, and validation
 └── .github/workflows/          # Automated source and evidence checks
 ```
 
@@ -171,6 +205,7 @@ A native `.pbip` was deliberately not fabricated. Microsoft currently documents 
 - **FIN-I1 — analytical model:** corrected active order-date relationship, normalized 35 measures, added descriptions/folders and four diagnostic identities, and reconciled 68 filter contexts.
 - **FIN-I2 — versionability:** synchronized TMDL/report source, compiled PBIT, repeatable update/export scripts, automated drift checks, and an explicit native-PBIP decision.
 - **FIN-I3 — analytical narrative:** rebuilt the four-page flow around result, driver, action, drill-down, and data contract; added exact findings and partial-period warnings.
+- **FIN-C1 — analytical release:** added independent SQL/DAX reconciliation, pinned PBIT compilation in CI, artifact/KPI hashes, expected-variation policy, automated visual capture, and a validated PDF evidence pack.
 
 ## Limitations
 
@@ -179,8 +214,9 @@ A native `.pbip` was deliberately not fabricated. Microsoft currently documents 
 - `SAMEPERIODLASTYEAR` follows the selected calendar window. Annual interpretations should use complete years or aligned partial periods.
 - Currency conversion, budgets, forecasts, accounting-close adjustments, and scenario planning are outside the current model.
 - Maps depend on Power BI geocoding. Explicit country scope reduces ambiguity but does not replace governed latitude/longitude data.
-- The report has standard tooltips and page navigation; it does not yet implement a dedicated tooltip page or drillthrough target.
+- The report has standard tooltips and page navigation; it does not implement a dedicated tooltip page or drillthrough target.
 - Native PBIP export remains outside the committed artifact for the preview/verification reason documented above.
+- The independent SQL gate validates the committed analytical projection, not source-system availability, permissions, refresh duration, or a production database SLA.
 
 ## Tools
 
