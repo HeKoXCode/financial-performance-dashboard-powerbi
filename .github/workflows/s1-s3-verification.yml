@@ -86,11 +86,12 @@ jobs:
       - name: Compile and validate data-free PBIT
         run: |
           mkdir -p "${RUNNER_TEMP}/build"
-          "${RUNNER_TEMP}/pbi-tools/pbi-tools.core" compile \
+          timeout --foreground --kill-after=30s 10m \
+            "${RUNNER_TEMP}/pbi-tools/pbi-tools.core" compile \
             Financial_Report \
-            "${RUNNER_TEMP}/build/Financial_Report.pbit" \
-            PBIT \
-            true
+            -outPath "${RUNNER_TEMP}/build/Financial_Report.pbit" \
+            -format PBIT \
+            -overwrite
           python scripts/validate_pbit_package.py "${RUNNER_TEMP}/build/Financial_Report.pbit"
 
       - name: Upload compiled PBIT proof
