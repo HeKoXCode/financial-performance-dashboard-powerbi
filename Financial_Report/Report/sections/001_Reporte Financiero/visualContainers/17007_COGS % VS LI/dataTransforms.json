@@ -1,0 +1,137 @@
+{
+  "objects": {
+    "dataPoint": [
+      {
+        "properties": {
+          "fill": {
+            "solid": {
+              "color": {
+                "expr": {
+                  "Literal": {
+                    "Value": "'#D97706'"
+                  }
+                }
+              }
+            }
+          },
+          "target": {
+            "solid": {
+              "color": {
+                "expr": {
+                  "ThemeDataColor": {
+                    "ColorId": 9,
+                    "Percent": -0.5
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    ],
+    "axis": [
+      {
+        "properties": {
+          "min": {
+            "expr": {
+              "Literal": {
+                "Value": "0D"
+              }
+            }
+          },
+          "max": {
+            "expr": {
+              "Literal": {
+                "Value": "1D"
+              }
+            }
+          }
+        }
+      }
+    ]
+  },
+  "projectionOrdering": {
+    "Y": [
+      0
+    ],
+    "TargetValue": [
+      1
+    ]
+  },
+  "queryMetadata": {
+    "Select": [
+      {
+        "Restatement": "COGS %",
+        "Name": "Tablas de Medidas.COGS %",
+        "Type": 1,
+        "Format": "0 %;-0 %;0 %"
+      },
+      {
+        "Restatement": "COGS % LY",
+        "Name": "Tablas de Medidas.COGS % LY",
+        "Type": 1
+      }
+    ]
+  },
+  "visualElements": [
+    {
+      "DataRoles": [
+        {
+          "Name": "Y",
+          "Projection": 0,
+          "isActive": false
+        },
+        {
+          "Name": "TargetValue",
+          "Projection": 1,
+          "isActive": false
+        }
+      ]
+    }
+  ],
+  "selects": [
+    {
+      "displayName": "COGS %",
+      "format": "0 %;-0 %;0 %",
+      "queryName": "Tablas de Medidas.COGS %",
+      "roles": {
+        "Y": true
+      },
+      "type": {
+        "category": null,
+        "underlyingType": 259
+      },
+      "expr": {
+        "Measure": {
+          "Expression": {
+            "SourceRef": {
+              "Entity": "Tablas de Medidas"
+            }
+          },
+          "Property": "COGS %"
+        }
+      }
+    },
+    {
+      "displayName": "COGS % LY",
+      "queryName": "Tablas de Medidas.COGS % LY",
+      "roles": {
+        "TargetValue": true
+      },
+      "type": {
+        "category": null,
+        "underlyingType": 259
+      },
+      "expr": {
+        "Measure": {
+          "Expression": {
+            "SourceRef": {
+              "Entity": "Tablas de Medidas"
+            }
+          },
+          "Property": "COGS % LY"
+        }
+      }
+    }
+  ]
+}

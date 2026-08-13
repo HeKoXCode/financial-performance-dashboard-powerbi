@@ -1,0 +1,58 @@
+{
+  "Commands": [
+    {
+      "SemanticQueryDataShapeCommand": {
+        "Query": {
+          "Version": 2,
+          "From": [
+            {
+              "Name": "t",
+              "Entity": "Tablas de Medidas",
+              "Type": 0
+            }
+          ],
+          "Select": [
+            {
+              "Measure": {
+                "Expression": {
+                  "SourceRef": {
+                    "Source": "t"
+                  }
+                },
+                "Property": "Ratio Costo Operacional %"
+              },
+              "Name": "Tablas de Medidas.Ratio Costo Operacional %",
+              "NativeReferenceName": "Ratio Costo Operacional %"
+            },
+            {
+              "Measure": {
+                "Expression": {
+                  "SourceRef": {
+                    "Source": "t"
+                  }
+                },
+                "Property": "Ratio Costo Operacional % LY"
+              },
+              "Name": "Tablas de Medidas.Ratio Costo Operacional % LY",
+              "NativeReferenceName": "Ratio Costo Operacional % LY"
+            }
+          ]
+        },
+        "Binding": {
+          "Primary": {
+            "Groupings": [
+              {
+                "Projections": [
+                  0,
+                  1
+                ]
+              }
+            ]
+          },
+          "Version": 1
+        },
+        "ExecutionMetricsKind": 1
+      }
+    }
+  ]
+}

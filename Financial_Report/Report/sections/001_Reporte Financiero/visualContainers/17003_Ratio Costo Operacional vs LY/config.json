@@ -1,0 +1,144 @@
+{
+  "name": "01aa9dbaca58af68baa4",
+  "layouts": [
+    {
+      "id": 0,
+      "position": {
+        "x": -10000,
+        "y": -10000,
+        "z": 17003,
+        "width": 1,
+        "height": 1,
+        "tabOrder": 17003
+      }
+    }
+  ],
+  "singleVisual": {
+    "visualType": "gauge",
+    "projections": {
+      "Y": [
+        {
+          "queryRef": "Tablas de Medidas.Ratio Costo Operacional %"
+        }
+      ],
+      "TargetValue": [
+        {
+          "queryRef": "Tablas de Medidas.Ratio Costo Operacional % LY"
+        }
+      ]
+    },
+    "prototypeQuery": {
+      "Version": 2,
+      "From": [
+        {
+          "Name": "t",
+          "Entity": "Tablas de Medidas",
+          "Type": 0
+        }
+      ],
+      "Select": [
+        {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Source": "t"
+              }
+            },
+            "Property": "Ratio Costo Operacional %"
+          },
+          "Name": "Tablas de Medidas.Ratio Costo Operacional %",
+          "NativeReferenceName": "Ratio Costo Operacional %"
+        },
+        {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Source": "t"
+              }
+            },
+            "Property": "Ratio Costo Operacional % LY"
+          },
+          "Name": "Tablas de Medidas.Ratio Costo Operacional % LY",
+          "NativeReferenceName": "Ratio Costo Operacional % LY"
+        }
+      ],
+      "OrderBy": [
+        {
+          "Direction": 2,
+          "Expression": {
+            "Measure": {
+              "Expression": {
+                "SourceRef": {
+                  "Source": "t"
+                }
+              },
+              "Property": "Ratio Costo Operacional %"
+            }
+          }
+        }
+      ]
+    },
+    "columnProperties": {
+      "Tablas de Medidas.Ratio Costo Operacional %": {
+        "formatString": "0.0 %;-0.0 %;0.0 %"
+      }
+    },
+    "drillFilterOtherVisuals": true,
+    "hasDefaultSort": true,
+    "objects": {
+      "dataPoint": [
+        {
+          "properties": {
+            "target": {
+              "solid": {
+                "color": {
+                  "expr": {
+                    "ThemeDataColor": {
+                      "ColorId": 9,
+                      "Percent": -0.5
+                    }
+                  }
+                }
+              }
+            },
+            "fill": {
+              "solid": {
+                "color": {
+                  "expr": {
+                    "ThemeDataColor": {
+                      "ColorId": 4,
+                      "Percent": 0
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      ]
+    },
+    "vcObjects": {
+      "title": [
+        {
+          "properties": {
+            "text": {
+              "expr": {
+                "Literal": {
+                  "Value": "'Ratio Costo Operacional vs LY'"
+                }
+              }
+            },
+            "alignment": {
+              "expr": {
+                "Literal": {
+                  "Value": "'center'"
+                }
+              }
+            }
+          }
+        }
+      ]
+    },
+    "isHidden": true
+  }
+}

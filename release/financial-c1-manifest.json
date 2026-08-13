@@ -1,0 +1,126 @@
+{
+  "artifacts": {
+    "DATA/financial_sql_input.csv.gz": {
+      "bytes": 561921,
+      "sha256": "39e14ea6cdca136f8131f6fef1ac78835d3aeac2d27406f604be3d3c7fd63015"
+    },
+    "DOCS/dax_reconciliation.csv": {
+      "bytes": 19517,
+      "sha256": "6d036e5570d149ce8b00a9cd2928e48da413d8e1f8e014983131c5ee083a39ba"
+    },
+    "DOCS/sql_reconciliation.csv": {
+      "bytes": 11376,
+      "sha256": "91c05c9c2f16b88158cfcd8de485be55cefaecbeab7e46f2ac0b1afa164caa58"
+    },
+    "Financial_Report.pbit": {
+      "bytes": 4247408,
+      "sha256": "aabbf20f22a6425cf8e82d924a924a3d84e6607c7b7aca86a140744608eda138"
+    },
+    "Financial_Report.pbix": {
+      "bytes": 6469602,
+      "sha256": "c4e8f36cf1892c5aef6063e1eda17c82bb6faf7ab99b2756ecc5557c04e4b8b1"
+    },
+    "Financial_Report/Model/tables/Tablas de Medidas.tmdl": {
+      "bytes": 8883,
+      "sha256": "5f248423b115f9b677c67509279d37a3c71b29fdb7bd46cefff186a0d13bda1d"
+    },
+    "Images/executive_overview.png": {
+      "bytes": 177749,
+      "sha256": "436b243fbb47c50d2e38ee011a674e042a17cae55ebc7e70a5f6a3e09c58f411"
+    },
+    "Images/glossary.png": {
+      "bytes": 181644,
+      "sha256": "e1a59d0c788a5f5ca55fb9d2c6ef9facf7395f0b2c7c229e4227e9b5853e703b"
+    },
+    "Images/overview.png": {
+      "bytes": 560472,
+      "sha256": "a26a5af941a91589e7de968589a39cc01c5a7413e9a981646fb0de69a35e4ca5"
+    },
+    "Images/usa_detailed.png": {
+      "bytes": 455348,
+      "sha256": "807e6a92c129090c82a1951daea83784dde58b32c11ed4c2f567385026ea8d96"
+    },
+    "output/pdf/financial_c1_release_evidence.pdf": {
+      "bytes": 1676392,
+      "sha256": "41951f704fb1aaf5acbae74c9a072ce26de43f360ef915a6a872233c1fe7f98c"
+    },
+    "sql/reconcile_kpis.sql": {
+      "bytes": 2288,
+      "sha256": "9c8c879795f9556bf8c16ffde260887c93f3bb14a3eb59a8ec7b923fee7a1c6a"
+    }
+  },
+  "expected_variations": [
+    "KPI changes require matching SQL and DAX evidence plus a release note.",
+    "Source snapshot or row-count changes require an explicit data refresh decision.",
+    "PBIX and PBIT hashes may change after model, layout, data, or Desktop version changes.",
+    "Screenshot and PDF hashes may change after a verified visual render or tool update.",
+    "Partial-period limitations and the OrderDateKey contract must remain visible."
+  ],
+  "kpi_contract": {
+    "concentration": {
+      "bicycle_revenue_share": 0.9645579206,
+      "usa_plus_australia_revenue_share": 0.6284612197
+    },
+    "total": {
+      "cogs": 17277793.58,
+      "gross_margin": 0.4114927779,
+      "gross_profit": 12080883.64,
+      "net_margin": 0.3064926849,
+      "net_profit": 8998219.81,
+      "revenue": 29358677.22,
+      "shipping": 733969.61,
+      "tax": 2348694.23
+    },
+    "year_2013": {
+      "gross_margin": 0.4137473714,
+      "growth_vs_2012": 1.7987320111,
+      "net_margin": 0.3087472259,
+      "revenue": 16351550.34,
+      "revenue_share": 0.5569580066
+    }
+  },
+  "model_contract": {
+    "active_date_path": "FactInternetSales[OrderDateKey] -> DimDate[DateKey]",
+    "context_counts": {
+      "Category": 3,
+      "Country": 6,
+      "State": 53,
+      "Total": 1,
+      "Year": 5
+    },
+    "dax_evidence_rows": 68,
+    "measure_count": 35,
+    "page_count": 4,
+    "sql_dax_contexts": 68
+  },
+  "project": "financial-performance-dashboard-powerbi",
+  "release": {
+    "date": "2026-08-12",
+    "stage": "FIN-C1",
+    "status": "verified-local"
+  },
+  "schema_version": "1.0.0",
+  "source": {
+    "fact_table": "FactInternetSales",
+    "name": "Microsoft AdventureWorksDW2019",
+    "order_date_max": "2014-01-28",
+    "order_date_min": "2010-12-29",
+    "partial_years": [
+      2010,
+      2014
+    ],
+    "snapshot_rows": 60398,
+    "sql_input_kind": "non-PII analytical projection exported from the embedded PBIX snapshot"
+  },
+  "tolerances": {
+    "money_absolute": 0.01,
+    "ratio_absolute": 1e-10
+  },
+  "toolchain": {
+    "pbi_tools_core": "1.2.0",
+    "pbit_linux_asset_sha256": "ac3a3434f837e49fab1ba69a29cac78b3fb11fc1476c91a7ee87a85ef0131d5e",
+    "power_bi_desktop": "2.156.951.0",
+    "python": "3.12",
+    "sql_engine": "Python sqlite3 / SQLite"
+  }
+}

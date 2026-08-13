@@ -1,0 +1,39 @@
+{
+  "name": "3bd6f0d809b33f84adb9",
+  "layouts": [
+    {
+      "id": 0,
+      "position": {
+        "x": -10000,
+        "y": -10000,
+        "z": 0,
+        "width": 1,
+        "height": 1,
+        "tabOrder": 0
+      }
+    }
+  ],
+  "singleVisual": {
+    "visualType": "image",
+    "drillFilterOtherVisuals": true,
+    "objects": {
+      "general": [
+        {
+          "properties": {
+            "imageUrl": {
+              "expr": {
+                "ResourcePackageItem": {
+                  "PackageName": "RegisteredResources",
+                  "PackageType": 1,
+                  "ItemName": "Giant_Logo001808287370148709.png"
+                }
+              }
+            }
+          }
+        }
+      ]
+    },
+    "isHidden": true
+  },
+  "howCreated": "InsertVisualButton"
+}

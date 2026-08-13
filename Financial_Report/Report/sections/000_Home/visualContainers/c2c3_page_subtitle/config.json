@@ -1,0 +1,71 @@
+{
+  "name": "e3f4d7ab8bbd17185be7",
+  "layouts": [
+    {
+      "id": 0,
+      "position": {
+        "x": 24,
+        "y": 47,
+        "z": 21,
+        "width": 650,
+        "height": 34,
+        "tabOrder": 21
+      }
+    }
+  ],
+  "singleVisual": {
+    "visualType": "textbox",
+    "drillFilterOtherVisuals": true,
+    "objects": {
+      "general": [
+        {
+          "properties": {
+            "paragraphs": [
+              {
+                "textRuns": [
+                  {
+                    "value": "AdventureWorks · 60.398 operaciones · 2010–2014 · moneda de reporte USD",
+                    "textStyle": {
+                      "fontFamily": "Segoe UI",
+                      "fontSize": "9pt",
+                      "color": "#D9E4EE"
+                    }
+                  }
+                ],
+                "horizontalTextAlignment": "left"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    "vcObjects": {
+      "background": [
+        {
+          "properties": {
+            "transparency": {
+              "expr": {
+                "Literal": {
+                  "Value": "100D"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "general": [
+        {
+          "properties": {
+            "altText": {
+              "expr": {
+                "Literal": {
+                  "Value": "'AdventureWorks · 60.398 operaciones · 2010–2014 · moneda de reporte USD'"
+                }
+              }
+            }
+          }
+        }
+      ]
+    }
+  }
+}

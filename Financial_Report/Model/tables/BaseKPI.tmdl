@@ -1,0 +1,48 @@
+table BaseKPI
+
+	column BaseKPI
+		summarizeBy: none
+		sourceColumn: [Value1]
+		sortByColumn: 'BaseKPI Orden'
+
+		relatedColumnDetails
+			groupByColumn: 'BaseKPI Campos'
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'BaseKPI Campos'
+		isHidden
+		summarizeBy: none
+		sourceColumn: [Value2]
+		sortByColumn: 'BaseKPI Orden'
+
+		extendedProperty ParameterMetadata =
+				{
+				  "version": 3,
+				  "kind": 2
+				}
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'BaseKPI Orden'
+		isHidden
+		formatString: 0
+		summarizeBy: sum
+		sourceColumn: [Value3]
+
+		annotation SummarizationSetBy = Automatic
+
+	partition BaseKPI = calculated
+		mode: import
+		source =
+				{
+				    ("Ingresos", NAMEOF('Tablas de Medidas'[Ingresos]), 0),
+				    ("Utilidad neta", NAMEOF('Tablas de Medidas'[Utilidad neta]), 1),
+				    ("Utilidad bruta", NAMEOF('Tablas de Medidas'[Utilidad bruta]), 2),
+				    ("% Margen Bruto", NAMEOF('Tablas de Medidas'[% Margen Bruto]), 3),
+				    ("% Margen Neto", NAMEOF('Tablas de Medidas'[% Margen Neto]), 4),
+				    ("COGS", NAMEOF('Tablas de Medidas'[COGS]), 5),
+				    ("Costo Total Envios", NAMEOF('Tablas de Medidas'[Costo Total Envios]), 6)
+				}
+
+	annotation PBI_Id = ee12d513ecd94f6ca2974439a755fbc5

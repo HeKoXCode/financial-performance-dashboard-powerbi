@@ -1,0 +1,257 @@
+{
+  "objects": {
+    "mapStyles": [
+      {
+        "properties": {
+          "mapTheme": {
+            "expr": {
+              "Literal": {
+                "Value": "'canvasLight'"
+              }
+            }
+          }
+        }
+      }
+    ],
+    "dataPoint": [
+      {
+        "properties": {
+          "fill": {
+            "solid": {
+              "color": {
+                "expr": {
+                  "FillRule": {
+                    "Input": {
+                      "Measure": {
+                        "Expression": {
+                          "SourceRef": {
+                            "Entity": "Tablas de Medidas"
+                          }
+                        },
+                        "Property": "Ingresos"
+                      }
+                    },
+                    "FillRule": {
+                      "linearGradient3": {
+                        "min": {
+                          "color": {
+                            "Literal": {
+                              "Value": "'#2F75B5'"
+                            }
+                          }
+                        },
+                        "mid": {
+                          "color": {
+                            "Literal": {
+                              "Value": "'midColor'"
+                            }
+                          }
+                        },
+                        "max": {
+                          "color": {
+                            "Literal": {
+                              "Value": "'#C00000'"
+                            }
+                          }
+                        },
+                        "nullColoringStrategy": {
+                          "strategy": {
+                            "Literal": {
+                              "Value": "'asZero'"
+                            }
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "selector": {
+          "data": [
+            {
+              "dataViewWildcard": {
+                "matchingOption": 1
+              }
+            }
+          ]
+        }
+      },
+      {
+        "properties": {
+          "fillRule": {
+            "linearGradient2": {
+              "min": {
+                "color": {
+                  "expr": {
+                    "Literal": {
+                      "Value": "'minColor'"
+                    }
+                  }
+                }
+              },
+              "max": {
+                "color": {
+                  "expr": {
+                    "Literal": {
+                      "Value": "'maxColor'"
+                    }
+                  }
+                }
+              },
+              "nullColoringStrategy": {
+                "strategy": {
+                  "expr": {
+                    "Literal": {
+                      "Value": "'asZero'"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    ],
+    "mapControls": [
+      {
+        "properties": {}
+      }
+    ],
+    "categoryLabels": [
+      {
+        "properties": {
+          "show": {
+            "expr": {
+              "Literal": {
+                "Value": "false"
+              }
+            }
+          }
+        }
+      }
+    ]
+  },
+  "projectionOrdering": {
+    "Category": [
+      1
+    ],
+    "Tooltips": [
+      0
+    ]
+  },
+  "projectionActiveItems": {
+    "Category": [
+      {
+        "queryRef": "DimCustomer.StateProvinceName",
+        "suppressConcat": false
+      }
+    ]
+  },
+  "queryMetadata": {
+    "Select": [
+      {
+        "Restatement": "Ingresos",
+        "Name": "Tablas de Medidas.Ingresos",
+        "Type": 1
+      },
+      {
+        "Restatement": "StateProvinceName",
+        "Name": "DimCustomer.StateProvinceName",
+        "Type": 2048
+      }
+    ],
+    "Filters": [
+      {
+        "type": 0,
+        "expression": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "DimCustomer"
+              }
+            },
+            "Property": "CountryRegionCode"
+          }
+        }
+      }
+    ]
+  },
+  "visualElements": [
+    {
+      "DataRoles": [
+        {
+          "Name": "Category",
+          "Projection": 1,
+          "isActive": true
+        },
+        {
+          "Name": "Tooltips",
+          "Projection": 0,
+          "isActive": false
+        }
+      ]
+    }
+  ],
+  "selects": [
+    {
+      "displayName": "Ingresos",
+      "queryName": "Tablas de Medidas.Ingresos",
+      "roles": {
+        "Tooltips": true
+      },
+      "type": {
+        "category": null,
+        "underlyingType": 258
+      },
+      "expr": {
+        "Measure": {
+          "Expression": {
+            "SourceRef": {
+              "Entity": "Tablas de Medidas"
+            }
+          },
+          "Property": "Ingresos"
+        }
+      },
+      "relatedObjects": {
+        "dataPoint": {
+          "fill": [
+            {
+              "data": [
+                {
+                  "dataViewWildcard": {
+                    "matchingOption": 1
+                  }
+                }
+              ]
+            }
+          ]
+        }
+      }
+    },
+    {
+      "displayName": "StateProvinceName",
+      "queryName": "DimCustomer.StateProvinceName",
+      "roles": {
+        "Category": true
+      },
+      "type": {
+        "category": null,
+        "underlyingType": 1
+      },
+      "expr": {
+        "Column": {
+          "Expression": {
+            "SourceRef": {
+              "Entity": "DimCustomer"
+            }
+          },
+          "Property": "StateProvinceName"
+        }
+      }
+    }
+  ]
+}

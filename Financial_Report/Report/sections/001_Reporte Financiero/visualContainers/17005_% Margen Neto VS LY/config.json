@@ -1,0 +1,143 @@
+{
+  "name": "7943f6da6e2f539a22bd",
+  "layouts": [
+    {
+      "id": 0,
+      "position": {
+        "x": -10000,
+        "y": -10000,
+        "z": 17005,
+        "width": 1,
+        "height": 1,
+        "tabOrder": 17005
+      }
+    }
+  ],
+  "singleVisual": {
+    "visualType": "gauge",
+    "projections": {
+      "TargetValue": [
+        {
+          "queryRef": "Tablas de Medidas.Margen Neto % LY"
+        }
+      ],
+      "Y": [
+        {
+          "queryRef": "Tablas de Medidas.% Margen Neto"
+        }
+      ]
+    },
+    "prototypeQuery": {
+      "Version": 2,
+      "From": [
+        {
+          "Name": "t",
+          "Entity": "Tablas de Medidas",
+          "Type": 0
+        }
+      ],
+      "Select": [
+        {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Source": "t"
+              }
+            },
+            "Property": "Margen Neto % LY"
+          },
+          "Name": "Tablas de Medidas.Margen Neto % LY",
+          "NativeReferenceName": "Margen Neto % LY"
+        },
+        {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Source": "t"
+              }
+            },
+            "Property": "% Margen Neto"
+          },
+          "Name": "Tablas de Medidas.% Margen Neto",
+          "NativeReferenceName": "% Margen Neto"
+        }
+      ],
+      "OrderBy": [
+        {
+          "Direction": 2,
+          "Expression": {
+            "Measure": {
+              "Expression": {
+                "SourceRef": {
+                  "Source": "t"
+                }
+              },
+              "Property": "% Margen Neto"
+            }
+          }
+        }
+      ]
+    },
+    "columnProperties": {
+      "Tablas de Medidas.Margen Bruto % LY": {
+        "formatString": null
+      }
+    },
+    "drillFilterOtherVisuals": true,
+    "hasDefaultSort": true,
+    "objects": {
+      "dataPoint": [
+        {
+          "properties": {
+            "target": {
+              "solid": {
+                "color": {
+                  "expr": {
+                    "ThemeDataColor": {
+                      "ColorId": 9,
+                      "Percent": -0.5
+                    }
+                  }
+                }
+              }
+            },
+            "fill": {
+              "solid": {
+                "color": {
+                  "expr": {
+                    "Literal": {
+                      "Value": "'#1F4E78'"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      ]
+    },
+    "vcObjects": {
+      "title": [
+        {
+          "properties": {
+            "text": {
+              "expr": {
+                "Literal": {
+                  "Value": "'% Margen neto vs LY'"
+                }
+              }
+            },
+            "alignment": {
+              "expr": {
+                "Literal": {
+                  "Value": "'center'"
+                }
+              }
+            }
+          }
+        }
+      ]
+    },
+    "isHidden": true
+  }
+}

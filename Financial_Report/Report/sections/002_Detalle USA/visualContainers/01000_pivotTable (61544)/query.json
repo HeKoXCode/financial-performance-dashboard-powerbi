@@ -1,0 +1,221 @@
+{
+  "Commands": [
+    {
+      "SemanticQueryDataShapeCommand": {
+        "Query": {
+          "Version": 2,
+          "From": [
+            {
+              "Name": "d1",
+              "Entity": "DimProduct",
+              "Type": 0
+            },
+            {
+              "Name": "g",
+              "Entity": "GC_Variaciones_Tiempo",
+              "Type": 0
+            },
+            {
+              "Name": "d2",
+              "Entity": "DimCustomer",
+              "Type": 0
+            },
+            {
+              "Name": "t",
+              "Entity": "Tablas de Medidas",
+              "Type": 0
+            },
+            {
+              "Name": "d",
+              "Entity": "DimGeography",
+              "Type": 0
+            }
+          ],
+          "Select": [
+            {
+              "Column": {
+                "Expression": {
+                  "SourceRef": {
+                    "Source": "d2"
+                  }
+                },
+                "Property": "StateProvinceName"
+              },
+              "Name": "DimCustomer.StateProvinceName",
+              "NativeReferenceName": "StateProvinceName"
+            },
+            {
+              "Measure": {
+                "Expression": {
+                  "SourceRef": {
+                    "Source": "t"
+                  }
+                },
+                "Property": "Ingresos"
+              },
+              "Name": "Tablas de Medidas.Ingresos",
+              "NativeReferenceName": "Ingresos"
+            },
+            {
+              "Measure": {
+                "Expression": {
+                  "SourceRef": {
+                    "Source": "t"
+                  }
+                },
+                "Property": "Utilidad neta"
+              },
+              "Name": "Tablas de Medidas.Utilidad neta",
+              "NativeReferenceName": "Utilidad neta"
+            },
+            {
+              "Measure": {
+                "Expression": {
+                  "SourceRef": {
+                    "Source": "t"
+                  }
+                },
+                "Property": "Utilidad bruta"
+              },
+              "Name": "Tablas de Medidas.Utilidad bruta",
+              "NativeReferenceName": "Utilidad bruta"
+            },
+            {
+              "Measure": {
+                "Expression": {
+                  "SourceRef": {
+                    "Source": "t"
+                  }
+                },
+                "Property": "% Margen Bruto"
+              },
+              "Name": "Tablas de Medidas.% Margen Bruto",
+              "NativeReferenceName": "% Margen Bruto"
+            },
+            {
+              "Measure": {
+                "Expression": {
+                  "SourceRef": {
+                    "Source": "t"
+                  }
+                },
+                "Property": "% Margen Neto"
+              },
+              "Name": "Tablas de Medidas.% Margen Neto",
+              "NativeReferenceName": "% Margen Neto"
+            },
+            {
+              "Measure": {
+                "Expression": {
+                  "SourceRef": {
+                    "Source": "t"
+                  }
+                },
+                "Property": "COGS"
+              },
+              "Name": "Tablas de Medidas.COGS",
+              "NativeReferenceName": "COGS"
+            },
+            {
+              "Measure": {
+                "Expression": {
+                  "SourceRef": {
+                    "Source": "t"
+                  }
+                },
+                "Property": "Costo Total Envios"
+              },
+              "Name": "Tablas de Medidas.Costo Total Envios",
+              "NativeReferenceName": "Costo Total Envios"
+            }
+          ],
+          "Where": [
+            {
+              "Condition": {
+                "In": {
+                  "Expressions": [
+                    {
+                      "Column": {
+                        "Expression": {
+                          "SourceRef": {
+                            "Source": "d"
+                          }
+                        },
+                        "Property": "CountryRegionCode"
+                      }
+                    }
+                  ],
+                  "Values": [
+                    [
+                      {
+                        "Literal": {
+                          "Value": "'US'"
+                        }
+                      }
+                    ]
+                  ]
+                }
+              }
+            }
+          ],
+          "OrderBy": [
+            {
+              "Direction": 1,
+              "Expression": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Source": "d2"
+                    }
+                  },
+                  "Property": "StateProvinceName"
+                }
+              }
+            }
+          ]
+        },
+        "Binding": {
+          "Primary": {
+            "Groupings": [
+              {
+                "Projections": [
+                  0
+                ]
+              }
+            ]
+          },
+          "Secondary": {
+            "Groupings": [
+              {
+                "Projections": [
+                  1,
+                  2,
+                  3,
+                  4,
+                  5,
+                  6,
+                  7
+                ]
+              }
+            ]
+          },
+          "DataReduction": {
+            "DataVolume": 3,
+            "Primary": {
+              "Window": {
+                "Count": 100
+              }
+            },
+            "Secondary": {
+              "Top": {
+                "Count": 100
+              }
+            }
+          },
+          "Version": 1
+        },
+        "ExecutionMetricsKind": 1
+      }
+    }
+  ]
+}

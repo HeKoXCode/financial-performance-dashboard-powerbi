@@ -1,0 +1,34 @@
+expression DimProductCategory =
+		let
+		    Origen = Sql.Databases("localhost\SQLEXPRESS"),
+		    AdventureWorksDW2019 = Origen{[Name="AdventureWorksDW2019"]}[Data],
+		    dbo_DimProductCategory = AdventureWorksDW2019{[Schema="dbo",Item="DimProductCategory"]}[Data],
+		    #"Columnas quitadas" = Table.RemoveColumns(dbo_DimProductCategory,{"FrenchProductCategoryName"})
+		in
+		    #"Columnas quitadas"
+	queryGroup: Consultas
+
+	annotation PBI_NavigationStepName = Navegación
+
+	annotation PBI_ResultType = Table
+
+expression DimProductSubcategory =
+		let
+		    Origen = Sql.Databases("localhost\SQLEXPRESS"),
+		    AdventureWorksDW2019 = Origen{[Name="AdventureWorksDW2019"]}[Data],
+		    dbo_DimProductSubcategory = AdventureWorksDW2019{[Schema="dbo",Item="DimProductSubcategory"]}[Data],
+		    #"Columnas quitadas" = Table.RemoveColumns(dbo_DimProductSubcategory,{"FrenchProductSubcategoryName"})
+		in
+		    #"Columnas quitadas"
+	queryGroup: Consultas
+
+	annotation PBI_NavigationStepName = Navegación
+
+	annotation PBI_ResultType = Table
+
+/// 2025
+expression Año = 2025 meta [IsParameterQuery=true, Type="Any", IsParameterQueryRequired=true]
+
+	annotation PBI_NavigationStepName = Navegación
+
+	annotation PBI_ResultType = Number

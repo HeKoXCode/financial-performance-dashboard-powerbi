@@ -1,0 +1,42 @@
+table GC_Variaciones_Tiempo
+
+	calculationGroup
+
+		calculationItem Actual = SELECTEDMEASURE()
+
+		calculationItem 'Periodo Anterior' =
+
+				CALCULATE(SELECTEDMEASURE(), SAMEPERIODLASTYEAR(DimDate[Date]))
+
+		calculationItem Variacion = SELECTEDMEASURE() - CALCULATE(SELECTEDMEASURE(), GC_Variaciones_Tiempo[Variaciones] = "Periodo Anterior")
+
+		calculationItem 'Variacion %' = ```
+				COALESCE(
+				    DIVIDE(
+				        CALCULATE(
+				            SELECTEDMEASURE(), GC_Variaciones_Tiempo[Variaciones] = "Variacion"),
+				        CALCULATE(
+				            SELECTEDMEASURE(),
+				            GC_Variaciones_Tiempo[Variaciones] = "Periodo Anterior"
+				        )
+				        ), 0)
+
+				```
+
+			formatStringDefinition = "#, ##0.00%"
+
+	column Variaciones
+		dataType: string
+		summarizeBy: none
+		sourceColumn: Name
+		sortByColumn: Ordinal
+
+		annotation SummarizationSetBy = Automatic
+
+	column Ordinal
+		dataType: int64
+		formatString: 0
+		summarizeBy: sum
+		sourceColumn: Ordinal
+
+		annotation SummarizationSetBy = Automatic

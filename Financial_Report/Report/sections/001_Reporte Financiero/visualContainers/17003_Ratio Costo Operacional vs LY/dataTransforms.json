@@ -1,0 +1,118 @@
+{
+  "objects": {
+    "dataPoint": [
+      {
+        "properties": {
+          "target": {
+            "solid": {
+              "color": {
+                "expr": {
+                  "ThemeDataColor": {
+                    "ColorId": 9,
+                    "Percent": -0.5
+                  }
+                }
+              }
+            }
+          },
+          "fill": {
+            "solid": {
+              "color": {
+                "expr": {
+                  "ThemeDataColor": {
+                    "ColorId": 4,
+                    "Percent": 0
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    ]
+  },
+  "projectionOrdering": {
+    "Y": [
+      0
+    ],
+    "TargetValue": [
+      1
+    ]
+  },
+  "queryMetadata": {
+    "Select": [
+      {
+        "Restatement": "Ratio Costo Operacional %",
+        "Name": "Tablas de Medidas.Ratio Costo Operacional %",
+        "Type": 1,
+        "Format": "0.0 %;-0.0 %;0.0 %"
+      },
+      {
+        "Restatement": "Ratio Costo Operacional % LY",
+        "Name": "Tablas de Medidas.Ratio Costo Operacional % LY",
+        "Type": 1
+      }
+    ]
+  },
+  "visualElements": [
+    {
+      "DataRoles": [
+        {
+          "Name": "Y",
+          "Projection": 0,
+          "isActive": false
+        },
+        {
+          "Name": "TargetValue",
+          "Projection": 1,
+          "isActive": false
+        }
+      ]
+    }
+  ],
+  "selects": [
+    {
+      "displayName": "Ratio Costo Operacional %",
+      "format": "0.0 %;-0.0 %;0.0 %",
+      "queryName": "Tablas de Medidas.Ratio Costo Operacional %",
+      "roles": {
+        "Y": true
+      },
+      "type": {
+        "category": null,
+        "underlyingType": 259
+      },
+      "expr": {
+        "Measure": {
+          "Expression": {
+            "SourceRef": {
+              "Entity": "Tablas de Medidas"
+            }
+          },
+          "Property": "Ratio Costo Operacional %"
+        }
+      }
+    },
+    {
+      "displayName": "Ratio Costo Operacional % LY",
+      "queryName": "Tablas de Medidas.Ratio Costo Operacional % LY",
+      "roles": {
+        "TargetValue": true
+      },
+      "type": {
+        "category": null,
+        "underlyingType": 259
+      },
+      "expr": {
+        "Measure": {
+          "Expression": {
+            "SourceRef": {
+              "Entity": "Tablas de Medidas"
+            }
+          },
+          "Property": "Ratio Costo Operacional % LY"
+        }
+      }
+    }
+  ]
+}

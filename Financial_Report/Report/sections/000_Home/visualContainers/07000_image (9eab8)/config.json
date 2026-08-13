@@ -1,0 +1,39 @@
+{
+  "name": "9eab8919db02210629ac",
+  "layouts": [
+    {
+      "id": 0,
+      "position": {
+        "x": -10000,
+        "y": -10000,
+        "z": 7000,
+        "width": 1,
+        "height": 1,
+        "tabOrder": 7000
+      }
+    }
+  ],
+  "singleVisual": {
+    "visualType": "image",
+    "drillFilterOtherVisuals": true,
+    "objects": {
+      "general": [
+        {
+          "properties": {
+            "imageUrl": {
+              "expr": {
+                "ResourcePackageItem": {
+                  "PackageName": "RegisteredResources",
+                  "PackageType": 1,
+                  "ItemName": "Alpinist9642834747873729.png"
+                }
+              }
+            }
+          }
+        }
+      ]
+    },
+    "isHidden": true
+  },
+  "howCreated": "InsertVisualButton"
+}

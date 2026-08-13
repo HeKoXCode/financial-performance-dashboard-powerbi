@@ -1,0 +1,85 @@
+{
+  "name": "d3b5b7d09f6183853ed4",
+  "layouts": [
+    {
+      "id": 0,
+      "position": {
+        "x": 44,
+        "y": 625,
+        "z": 131,
+        "width": 1192,
+        "height": 54,
+        "tabOrder": 131
+      }
+    }
+  ],
+  "singleVisual": {
+    "visualType": "textbox",
+    "drillFilterOtherVisuals": true,
+    "objects": {
+      "general": [
+        {
+          "properties": {
+            "paragraphs": [
+              {
+                "textRuns": [
+                  {
+                    "value": "LECTURA RESPONSABLE",
+                    "textStyle": {
+                      "fontFamily": "Segoe UI",
+                      "fontSize": "10pt",
+                      "color": "#D97706",
+                      "fontWeight": "bold"
+                    }
+                  }
+                ],
+                "horizontalTextAlignment": "left"
+              },
+              {
+                "textRuns": [
+                  {
+                    "value": "2010 y 2014 son períodos parciales; el snapshot sólo cubre hasta el 28 de enero de 2014. No interpretar 2014 como caída anual.",
+                    "textStyle": {
+                      "fontFamily": "Segoe UI",
+                      "fontSize": "10pt",
+                      "color": "#1F2937"
+                    }
+                  }
+                ],
+                "horizontalTextAlignment": "left"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    "vcObjects": {
+      "background": [
+        {
+          "properties": {
+            "transparency": {
+              "expr": {
+                "Literal": {
+                  "Value": "100D"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "general": [
+        {
+          "properties": {
+            "altText": {
+              "expr": {
+                "Literal": {
+                  "Value": "'Advertencia de períodos parciales 2010 y 2014.'"
+                }
+              }
+            }
+          }
+        }
+      ]
+    }
+  }
+}

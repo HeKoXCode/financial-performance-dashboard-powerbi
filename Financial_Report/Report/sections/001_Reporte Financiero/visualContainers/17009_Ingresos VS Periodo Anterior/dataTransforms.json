@@ -1,0 +1,65 @@
+{
+  "objects": {
+    "categoryLabels": [
+      {
+        "properties": {
+          "underline": {
+            "expr": {
+              "Literal": {
+                "Value": "true"
+              }
+            }
+          }
+        }
+      }
+    ]
+  },
+  "projectionOrdering": {
+    "Values": [
+      0
+    ]
+  },
+  "queryMetadata": {
+    "Select": [
+      {
+        "Restatement": "Costo Total + Envíos",
+        "Name": "Tablas de Medidas.Costo Total + Envíos",
+        "Type": 1
+      }
+    ]
+  },
+  "visualElements": [
+    {
+      "DataRoles": [
+        {
+          "Name": "Values",
+          "Projection": 0,
+          "isActive": false
+        }
+      ]
+    }
+  ],
+  "selects": [
+    {
+      "displayName": "Costo Total + Envíos",
+      "queryName": "Tablas de Medidas.Costo Total + Envíos",
+      "roles": {
+        "Values": true
+      },
+      "type": {
+        "category": null,
+        "underlyingType": 258
+      },
+      "expr": {
+        "Measure": {
+          "Expression": {
+            "SourceRef": {
+              "Entity": "Tablas de Medidas"
+            }
+          },
+          "Property": "Costo Total + Envíos"
+        }
+      }
+    }
+  ]
+}

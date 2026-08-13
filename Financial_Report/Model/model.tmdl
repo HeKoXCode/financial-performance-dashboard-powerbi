@@ -1,0 +1,44 @@
+model Model
+	culture: es-ES
+	defaultPowerBIDataSourceVersion: powerBI_V3
+	discourageImplicitMeasures
+	sourceQueryCulture: es-AR
+	dataAccessOptions
+		fastCombine
+		legacyRedirects
+		returnErrorValuesAsNull
+
+queryGroup Consultas
+
+	annotation PBI_QueryGroupOrder = 0
+
+annotation PBI_QueryOrder = ["DimProduct","DimProductCategory","DimProductSubcategory","DimSalesTerritory","FactInternetSales","DimGeography","DimPromotion","DimCustomer","DimDate","Año"]
+
+annotation __PBI_TimeIntelligenceEnabled = 1
+
+annotation PBI_RemovedChildren = [{"remoteItemId":{"foreignKeyRelationship":{"fromTableLocalLineageTag":"5450b107-43c6-4a55-b1b1-155cd51f9afa","fromColumnLocalLineageTag":"b74ebcb4-899f-49fb-b5f7-5e1fc586da0a","toTableLocalLineageTag":"cdbf7869-7c69-488e-9002-d73e628952b0","toColumnLocalLineageTag":"fbf7ed46-fac8-477d-9ed1-0aa85aa76c57"}},"objectType":"Relationship"},{"remoteItemId":{"foreignKeyRelationship":{"fromTableLocalLineageTag":"5450b107-43c6-4a55-b1b1-155cd51f9afa","fromColumnLocalLineageTag":"8a29f466-71bb-413b-a38b-626ebf205c71","toTableLocalLineageTag":"cdbf7869-7c69-488e-9002-d73e628952b0","toColumnLocalLineageTag":"fbf7ed46-fac8-477d-9ed1-0aa85aa76c57"}},"objectType":"Relationship"}]
+
+annotation PBI_ProTooling = ["CalcGroup"]
+
+ref table DimDate
+ref table DateTableTemplate_42cbf086-3a2b-410c-a444-50b09c2b547c
+ref table DimProduct
+ref table LocalDateTable_c6e028bd-0d15-403b-a7e8-9bbbeb703fe5
+ref table LocalDateTable_e42bcb38-b04c-462c-bc7d-37ab43800ca7
+ref table DimSalesTerritory
+ref table FactInternetSales
+ref table LocalDateTable_9818ab1c-23b6-4046-a46e-cf6ff56600a5
+ref table LocalDateTable_3e4d2ad3-b7fc-4abc-804b-71d26f9b9ee3
+ref table LocalDateTable_67f450e3-06bb-45e4-9ece-d48f599e4699
+ref table DimGeography
+ref table DimPromotion
+ref table LocalDateTable_f44168f4-c672-4529-9dbe-f903bfdd2a84
+ref table LocalDateTable_0b84b9ce-0744-4199-8d85-1e3a38c20eb3
+ref table DimCustomer
+ref table LocalDateTable_d08932da-65e2-4f72-beb5-14779d086eb7
+ref table LocalDateTable_3345b6b0-06db-4f43-8bcf-6784ac0581e2
+ref table 'Tablas de Medidas'
+ref table BaseKPI
+ref table GC_Variaciones_Tiempo
+
+ref cultureInfo es-ES

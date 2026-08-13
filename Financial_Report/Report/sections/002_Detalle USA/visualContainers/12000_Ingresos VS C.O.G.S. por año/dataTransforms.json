@@ -1,0 +1,221 @@
+{
+  "objects": {
+    "valueAxis": [
+      {
+        "properties": {
+          "gridlineStyle": {
+            "expr": {
+              "Literal": {
+                "Value": "'dotted'"
+              }
+            }
+          },
+          "gridlineThickness": {
+            "expr": {
+              "Literal": {
+                "Value": "3D"
+              }
+            }
+          }
+        }
+      }
+    ],
+    "lineStyles": [
+      {
+        "properties": {
+          "strokeLineJoin": {
+            "expr": {
+              "Literal": {
+                "Value": "'round'"
+              }
+            }
+          },
+          "strokeWidth": {
+            "expr": {
+              "Literal": {
+                "Value": "3D"
+              }
+            }
+          },
+          "lineChartType": {
+            "expr": {
+              "Literal": {
+                "Value": "'smooth'"
+              }
+            }
+          }
+        }
+      }
+    ],
+    "labels": [
+      {
+        "properties": {
+          "show": {
+            "expr": {
+              "Literal": {
+                "Value": "true"
+              }
+            }
+          }
+        }
+      }
+    ],
+    "plotArea": [
+      {
+        "properties": {
+          "transparency": {
+            "expr": {
+              "Literal": {
+                "Value": "86D"
+              }
+            }
+          }
+        }
+      }
+    ],
+    "categoryAxis": [
+      {
+        "properties": {
+          "showAxisTitle": {
+            "expr": {
+              "Literal": {
+                "Value": "true"
+              }
+            }
+          },
+          "titleText": {
+            "expr": {
+              "Literal": {
+                "Value": "'Año'"
+              }
+            }
+          }
+        }
+      }
+    ]
+  },
+  "projectionOrdering": {
+    "Y": [
+      0,
+      1
+    ],
+    "Category": [
+      2
+    ]
+  },
+  "projectionActiveItems": {
+    "Category": [
+      {
+        "queryRef": "DimDate.CalendarYear",
+        "suppressConcat": false
+      }
+    ]
+  },
+  "queryMetadata": {
+    "Select": [
+      {
+        "Restatement": "Ingresos",
+        "Name": "Tablas de Medidas.Ingresos",
+        "Type": 1
+      },
+      {
+        "Restatement": "COGS",
+        "Name": "Tablas de Medidas.COGS",
+        "Type": 1
+      },
+      {
+        "Restatement": "CalendarYear",
+        "Name": "DimDate.CalendarYear",
+        "Type": 3,
+        "Format": "0"
+      }
+    ]
+  },
+  "visualElements": [
+    {
+      "DataRoles": [
+        {
+          "Name": "Y",
+          "Projection": 0,
+          "isActive": false
+        },
+        {
+          "Name": "Y",
+          "Projection": 1,
+          "isActive": false
+        },
+        {
+          "Name": "Category",
+          "Projection": 2,
+          "isActive": true
+        }
+      ]
+    }
+  ],
+  "selects": [
+    {
+      "displayName": "Ingresos",
+      "queryName": "Tablas de Medidas.Ingresos",
+      "roles": {
+        "Y": true
+      },
+      "type": {
+        "category": null,
+        "underlyingType": 258
+      },
+      "expr": {
+        "Measure": {
+          "Expression": {
+            "SourceRef": {
+              "Entity": "Tablas de Medidas"
+            }
+          },
+          "Property": "Ingresos"
+        }
+      }
+    },
+    {
+      "displayName": "COGS",
+      "queryName": "Tablas de Medidas.COGS",
+      "roles": {
+        "Y": true
+      },
+      "type": {
+        "category": null,
+        "underlyingType": 258
+      },
+      "expr": {
+        "Measure": {
+          "Expression": {
+            "SourceRef": {
+              "Entity": "Tablas de Medidas"
+            }
+          },
+          "Property": "COGS"
+        }
+      }
+    },
+    {
+      "displayName": "CalendarYear",
+      "format": "0",
+      "queryName": "DimDate.CalendarYear",
+      "roles": {
+        "Category": true
+      },
+      "type": {
+        "category": null,
+        "underlyingType": 260
+      },
+      "expr": {
+        "Column": {
+          "Expression": {
+            "SourceRef": {
+              "Entity": "DimDate"
+            }
+          },
+          "Property": "CalendarYear"
+        }
+      }
+    }
+  ]
+}

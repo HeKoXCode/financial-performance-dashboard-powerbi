@@ -1,0 +1,160 @@
+{
+  "name": "0db88263aafac359edbe",
+  "layouts": [
+    {
+      "id": 0,
+      "position": {
+        "x": 656,
+        "y": 393,
+        "z": 100,
+        "width": 580,
+        "height": 290,
+        "tabOrder": 100
+      }
+    }
+  ],
+  "singleVisual": {
+    "visualType": "textbox",
+    "drillFilterOtherVisuals": true,
+    "objects": {
+      "general": [
+        {
+          "properties": {
+            "paragraphs": [
+              {
+                "textRuns": [
+                  {
+                    "value": "Reproducibilidad y control de calidad",
+                    "textStyle": {
+                      "fontFamily": "Segoe UI",
+                      "fontSize": "13pt",
+                      "color": "#2F75B5",
+                      "fontWeight": "bold"
+                    }
+                  }
+                ],
+                "horizontalTextAlignment": "left"
+              },
+              {
+                "textRuns": [
+                  {
+                    "value": "Modelo: ",
+                    "textStyle": {
+                      "fontFamily": "Segoe UI",
+                      "fontSize": "9pt",
+                      "color": "#1F2937",
+                      "fontWeight": "bold"
+                    }
+                  },
+                  {
+                    "value": "35 medidas DAX y ruta de fechas por OrderDateKey.",
+                    "textStyle": {
+                      "fontFamily": "Segoe UI",
+                      "fontSize": "9pt",
+                      "color": "#5B6573"
+                    }
+                  }
+                ],
+                "horizontalTextAlignment": "left"
+              },
+              {
+                "textRuns": [
+                  {
+                    "value": "Validación: ",
+                    "textStyle": {
+                      "fontFamily": "Segoe UI",
+                      "fontSize": "9pt",
+                      "color": "#1F2937",
+                      "fontWeight": "bold"
+                    }
+                  },
+                  {
+                    "value": "68 contextos en total, año, país, estado y categoría; residuales = 0.",
+                    "textStyle": {
+                      "fontFamily": "Segoe UI",
+                      "fontSize": "9pt",
+                      "color": "#5B6573"
+                    }
+                  }
+                ],
+                "horizontalTextAlignment": "left"
+              },
+              {
+                "textRuns": [
+                  {
+                    "value": "Artefactos: ",
+                    "textStyle": {
+                      "fontFamily": "Segoe UI",
+                      "fontSize": "9pt",
+                      "color": "#1F2937",
+                      "fontWeight": "bold"
+                    }
+                  },
+                  {
+                    "value": "fuente TMDL/JSON, PBIT sin datos, PBIX con snapshot y evidencia visual.",
+                    "textStyle": {
+                      "fontFamily": "Segoe UI",
+                      "fontSize": "9pt",
+                      "color": "#5B6573"
+                    }
+                  }
+                ],
+                "horizontalTextAlignment": "left"
+              },
+              {
+                "textRuns": [
+                  {
+                    "value": "Limitación: ",
+                    "textStyle": {
+                      "fontFamily": "Segoe UI",
+                      "fontSize": "9pt",
+                      "color": "#1F2937",
+                      "fontWeight": "bold"
+                    }
+                  },
+                  {
+                    "value": "el PBIX prueba el resultado embebido; el refresh requiere AdventureWorksDW2019.",
+                    "textStyle": {
+                      "fontFamily": "Segoe UI",
+                      "fontSize": "9pt",
+                      "color": "#5B6573"
+                    }
+                  }
+                ],
+                "horizontalTextAlignment": "left"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    "vcObjects": {
+      "background": [
+        {
+          "properties": {
+            "transparency": {
+              "expr": {
+                "Literal": {
+                  "Value": "100D"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "general": [
+        {
+          "properties": {
+            "altText": {
+              "expr": {
+                "Literal": {
+                  "Value": "'Reproducibilidad y control de calidad. Modelo: 35 medidas DAX y ruta de fechas por OrderDateKey. Validación: 68 contextos en total, año, país, estado y categoría; residuales = 0. Artefactos: fuente TMDL/JSON, PBIT sin datos, PBIX con snapshot y evidencia visual. Limitación: el PBIX prueba el resultado embebido; el refresh requiere AdventureWorksDW2019.'"
+                }
+              }
+            }
+          }
+        }
+      ]
+    }
+  }
+}

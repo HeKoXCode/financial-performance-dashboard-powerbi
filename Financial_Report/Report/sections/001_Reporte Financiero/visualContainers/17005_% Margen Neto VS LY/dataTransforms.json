@@ -1,0 +1,130 @@
+{
+  "objects": {
+    "dataPoint": [
+      {
+        "properties": {
+          "target": {
+            "solid": {
+              "color": {
+                "expr": {
+                  "ThemeDataColor": {
+                    "ColorId": 9,
+                    "Percent": -0.5
+                  }
+                }
+              }
+            }
+          },
+          "fill": {
+            "solid": {
+              "color": {
+                "expr": {
+                  "Literal": {
+                    "Value": "'#1F4E78'"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    ]
+  },
+  "projectionOrdering": {
+    "TargetValue": [
+      0
+    ],
+    "Y": [
+      1
+    ]
+  },
+  "queryMetadata": {
+    "Select": [
+      {
+        "Restatement": "Margen Neto % LY",
+        "Name": "Tablas de Medidas.Margen Neto % LY",
+        "Type": 1
+      },
+      {
+        "Restatement": "% Margen Neto",
+        "Name": "Tablas de Medidas.% Margen Neto",
+        "Type": 1
+      }
+    ],
+    "Filters": [
+      {
+        "type": 2,
+        "expression": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "Tablas de Medidas"
+              }
+            },
+            "Property": "Margen Neto % LY"
+          }
+        }
+      }
+    ]
+  },
+  "visualElements": [
+    {
+      "DataRoles": [
+        {
+          "Name": "TargetValue",
+          "Projection": 0,
+          "isActive": false
+        },
+        {
+          "Name": "Y",
+          "Projection": 1,
+          "isActive": false
+        }
+      ]
+    }
+  ],
+  "selects": [
+    {
+      "displayName": "Margen Neto % LY",
+      "queryName": "Tablas de Medidas.Margen Neto % LY",
+      "roles": {
+        "TargetValue": true
+      },
+      "type": {
+        "category": null,
+        "underlyingType": 259
+      },
+      "expr": {
+        "Measure": {
+          "Expression": {
+            "SourceRef": {
+              "Entity": "Tablas de Medidas"
+            }
+          },
+          "Property": "Margen Neto % LY"
+        }
+      }
+    },
+    {
+      "displayName": "% Margen Neto",
+      "queryName": "Tablas de Medidas.% Margen Neto",
+      "roles": {
+        "Y": true
+      },
+      "type": {
+        "category": null,
+        "underlyingType": 259
+      },
+      "expr": {
+        "Measure": {
+          "Expression": {
+            "SourceRef": {
+              "Entity": "Tablas de Medidas"
+            }
+          },
+          "Property": "% Margen Neto"
+        }
+      }
+    }
+  ]
+}

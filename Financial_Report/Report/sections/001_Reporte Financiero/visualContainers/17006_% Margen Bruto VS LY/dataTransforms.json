@@ -1,0 +1,145 @@
+{
+  "objects": {
+    "dataPoint": [
+      {
+        "properties": {
+          "target": {
+            "solid": {
+              "color": {
+                "expr": {
+                  "ThemeDataColor": {
+                    "ColorId": 9,
+                    "Percent": -0.5
+                  }
+                }
+              }
+            }
+          },
+          "fill": {
+            "solid": {
+              "color": {
+                "expr": {
+                  "Literal": {
+                    "Value": "'#1F4E78'"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    ]
+  },
+  "projectionOrdering": {
+    "Y": [
+      0
+    ],
+    "TargetValue": [
+      1
+    ]
+  },
+  "queryMetadata": {
+    "Select": [
+      {
+        "Restatement": "% Margen Bruto",
+        "Name": "Tablas de Medidas.% Margen Bruto",
+        "Type": 1,
+        "Format": "0 %;-0 %;0 %"
+      },
+      {
+        "Restatement": "Margen Bruto % LY",
+        "Name": "Tablas de Medidas.Margen Bruto % LY",
+        "Type": 1
+      }
+    ],
+    "Filters": [
+      {
+        "type": 2,
+        "expression": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "Tablas de Medidas"
+              }
+            },
+            "Property": "% Margen Bruto"
+          }
+        }
+      },
+      {
+        "type": 2,
+        "expression": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "Tablas de Medidas"
+              }
+            },
+            "Property": "Margen Bruto % LY"
+          }
+        }
+      }
+    ]
+  },
+  "visualElements": [
+    {
+      "DataRoles": [
+        {
+          "Name": "Y",
+          "Projection": 0,
+          "isActive": false
+        },
+        {
+          "Name": "TargetValue",
+          "Projection": 1,
+          "isActive": false
+        }
+      ]
+    }
+  ],
+  "selects": [
+    {
+      "displayName": "% Margen Bruto",
+      "format": "0 %;-0 %;0 %",
+      "queryName": "Tablas de Medidas.% Margen Bruto",
+      "roles": {
+        "Y": true
+      },
+      "type": {
+        "category": null,
+        "underlyingType": 259
+      },
+      "expr": {
+        "Measure": {
+          "Expression": {
+            "SourceRef": {
+              "Entity": "Tablas de Medidas"
+            }
+          },
+          "Property": "% Margen Bruto"
+        }
+      }
+    },
+    {
+      "displayName": "Margen Bruto % LY",
+      "queryName": "Tablas de Medidas.Margen Bruto % LY",
+      "roles": {
+        "TargetValue": true
+      },
+      "type": {
+        "category": null,
+        "underlyingType": 259
+      },
+      "expr": {
+        "Measure": {
+          "Expression": {
+            "SourceRef": {
+              "Entity": "Tablas de Medidas"
+            }
+          },
+          "Property": "Margen Bruto % LY"
+        }
+      }
+    }
+  ]
+}

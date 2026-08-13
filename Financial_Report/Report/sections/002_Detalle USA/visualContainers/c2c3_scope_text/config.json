@@ -1,0 +1,72 @@
+{
+  "name": "05ebcd3c7f5d30406247",
+  "layouts": [
+    {
+      "id": 0,
+      "position": {
+        "x": 34,
+        "y": 108,
+        "z": 100,
+        "width": 210,
+        "height": 34,
+        "tabOrder": 100
+      }
+    }
+  ],
+  "singleVisual": {
+    "visualType": "textbox",
+    "drillFilterOtherVisuals": true,
+    "objects": {
+      "general": [
+        {
+          "properties": {
+            "paragraphs": [
+              {
+                "textRuns": [
+                  {
+                    "value": "ALCANCE FIJO  ·  USA",
+                    "textStyle": {
+                      "fontFamily": "Segoe UI",
+                      "fontSize": "10pt",
+                      "color": "#2F75B5",
+                      "fontWeight": "bold"
+                    }
+                  }
+                ],
+                "horizontalTextAlignment": "center"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    "vcObjects": {
+      "background": [
+        {
+          "properties": {
+            "transparency": {
+              "expr": {
+                "Literal": {
+                  "Value": "100D"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "general": [
+        {
+          "properties": {
+            "altText": {
+              "expr": {
+                "Literal": {
+                  "Value": "'El análisis geográfico está filtrado de forma fija a Estados Unidos.'"
+                }
+              }
+            }
+          }
+        }
+      ]
+    }
+  }
+}

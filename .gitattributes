@@ -1,2 +1,23 @@
 # Auto detect text files and perform LF normalization
 * text=auto
+.gitattributes text eol=lf
+.gitignore text eol=lf
+
+# Power BI and release evidence are opaque binary packages.
+*.pbix binary
+*.pbit binary
+*.png binary
+*.jpg binary
+*.jpeg binary
+*.pdf binary
+*.gz binary
+
+# Reviewable source and evidence keep stable cross-platform line endings.
+*.csv text eol=lf
+*.json text eol=lf
+*.md text eol=lf
+*.py text eol=lf
+*.ps1 text eol=lf
+*.sql text eol=lf
+*.tmdl text eol=lf
+*.yml text eol=lf

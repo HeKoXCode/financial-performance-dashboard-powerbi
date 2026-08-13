@@ -1,0 +1,257 @@
+table DimProduct
+
+	column ProductKey
+		dataType: int64
+		formatString: 0
+		summarizeBy: none
+		sourceColumn: ProductKey
+
+		annotation SummarizationSetBy = Automatic
+
+	column ProductAlternateKey
+		dataType: string
+		summarizeBy: none
+		sourceColumn: ProductAlternateKey
+
+		annotation SummarizationSetBy = Automatic
+
+	column ProductSubcategoryKey
+		dataType: int64
+		formatString: 0
+		summarizeBy: count
+		sourceColumn: ProductSubcategoryKey
+
+		annotation SummarizationSetBy = Automatic
+
+	column WeightUnitMeasureCode
+		dataType: string
+		summarizeBy: none
+		sourceColumn: WeightUnitMeasureCode
+
+		annotation SummarizationSetBy = Automatic
+
+	column SizeUnitMeasureCode
+		dataType: string
+		summarizeBy: none
+		sourceColumn: SizeUnitMeasureCode
+
+		annotation SummarizationSetBy = Automatic
+
+	column EnglishProductName
+		dataType: string
+		summarizeBy: none
+		sourceColumn: EnglishProductName
+
+		annotation SummarizationSetBy = Automatic
+
+	column SpanishProductName
+		dataType: string
+		summarizeBy: none
+		sourceColumn: SpanishProductName
+
+		annotation SummarizationSetBy = Automatic
+
+	column StandardCost
+		dataType: decimal
+		formatString: \$\ #,0.###############;-\$\ #,0.###############;\$\ #,0.###############
+		summarizeBy: sum
+		sourceColumn: StandardCost
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"currencyCulture":"es-AR"}
+
+	column FinishedGoodsFlag
+		dataType: boolean
+		formatString: """TRUE"";""TRUE"";""FALSE"""
+		summarizeBy: none
+		sourceColumn: FinishedGoodsFlag
+
+		annotation SummarizationSetBy = Automatic
+
+	column Color
+		dataType: string
+		summarizeBy: none
+		sourceColumn: Color
+
+		annotation SummarizationSetBy = Automatic
+
+	column SafetyStockLevel
+		dataType: int64
+		formatString: 0
+		summarizeBy: sum
+		sourceColumn: SafetyStockLevel
+
+		annotation SummarizationSetBy = Automatic
+
+	column ReorderPoint
+		dataType: int64
+		formatString: 0
+		summarizeBy: sum
+		sourceColumn: ReorderPoint
+
+		annotation SummarizationSetBy = Automatic
+
+	column ListPrice
+		dataType: decimal
+		formatString: \$\ #,0.###############;-\$\ #,0.###############;\$\ #,0.###############
+		summarizeBy: sum
+		sourceColumn: ListPrice
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"currencyCulture":"es-AR"}
+
+	column Size
+		dataType: string
+		summarizeBy: none
+		sourceColumn: Size
+
+		annotation SummarizationSetBy = Automatic
+
+	column SizeRange
+		dataType: string
+		summarizeBy: none
+		sourceColumn: SizeRange
+
+		annotation SummarizationSetBy = Automatic
+
+	column Weight
+		dataType: double
+		summarizeBy: sum
+		sourceColumn: Weight
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column DaysToManufacture
+		dataType: int64
+		formatString: 0
+		summarizeBy: sum
+		sourceColumn: DaysToManufacture
+
+		annotation SummarizationSetBy = Automatic
+
+	column ProductLine
+		dataType: string
+		summarizeBy: none
+		sourceColumn: ProductLine
+
+		annotation SummarizationSetBy = Automatic
+
+	column DealerPrice
+		dataType: decimal
+		formatString: \$\ #,0.###############;-\$\ #,0.###############;\$\ #,0.###############
+		summarizeBy: sum
+		sourceColumn: DealerPrice
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"currencyCulture":"es-AR"}
+
+	column Class
+		dataType: string
+		summarizeBy: none
+		sourceColumn: Class
+
+		annotation SummarizationSetBy = Automatic
+
+	column Style
+		dataType: string
+		summarizeBy: none
+		sourceColumn: Style
+
+		annotation SummarizationSetBy = Automatic
+
+	column ModelName
+		dataType: string
+		summarizeBy: none
+		sourceColumn: ModelName
+
+		annotation SummarizationSetBy = Automatic
+
+	column EnglishDescription
+		dataType: string
+		summarizeBy: none
+		sourceColumn: EnglishDescription
+
+		annotation SummarizationSetBy = Automatic
+
+	column StartDate
+		dataType: dateTime
+		formatString: General Date
+		summarizeBy: none
+		sourceColumn: StartDate
+
+		variation Variación
+			isDefault
+			relationship: efa70fea-9923-4284-879e-6e1ece1413a3
+			defaultHierarchy: LocalDateTable_c6e028bd-0d15-403b-a7e8-9bbbeb703fe5.'Jerarquía de fechas'
+
+		annotation SummarizationSetBy = Automatic
+
+	column EndDate
+		dataType: dateTime
+		formatString: General Date
+		summarizeBy: none
+		sourceColumn: EndDate
+
+		variation Variación
+			isDefault
+			relationship: 8b5560b5-638c-4089-8a56-c6f9b98f3219
+			defaultHierarchy: LocalDateTable_e42bcb38-b04c-462c-bc7d-37ab43800ca7.'Jerarquía de fechas'
+
+		annotation SummarizationSetBy = Automatic
+
+	column Status
+		dataType: string
+		summarizeBy: none
+		sourceColumn: Status
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Subcategory Name'
+		dataType: string
+		summarizeBy: none
+		sourceColumn: Subcategory Name
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Category Name'
+		dataType: string
+		summarizeBy: none
+		sourceColumn: Category Name
+
+		annotation SummarizationSetBy = Automatic
+
+	column PhotoProduct
+		dataType: string
+		summarizeBy: none
+		sourceColumn: PhotoProduct
+
+		annotation SummarizationSetBy = Automatic
+
+	partition DimProduct = m
+		mode: import
+		queryGroup: Consultas
+		source =
+				let
+				    Origen = Sql.Databases("localhost\SQLEXPRESS"),
+				    AdventureWorksDW2019 = Origen{[Name="AdventureWorksDW2019"]}[Data],
+				    dbo_DimProduct = AdventureWorksDW2019{[Schema="dbo",Item="DimProduct"]}[Data],
+				    #"Columnas quitadas" = Table.RemoveColumns(dbo_DimProduct,{"FactInternetSales", "FactProductInventory", "FactResellerSales", "FrenchProductName", "FrenchDescription", "ChineseDescription", "ArabicDescription", "HebrewDescription", "ThaiDescription", "GermanDescription", "JapaneseDescription", "TurkishDescription"}),
+				    #"Se expandió DimProductSubcategory" = Table.ExpandRecordColumn(#"Columnas quitadas", "DimProductSubcategory", {"SpanishProductSubcategoryName", "DimProductCategory"}, {"DimProductSubcategory.SpanishProductSubcategoryName", "DimProductSubcategory.DimProductCategory"}),
+				    #"Columnas con nombre cambiado" = Table.RenameColumns(#"Se expandió DimProductSubcategory",{{"DimProductSubcategory.SpanishProductSubcategoryName", "Subcategory Name"}}),
+				    #"Se expandió DimProductSubcategory.DimProductCategory" = Table.ExpandRecordColumn(#"Columnas con nombre cambiado", "DimProductSubcategory.DimProductCategory", {"SpanishProductCategoryName"}, {"DimProductSubcategory.DimProductCategory.SpanishProductCategoryName"}),
+				    #"Columnas con nombre cambiado1" = Table.RenameColumns(#"Se expandió DimProductSubcategory.DimProductCategory",{{"DimProductSubcategory.DimProductCategory.SpanishProductCategoryName", "Category Name"}}),
+				    #"Valor reemplazado" = Table.ReplaceValue(#"Columnas con nombre cambiado1",null,"Otros",Replacer.ReplaceValue,{"Subcategory Name"}),
+				    #"Valor reemplazado1" = Table.ReplaceValue(#"Valor reemplazado",null,"Otros",Replacer.ReplaceValue,{"Category Name"}),
+				    #"Personalizada agregada" = Table.AddColumn(#"Valor reemplazado1", "FotoProducto", each "data:image/jpeg;base64," & Binary.ToText([LargePhoto], BinaryEncoding.Base64)),
+				    #"Columnas con nombre cambiado2" = Table.RenameColumns(#"Personalizada agregada",{{"FotoProducto", "PhotoProduct"}})
+				in
+				    #"Columnas con nombre cambiado2"
+
+	annotation PBI_ResultType = Table
+
+	annotation PBI_NavigationStepName = Navegación
