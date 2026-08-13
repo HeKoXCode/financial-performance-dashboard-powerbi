@@ -74,7 +74,7 @@ def build_manifest(release_date: str) -> dict:
         "release": {
             "stage": "FIN-C3",
             "date": release_date,
-            "status": "verified-local",
+            "status": "published",
         },
         "source": {
             "name": "Microsoft AdventureWorksDW2019",

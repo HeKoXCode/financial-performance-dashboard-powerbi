@@ -130,7 +130,7 @@
   "release": {
     "date": "2026-08-12",
     "stage": "FIN-C3",
-    "status": "verified-local"
+    "status": "published"
   },
   "schema_version": "1.1.0",
   "source": {
