@@ -4,9 +4,9 @@
 [![Dataset](https://img.shields.io/badge/Dataset-AdventureWorksDW2019-1F4E78)](https://learn.microsoft.com/en-us/sql/samples/adventureworks-install-configure)
 [![FIN C3](https://img.shields.io/badge/Portfolio%20audit-FIN--C3%20verified-2F75B5)](DOCS/c2_c3_verification.md)
 
-An executive Power BI case study that connects revenue, product cost, freight, tax, and profitability in one reconciled financial model. It combines a decision-first overview, margin and prior-year drivers, a strictly scoped USA drill-down, and definitions close to their DAX implementation.
+I built this executive Power BI case study so you can examine revenue, product cost, freight, tax, and profitability in one reconciled financial model. When you open it, you will find a decision-first overview, margin and prior-year drivers, a strictly scoped USA drill-down, and definitions close to their DAX implementation.
 
-> Portfolio stage: **FIN-S1 through FIN-C3 completed locally**. The analytical release and full dashboard redesign are validated and ready for publication.
+> Portfolio stage: **FIN-S1 through FIN-C3 completed and validated**. I included the analytical release, the full dashboard redesign, and the evidence you need to review both.
 
 ## Dashboard preview
 
@@ -28,13 +28,13 @@ An executive Power BI case study that connects revenue, product cost, freight, t
 
 ## Executive finding
 
-The strongest complete year in the snapshot is **2013**, with **$16.4M** in revenue: **55.7%** of the full sample and **+179.9%** versus 2012. Its gross margin is **41.4%** and net margin is **30.9%**.
+In my analysis, the strongest complete year in the snapshot is **2013**, with **$16.4M** in revenue: **55.7%** of the full sample and **+179.9%** versus 2012. Its gross margin is **41.4%** and net margin is **30.9%**.
 
-The recommended commercial focus is to protect the bicycle mix, which contributes **96.5%** of revenue, and prioritize the United States and Australia, which together contribute **62.8%**. The 2014 value must not be treated as a full-year decline: the source ends on **2014-01-28**.
+I recommend protecting the bicycle mix, which contributes **96.5%** of revenue, and prioritizing the United States and Australia, which together contribute **62.8%**. When you interpret 2014, do not treat it as a full-year decline: the source ends on **2014-01-28**.
 
 ## Analytical objective
 
-The report answers four connected questions:
+I designed the report so you can answer four connected questions:
 
 - Is revenue growth translating into stable gross and net profitability?
 - How much revenue is absorbed by product cost, freight, and tax?
@@ -43,15 +43,15 @@ The report answers four connected questions:
 
 ## FIN-C2/C3 dashboard redesign
 
-The current report is a complete redesign of the audited legacy layout, not a cosmetic recolor. It introduces **consistent four-page navigation**, a KPI-first executive page, a restrained chart inventory, a fixed USA scope cue, and a grouped methodology page.
+For FIN-C2/C3, I completely redesigned the audited legacy layout. When you navigate the report, you will find **consistent four-page navigation**, a KPI-first executive page, a restrained chart inventory, a fixed USA scope cue, and a grouped methodology page.
 
-- Four gauges were replaced by compact, directly comparable KPI cards.
-- Three country/state maps were reduced to one country map; state analysis stays on the USA page.
-- The executive page now combines headline KPIs, a shared-unit period trend, an evidence-backed finding, a recommended action, and the partial-period warning.
-- The USA matrix was enlarged for traceability; scatter labels were disabled to eliminate collisions while preserving native tooltips.
-- Every visible non-decorative visual has alternative text, and every page fits the 1280×720 canvas used for the verified 1920×1080 captures.
+- I replaced four gauges with compact, directly comparable KPI cards.
+- I reduced three country/state maps to one country map and kept state analysis on the USA page.
+- I rebuilt the executive page around headline KPIs, a shared-unit period trend, an evidence-backed finding, a recommended action, and the partial-period warning.
+- I enlarged the USA matrix for traceability and disabled scatter labels to eliminate collisions while preserving native tooltips.
+- I added alternative text to every visible non-decorative visual and fitted every page to the 1280×720 canvas used for the verified 1920×1080 captures.
 
-The design decisions, before/after audit, sizing contract, and validation scope are recorded in [DOCS/c2_c3_verification.md](DOCS/c2_c3_verification.md).
+You can review my design decisions, before/after audit, sizing contract, and validation scope in [DOCS/c2_c3_verification.md](DOCS/c2_c3_verification.md).
 
 ## KPI contract
 
@@ -65,7 +65,7 @@ The design decisions, before/after audit, sizing contract, and validation scope 
 | Operational cost ratio | (COGS + Freight) / Revenue | Product and fulfillment cost pressure; excludes tax |
 | LY | Same selected period one year earlier | Like-for-like time comparison through `SAMEPERIODLASTYEAR` |
 
-The active calendar relationship is `FactInternetSales[OrderDateKey] → DimDate[DateKey]`. All YTD and LY measures therefore follow the business event used by the documented period: order date. The complete 35-measure catalog is in [DOCS/dax_measure_catalog.md](DOCS/dax_measure_catalog.md).
+I use `FactInternetSales[OrderDateKey] → DimDate[DateKey]` as the active calendar relationship. As you filter the report, all YTD and LY measures follow the business event used by the documented period: order date. You can inspect the complete 35-measure catalog in [DOCS/dax_measure_catalog.md](DOCS/dax_measure_catalog.md).
 
 ## What each page answers
 
@@ -78,25 +78,25 @@ The active calendar relationship is `FactInternetSales[OrderDateKey] → DimDate
 
 ## Data source and scope
 
-- **Exact source:** Microsoft's official `AdventureWorksDW2019.bak` data warehouse sample, documented on [Microsoft Learn — AdventureWorks sample databases](https://learn.microsoft.com/en-us/sql/samples/adventureworks-install-configure) and in the [Microsoft SQL Server samples repository](https://github.com/microsoft/sql-server-samples/tree/master/samples/databases/adventure-works).
+- **Exact source:** I used Microsoft's official `AdventureWorksDW2019.bak` data warehouse sample, documented on [Microsoft Learn — AdventureWorks sample databases](https://learn.microsoft.com/en-us/sql/samples/adventureworks-install-configure) and in the [Microsoft SQL Server samples repository](https://github.com/microsoft/sql-server-samples/tree/master/samples/databases/adventure-works).
 - **Fact table:** `FactInternetSales`, with **60,398 embedded rows** in the audited PBIX.
 - **Observed order-date period:** **2010-12-29 through 2014-01-28**; 2010 and 2014 are partial years.
-- **Reporting currency:** the model displays monetary values with `$`; it does not implement exchange-rate conversion or currency normalization. Values represent the AdventureWorks sample reporting currency, not audited statutory USD.
-- **Units:** executive cards display monetary values in millions (`mill.`); ratios use percentages; detailed visuals retain their visual-specific display units.
+- **Reporting currency:** I display monetary values with `$`, without exchange-rate conversion or currency normalization. Interpret them as the AdventureWorks sample reporting currency, not audited statutory USD.
+- **Units:** I display monetary values in millions (`mill.`) on executive cards and ratios as percentages; detailed visuals retain their visual-specific display units.
 
 ### USA scope guarantee
 
-The USA page has one stable page-level filter:
+On the USA page, I keep one stable page-level filter:
 
 ```text
 DimCustomer[CountryRegionCode] = "US"
 ```
 
-Its visuals use `DimCustomer` geography fields, so the filter acts on the effective dimension. An offline embedded-table check found 7,819 US customers across 22 state names and no records from the other five countries in that scope. Full evidence is in [DOCS/s1_s3_verification.md](DOCS/s1_s3_verification.md).
+I built its visuals with `DimCustomer` geography fields so the filter acts on the effective dimension. My offline embedded-table check found 7,819 US customers across 22 state names and no records from the other five countries in that scope. You can review the full evidence in [DOCS/s1_s3_verification.md](DOCS/s1_s3_verification.md).
 
 ## DAX reconciliation
 
-`DOCS/dax_reconciliation.csv` contains **68 evaluated contexts**:
+I recorded **68 evaluated contexts** in `DOCS/dax_reconciliation.csv` so you can inspect the reconciliation directly:
 
 | Granularity | Contexts |
 |---|---:|
@@ -106,7 +106,7 @@ Its visuals use `DimCustomer` geography fields, so the filter acts on the effect
 | State/province | 53 |
 | Product category | 3 |
 
-Every context validates these identities with a maximum recorded residual of exactly **0**:
+In every context, you can verify these identities with a maximum recorded residual of exactly **0**:
 
 ```text
 Gross profit = Revenue − COGS
@@ -115,18 +115,18 @@ Gross margin = Gross profit / Revenue
 Net margin   = Net profit / Revenue
 ```
 
-The year-level rows also verify that each available LY value equals the preceding year's current revenue. See [DOCS/i1_i3_verification.md](DOCS/i1_i3_verification.md) for the verification record and reproduction commands.
+I also used the year-level rows to verify that each available LY value equals the preceding year's current revenue. See [DOCS/i1_i3_verification.md](DOCS/i1_i3_verification.md) for my verification record and the commands you can use to reproduce it.
 
 ## Independent SQL release gate
 
-FIN-C1 adds a second calculation path that does not execute DAX. A committed, compressed, non-PII projection of the embedded PBIX snapshot is loaded into an in-memory SQLite database; [sql/reconcile_kpis.sql](sql/reconcile_kpis.sql) then recomputes the financial identities from base columns.
+For FIN-C1, I added a second calculation path that does not execute DAX. The release check loads a committed, compressed, non-PII projection of the embedded PBIX snapshot into an in-memory SQLite database and uses [sql/reconcile_kpis.sql](sql/reconcile_kpis.sql) to recompute the financial identities from base columns.
 
 - **60,398** source facts are loaded.
 - **68** total, year, country, state, and category contexts are independently recomputed.
 - Money must match the DAX evidence within **$0.01**; ratios within **1e-10**.
 - The generated result is committed as [DOCS/sql_reconciliation.csv](DOCS/sql_reconciliation.csv).
 
-This proves agreement between SQL and the DAX outputs for the distributed snapshot. It is deliberately not presented as a connection to a production SQL Server instance.
+You can use this evidence to verify agreement between SQL and the DAX outputs for the distributed snapshot. I deliberately do not present it as a connection to a production SQL Server instance.
 
 ## Reproduce the report
 
@@ -137,13 +137,13 @@ This proves agreement between SQL and the DAX outputs for the distributed snapsh
 3. Review the four pages and confirm the US page filter in the Filters pane.
 4. Compare the visible totals with `DOCS/dax_reconciliation.csv`.
 
-The PBIX contains the audited snapshot, so the result can be inspected without a database connection.
+I embedded the audited snapshot in the PBIX so you can inspect the result without a database connection.
 
 ### Refreshable template
 
-`Financial_Report.pbit` is a data-free template compiled from the reviewable source. Restore `AdventureWorksDW2019.bak`, open the template, point it to your SQL Server instance when prompted, and refresh.
+If you want to refresh the model, use `Financial_Report.pbit`, the data-free template I compiled from the reviewable source. Restore `AdventureWorksDW2019.bak`, open the template, point it to your SQL Server instance when prompted, and refresh.
 
-The documented default source is `localhost\SQLEXPRESS`. `DimCustomer` is loaded from the same database; no workstation-only Excel path remains.
+I set the documented default source to `localhost\SQLEXPRESS` and load `DimCustomer` from the same database. You will not need a workstation-only Excel path.
 
 ### Repeat the source transformations and checks
 
@@ -159,7 +159,7 @@ python scripts/validate_pbit_package.py Financial_Report.pbit
 python scripts/build_release_manifest.py --check
 ```
 
-With the PBIX open in Power BI Desktop on Windows, the live model and reconciliation evidence can also be regenerated:
+With the PBIX open in Power BI Desktop on Windows, you can also regenerate the live model and reconciliation evidence:
 
 ```powershell
 powershell -ExecutionPolicy Bypass -File scripts/apply_live_model_i1.ps1
@@ -167,7 +167,7 @@ powershell -ExecutionPolicy Bypass -File scripts/export_dax_reconciliation.ps1
 python scripts/sync_report_layout_to_pbix.py
 ```
 
-The PowerShell scripts discover the local Analysis Services endpoint created by the open report. The Python transformations are idempotent and the GitHub workflow fails if committed report source drifts from their output.
+I wrote the PowerShell scripts to discover the local Analysis Services endpoint created by the open report. I also made the Python transformations idempotent and configured the GitHub workflow to fail if the committed report source drifts from their output.
 
 ### Build the distributable evidence
 
@@ -179,15 +179,15 @@ python scripts/build_release_evidence.py
 python scripts/validate_release_artifacts.py
 ```
 
-The current release contract is machine-readable in [release/financial-c3-manifest.json](release/financial-c3-manifest.json). It records KPI values, the dashboard contract, tolerances, tool versions, artifact hashes, and expected reasons for variation. The corresponding evidence pack is [output/pdf/financial_c3_release_evidence.pdf](output/pdf/financial_c3_release_evidence.pdf). With the PBIX open in Power BI Desktop, clean 1920×1080 captures of all four pages can be regenerated on Windows with `scripts/capture_powerbi_pages.ps1`.
+You can inspect the machine-readable release contract in [release/financial-c3-manifest.json](release/financial-c3-manifest.json). I recorded KPI values, the dashboard contract, tolerances, tool versions, artifact hashes, and expected reasons for variation there. The corresponding evidence pack is [output/pdf/financial_c3_release_evidence.pdf](output/pdf/financial_c3_release_evidence.pdf). With the PBIX open in Power BI Desktop, you can regenerate clean 1920×1080 captures of all four pages on Windows with `scripts/capture_powerbi_pages.ps1`.
 
-CI also downloads the pinned Linux build of `pbi-tools Core 1.2.0`, verifies the installer SHA-256, compiles a fresh data-free PBIT, and validates its package, model, relationships, pages, narrative, and absence of private workstation references.
+I configured CI to download the pinned Linux build of `pbi-tools Core 1.2.0`, verify the installer SHA-256, compile a fresh data-free PBIT, and validate its package, model, relationships, pages, narrative, and absence of private workstation references.
 
 ## Version-control format
 
-The canonical reviewable artifact is the `pbi-tools`-compatible `Financial_Report/` source: report JSON plus TMDL semantic model. The repository also distributes the compiled PBIT and the embedded-data PBIX.
+I use the `pbi-tools`-compatible `Financial_Report/` source as the canonical reviewable artifact: report JSON plus TMDL semantic model. I also distribute the compiled PBIT and the embedded-data PBIX so you can choose between source review, refresh, and direct inspection.
 
-A native `.pbip` was deliberately not fabricated. Microsoft currently documents Power BI Desktop projects as a preview feature that must be enabled in Desktop; converting only the semantic model while claiming an unverified native report project would weaken reproducibility. The adopted source still provides text diffs, automated checks, a rebuildable template, and a tested PBIX. See [Power BI Desktop projects](https://learn.microsoft.com/en-us/power-bi/developer/projects/projects-overview) and [TMDL semantic model projects](https://learn.microsoft.com/en-us/power-bi/developer/projects/projects-dataset).
+I deliberately did not fabricate a native `.pbip`. Microsoft currently documents Power BI Desktop projects as a preview feature that must be enabled in Desktop; converting only the semantic model while claiming an unverified native report project would weaken reproducibility. With the source I adopted, you still get text diffs, automated checks, a rebuildable template, and a tested PBIX. See [Power BI Desktop projects](https://learn.microsoft.com/en-us/power-bi/developer/projects/projects-overview) and [TMDL semantic model projects](https://learn.microsoft.com/en-us/power-bi/developer/projects/projects-dataset).
 
 ## Repository structure
 
@@ -212,28 +212,28 @@ A native `.pbip` was deliberately not fabricated. Microsoft currently documents 
 └── .github/workflows/          # Automated source and evidence checks
 ```
 
-## Completed portfolio stages
+## What I completed in this portfolio release
 
-- **FIN-S1 — USA consistency:** stable US page filter, effective geography dimension, embedded-data scope check, and interaction review.
-- **FIN-S2 — documentation:** exact source, period, row count, units, page decisions, reproduction paths, and limitations.
-- **FIN-S3 — presentation:** terminology correction, restrained visual system, cleaner navigation, and unclipped definitions.
-- **FIN-I1 — analytical model:** corrected active order-date relationship, normalized 35 measures, added descriptions/folders and four diagnostic identities, and reconciled 68 filter contexts.
-- **FIN-I2 — versionability:** synchronized TMDL/report source, compiled PBIT, repeatable update/export scripts, automated drift checks, and an explicit native-PBIP decision.
-- **FIN-I3 — analytical narrative:** rebuilt the four-page flow around result, driver, action, drill-down, and data contract; added exact findings and partial-period warnings.
-- **FIN-C1 — analytical release:** added independent SQL/DAX reconciliation, pinned PBIT compilation in CI, artifact/KPI hashes, expected-variation policy, automated visual capture, and a validated PDF evidence pack.
-- **FIN-C2 — dashboard redevelopment:** rebuilt the four pages around a consistent navigation shell, KPI-first hierarchy, one purposeful map, a larger USA detail surface, and grouped definitions.
-- **FIN-C3 — visual release:** verified sizing, chart selection, accessibility metadata, source/PBIX/PBIT consistency, clean captures, and a new FIN-C3 manifest/PDF evidence pack.
+- **FIN-S1 — USA consistency:** I added a stable US page filter, an effective geography dimension, an embedded-data scope check, and an interaction review.
+- **FIN-S2 — documentation:** I documented the exact source, period, row count, units, page decisions, reproduction paths, and limitations.
+- **FIN-S3 — presentation:** I corrected terminology and implemented a restrained visual system, cleaner navigation, and unclipped definitions.
+- **FIN-I1 — analytical model:** I corrected the active order-date relationship, normalized 35 measures, added descriptions/folders and four diagnostic identities, and reconciled 68 filter contexts.
+- **FIN-I2 — versionability:** I synchronized the TMDL/report source, compiled the PBIT, added repeatable update/export scripts and automated drift checks, and documented my native-PBIP decision.
+- **FIN-I3 — analytical narrative:** I rebuilt the four-page flow around result, driver, action, drill-down, and data contract, then added exact findings and partial-period warnings.
+- **FIN-C1 — analytical release:** I added independent SQL/DAX reconciliation, pinned PBIT compilation in CI, artifact/KPI hashes, an expected-variation policy, automated visual capture, and a validated PDF evidence pack.
+- **FIN-C2 — dashboard redevelopment:** I rebuilt the four pages around a consistent navigation shell, KPI-first hierarchy, one purposeful map, a larger USA detail surface, and grouped definitions.
+- **FIN-C3 — visual release:** I verified sizing, chart selection, accessibility metadata, source/PBIX/PBIT consistency, clean captures, and a new FIN-C3 manifest/PDF evidence pack.
 
-## Limitations
+## Limitations you should consider
 
 - AdventureWorks is a synthetic Microsoft sample, not a live company ledger.
 - The snapshot begins on 2010-12-29 and ends on 2014-01-28; 2010 and 2014 cannot be compared as complete fiscal years.
-- `SAMEPERIODLASTYEAR` follows the selected calendar window. Annual interpretations should use complete years or aligned partial periods.
+- When you use `SAMEPERIODLASTYEAR`, remember that it follows the selected calendar window. Base annual interpretations on complete years or aligned partial periods.
 - Currency conversion, budgets, forecasts, accounting-close adjustments, and scenario planning are outside the current model.
 - Maps depend on Power BI geocoding. Explicit country scope reduces ambiguity but does not replace governed latitude/longitude data.
-- The report has standard tooltips and page navigation; it does not implement a dedicated tooltip page or drillthrough target.
+- You will find standard tooltips and page navigation, but I did not implement a dedicated tooltip page or drillthrough target.
 - Native PBIP export remains outside the committed artifact for the preview/verification reason documented above.
-- The independent SQL gate validates the committed analytical projection, not source-system availability, permissions, refresh duration, or a production database SLA.
+- Use my independent SQL gate to validate the committed analytical projection; do not interpret it as evidence of source-system availability, permissions, refresh duration, or a production database SLA.
 
 ## Tools
 
@@ -245,4 +245,4 @@ A native `.pbip` was deliberately not fabricated. Microsoft currently documents 
 
 ## Attribution
 
-Original report and analytical model by **Percy Ignacio Marzoratti Hill**. Portfolio hardening, reproducibility checks, and repository maintenance are tracked in Git history.
+I created the original report and analytical model as **Percy Ignacio Marzoratti Hill**. You can trace my portfolio hardening, reproducibility checks, and repository maintenance in the Git history.
