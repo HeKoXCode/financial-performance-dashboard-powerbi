@@ -47,9 +47,10 @@ jobs:
 
       - name: Rebuild and validate release evidence
         run: |
-          python scripts/build_release_evidence.py --output "${RUNNER_TEMP}/financial_c3_release_evidence.pdf"
-          python scripts/validate_release_artifacts.py --pdf "${RUNNER_TEMP}/financial_c3_release_evidence.pdf"
-          cmp --silent "${RUNNER_TEMP}/financial_c3_release_evidence.pdf" output/pdf/financial_c3_release_evidence.pdf
+          python scripts/build_release_evidence.py --output "${RUNNER_TEMP}/financial_c3_release_evidence_a.pdf"
+          python scripts/build_release_evidence.py --output "${RUNNER_TEMP}/financial_c3_release_evidence_b.pdf"
+          cmp --silent "${RUNNER_TEMP}/financial_c3_release_evidence_a.pdf" "${RUNNER_TEMP}/financial_c3_release_evidence_b.pdf"
+          python scripts/validate_release_artifacts.py --pdf "${RUNNER_TEMP}/financial_c3_release_evidence_a.pdf"
           python scripts/validate_release_artifacts.py
           python scripts/build_release_manifest.py --check
 
