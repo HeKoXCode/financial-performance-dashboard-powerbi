@@ -5,12 +5,13 @@ from __future__ import annotations
 
 import argparse
 import csv
-import hashlib
 from pathlib import Path
 
 from reportlab.lib.colors import HexColor, white
 from reportlab.lib.utils import ImageReader
 from reportlab.pdfgen import canvas
+
+from release_hashing import artifact_sha256
 
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -27,14 +28,6 @@ SCREENSHOTS = (
     ("Geographic Drill-down", ROOT / "Images" / "usa_detailed.png"),
     ("Definiciones y fuentes", ROOT / "Images" / "glossary.png"),
 )
-
-
-def sha256(path: Path) -> str:
-    digest = hashlib.sha256()
-    with path.open("rb") as handle:
-        for chunk in iter(lambda: handle.read(1024 * 1024), b""):
-            digest.update(chunk)
-    return digest.hexdigest().upper()
 
 
 def read_sql_rows() -> dict[tuple[str, str], dict[str, str]]:
@@ -153,7 +146,7 @@ def appendix(pdf: canvas.Canvas) -> None:
         pdf.drawString(42, y, artifact.relative_to(ROOT).as_posix())
         pdf.setFillColor(NAVY)
         pdf.setFont("Courier", 7.2)
-        pdf.drawString(260, y, sha256(artifact))
+        pdf.drawString(260, y, artifact_sha256(artifact, uppercase=True))
         y -= 25
 
     pdf.setFillColor(NAVY)
@@ -163,8 +156,8 @@ def appendix(pdf: canvas.Canvas) -> None:
         "1. KPI changes require matching SQL and DAX evidence plus a release note.",
         "2. Source snapshot and row-count changes require an explicit data refresh decision.",
         "3. PBIX/PBIT hashes may change after model, layout, data, or Desktop version changes.",
-        "4. Screenshot/PDF hashes may change after a verified visual render or tool update.",
-        "5. Partial-period limitations and the OrderDateKey contract must remain visible.",
+        "4. Text hashes use canonical UTF-8/LF; binary hashes cover exact bytes.",
+        "5. Screenshot/PDF hashes may change after a verified visual render or tool update.",
     )
     pdf.setFillColor(GRAY)
     pdf.setFont("Helvetica", 10)

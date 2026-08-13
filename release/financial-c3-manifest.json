@@ -1,51 +1,74 @@
 {
+  "artifact_hash_policy": {
+    "binary": "Record the exact file byte length and SHA-256.",
+    "binary_hash_mode": "exact-bytes",
+    "text": "Decode as UTF-8, normalize CRLF and CR to LF, then record the canonical byte length and SHA-256.",
+    "text_hash_mode": "utf-8-canonical-lf",
+    "text_suffixes": [
+      ".csv",
+      ".sql",
+      ".tmdl"
+    ]
+  },
   "artifacts": {
     "DATA/financial_sql_input.csv.gz": {
       "bytes": 561921,
+      "hash_mode": "exact-bytes",
       "sha256": "39e14ea6cdca136f8131f6fef1ac78835d3aeac2d27406f604be3d3c7fd63015"
     },
     "DOCS/dax_reconciliation.csv": {
-      "bytes": 19517,
-      "sha256": "6d036e5570d149ce8b00a9cd2928e48da413d8e1f8e014983131c5ee083a39ba"
+      "bytes": 19448,
+      "hash_mode": "utf-8-canonical-lf",
+      "sha256": "6bc9847217ff016f8cad10a479174d03fc564e5afa8fb67cc80128778f46abce"
     },
     "DOCS/sql_reconciliation.csv": {
       "bytes": 11376,
+      "hash_mode": "utf-8-canonical-lf",
       "sha256": "91c05c9c2f16b88158cfcd8de485be55cefaecbeab7e46f2ac0b1afa164caa58"
     },
     "Financial_Report.pbit": {
       "bytes": 4260077,
+      "hash_mode": "exact-bytes",
       "sha256": "4ef54a8d5dc8509f5dca506f95b5d749fe78bf109846722435b75d77105f4013"
     },
     "Financial_Report.pbix": {
       "bytes": 6481948,
+      "hash_mode": "exact-bytes",
       "sha256": "528125a0acb6b2ab06e2ae4356c6b178615e7e44a6807ce0313436bf11cdc933"
     },
     "Financial_Report/Model/tables/Tablas de Medidas.tmdl": {
-      "bytes": 8883,
-      "sha256": "5f248423b115f9b677c67509279d37a3c71b29fdb7bd46cefff186a0d13bda1d"
+      "bytes": 8659,
+      "hash_mode": "utf-8-canonical-lf",
+      "sha256": "5702d4b42908ac2a64905f37270c5a20a3aaa2b599efbefbe21a545b96477519"
     },
     "Images/executive_overview.png": {
       "bytes": 260711,
+      "hash_mode": "exact-bytes",
       "sha256": "80cd987dbea2a584688671410471b5cb82c6d156bb381acb12a62e3af8efdb66"
     },
     "Images/glossary.png": {
       "bytes": 276387,
+      "hash_mode": "exact-bytes",
       "sha256": "081f013e2cde447e845dc1bf22733db26c20dd617e6d81f25586bdc92c44675e"
     },
     "Images/overview.png": {
       "bytes": 363111,
+      "hash_mode": "exact-bytes",
       "sha256": "b964a69bf3286703367157b6b021a9dd17baf454f8c0938e8ab5a79c6af900c5"
     },
     "Images/usa_detailed.png": {
       "bytes": 397308,
+      "hash_mode": "exact-bytes",
       "sha256": "58fd30c58cb346278280c717e75a678353dd778b0acb219fe2eac9964a830466"
     },
     "output/pdf/financial_c3_release_evidence.pdf": {
-      "bytes": 1538036,
-      "sha256": "5efb074cc8b6ff759a919d986510297b34c284bdb6fc09072c9439b007a8d3bb"
+      "bytes": 1538042,
+      "hash_mode": "exact-bytes",
+      "sha256": "92c5259c84920a2eafa9b5a96a7803e1cd74c0e79ffdcfd6d9f4fa4984da4332"
     },
     "sql/reconcile_kpis.sql": {
       "bytes": 2288,
+      "hash_mode": "utf-8-canonical-lf",
       "sha256": "9c8c879795f9556bf8c16ffde260887c93f3bb14a3eb59a8ec7b923fee7a1c6a"
     }
   },
@@ -109,7 +132,7 @@
     "stage": "FIN-C3",
     "status": "verified-local"
   },
-  "schema_version": "1.0.0",
+  "schema_version": "1.1.0",
   "source": {
     "fact_table": "FactInternetSales",
     "name": "Microsoft AdventureWorksDW2019",

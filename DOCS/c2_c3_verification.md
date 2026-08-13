@@ -82,6 +82,8 @@ The final PBIX was opened in Power BI Desktop `2.156.951.0`. All four pages were
 
 The current six-page evidence pack is `output/pdf/financial_c3_release_evidence.pdf`; its machine-readable contract is `release/financial-c3-manifest.json`.
 
+To keep that contract stable across Windows and Linux, text artifacts (`.csv`, `.sql`, and `.tmdl`) are measured and hashed after UTF-8/LF canonicalization. Binary artifacts such as PBIX, PBIT, PNG, PDF, and GZip retain exact-byte sizes and SHA-256 values. Every manifest entry declares the mode used.
+
 ## Boundaries
 
 - The redesign does not invent new data or change a reconciled DAX formula.

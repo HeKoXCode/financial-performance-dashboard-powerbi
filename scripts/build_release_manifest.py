@@ -6,10 +6,16 @@ from __future__ import annotations
 import argparse
 import csv
 import gzip
-import hashlib
 import json
 from collections import Counter
 from pathlib import Path
+
+from release_hashing import (
+    BINARY_HASH_MODE,
+    TEXT_HASH_MODE,
+    TEXT_SUFFIXES,
+    artifact_metadata,
+)
 
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -28,14 +34,6 @@ ARTIFACTS = (
     "Images/glossary.png",
     "output/pdf/financial_c3_release_evidence.pdf",
 )
-
-
-def sha256(path: Path) -> str:
-    digest = hashlib.sha256()
-    with path.open("rb") as handle:
-        for chunk in iter(lambda: handle.read(1024 * 1024), b""):
-            digest.update(chunk)
-    return digest.hexdigest().lower()
 
 
 def read_rows(path: Path) -> list[dict[str, str]]:
@@ -71,7 +69,7 @@ def build_manifest(release_date: str) -> dict:
     context_counts = Counter(row["Granularity"] for row in sql_rows)
 
     return {
-        "schema_version": "1.0.0",
+        "schema_version": "1.1.0",
         "project": "financial-performance-dashboard-powerbi",
         "release": {
             "stage": "FIN-C3",
@@ -146,11 +144,18 @@ def build_manifest(release_date: str) -> dict:
             "sql_engine": "Python sqlite3 / SQLite",
             "pbit_linux_asset_sha256": "ac3a3434f837e49fab1ba69a29cac78b3fb11fc1476c91a7ee87a85ef0131d5e",
         },
+        "artifact_hash_policy": {
+            "text": (
+                "Decode as UTF-8, normalize CRLF and CR to LF, then record "
+                "the canonical byte length and SHA-256."
+            ),
+            "binary": "Record the exact file byte length and SHA-256.",
+            "text_hash_mode": TEXT_HASH_MODE,
+            "binary_hash_mode": BINARY_HASH_MODE,
+            "text_suffixes": sorted(TEXT_SUFFIXES),
+        },
         "artifacts": {
-            relative: {
-                "bytes": (ROOT / relative).stat().st_size,
-                "sha256": sha256(ROOT / relative),
-            }
+            relative: artifact_metadata(ROOT / relative)
             for relative in ARTIFACTS
         },
         "expected_variations": [
