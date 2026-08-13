@@ -84,6 +84,8 @@ The current six-page evidence pack is `output/pdf/financial_c3_release_evidence.
 
 To keep that contract stable across Windows and Linux, text artifacts (`.csv`, `.sql`, and `.tmdl`) are measured and hashed after UTF-8/LF canonicalization. Binary artifacts such as PBIX, PBIT, PNG, PDF, and GZip retain exact-byte sizes and SHA-256 values. Every manifest entry declares the mode used.
 
+The compiled PBIT gate validates page identity against the explicit `ordinal` values `0–3`. It does not depend on the physical order of the `sections` array because `pbi-tools Core` may serialize that array differently across operating systems while preserving each page's semantic ordinal.
+
 ## Boundaries
 
 - The redesign does not invent new data or change a reconciled DAX formula.

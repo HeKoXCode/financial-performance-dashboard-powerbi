@@ -32,6 +32,32 @@ def decode_json(package: zipfile.ZipFile, name: str) -> dict:
     return json.loads(package.read(name).decode("utf-16-le"))
 
 
+def validate_page_contract(sections: list[dict]) -> list[str]:
+    """Validate page identity and semantic order independently of JSON array order."""
+    errors: list[str] = []
+    if len(sections) != len(EXPECTED_PAGES):
+        return [f"Expected {len(EXPECTED_PAGES)} compiled pages; found {len(sections)}"]
+
+    ordinals = tuple(section.get("ordinal") for section in sections)
+    if any(type(ordinal) is not int for ordinal in ordinals):
+        return [f"Compiled report page ordinal missing or invalid: {ordinals}"]
+
+    expected_ordinals = tuple(range(len(EXPECTED_PAGES)))
+    if tuple(sorted(ordinals)) != expected_ordinals:
+        return [
+            "Compiled report page ordinals must be unique and contiguous: "
+            f"expected {expected_ordinals}, found {ordinals}"
+        ]
+
+    pages = tuple(
+        section.get("displayName")
+        for section in sorted(sections, key=lambda section: section["ordinal"])
+    )
+    if pages != EXPECTED_PAGES:
+        errors.append(f"Unexpected compiled report pages by ordinal: {pages}")
+    return errors
+
+
 def validate(path: Path) -> list[str]:
     errors: list[str] = []
     if not path.is_file():
@@ -95,9 +121,7 @@ def validate(path: Path) -> list[str]:
             errors.append("Compiled model retains a bidirectional relationship")
 
         report = decode_json(package, "Report/Layout")
-        pages = tuple(section.get("displayName") for section in report.get("sections", []))
-        if pages != EXPECTED_PAGES:
-            errors.append(f"Unexpected compiled report pages: {pages}")
+        errors.extend(validate_page_contract(report.get("sections", [])))
         serialized_report = json.dumps(report, ensure_ascii=False)
         for token in (
             "2013 aportó $16,4 M",
