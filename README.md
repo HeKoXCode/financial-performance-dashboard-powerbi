@@ -10,6 +10,10 @@ I built this executive Power BI case study so you can examine revenue, product c
 
 ## Dashboard preview
 
+📄 [Complete high-resolution report](DOCS/media/technical/financial_reporte_completo_hq.pdf) · 🇦🇷 [Guía breve en español](DOCS/guia_revision_es.md).
+
+The current previews are 2880×1620 renders of a native Power BI PDF. Its fifth page is a separately generated, reconciled table of all 22 US states, not an extra interactive page. The downloadable PBIX, PBIT and canonical source share the approved presentation.
+
 ### Executive overview
 
 ![Executive overview](Images/executive_overview.png)
@@ -46,10 +50,10 @@ I designed the report so you can answer four connected questions:
 For FIN-C2/C3, I completely redesigned the audited legacy layout. When you navigate the report, you will find **consistent four-page navigation**, a KPI-first executive page, a restrained chart inventory, a fixed USA scope cue, and a grouped methodology page.
 
 - I replaced four gauges with compact, directly comparable KPI cards.
-- I reduced three country/state maps to one country map and kept state analysis on the USA page.
+- I replaced the remaining country map with native revenue bars and kept state analysis on the USA page, avoiding reliance on geocoding for the comparison.
 - I rebuilt the executive page around headline KPIs, a shared-unit period trend, an evidence-backed finding, a recommended action, and the partial-period warning.
 - I enlarged the USA matrix for traceability and disabled scatter labels to eliminate collisions while preserving native tooltips.
-- I added alternative text to every visible non-decorative visual and fitted every page to the 1280×720 canvas used for the verified 1920×1080 captures.
+- I added alternative text to every visible non-decorative visual and fitted every page to the 1280×720 canvas, now previewed through native-PDF renders at 2880×1620.
 
 You can review my design decisions, before/after audit, sizing contract, and validation scope in [DOCS/c2_c3_verification.md](DOCS/c2_c3_verification.md).
 
@@ -196,7 +200,7 @@ I deliberately did not fabricate a native `.pbip`. Microsoft currently documents
 ├── Financial_Report.pbix       # Report with embedded audited sample data
 ├── Financial_Report.pbit       # Refreshable, data-free template
 ├── Financial_Report/           # Reviewable report JSON and TMDL model source
-├── Images/                     # Four verified 1920×1080 report previews
+├── Images/                     # Four 2880×1620 native-PDF previews and full USA table
 ├── DOCS/
 │   ├── dax_measure_catalog.md  # Formula, unit, context, and LY contract
 │   ├── dax_reconciliation.csv  # Numerical evidence at five granularities
@@ -221,7 +225,7 @@ I deliberately did not fabricate a native `.pbip`. Microsoft currently documents
 - **FIN-I2 — versionability:** I synchronized the TMDL/report source, compiled the PBIT, added repeatable update/export scripts and automated drift checks, and documented my native-PBIP decision.
 - **FIN-I3 — analytical narrative:** I rebuilt the four-page flow around result, driver, action, drill-down, and data contract, then added exact findings and partial-period warnings.
 - **FIN-C1 — analytical release:** I added independent SQL/DAX reconciliation, pinned PBIT compilation in CI, artifact/KPI hashes, an expected-variation policy, automated visual capture, and a validated PDF evidence pack.
-- **FIN-C2 — dashboard redevelopment:** I rebuilt the four pages around a consistent navigation shell, KPI-first hierarchy, one purposeful map, a larger USA detail surface, and grouped definitions.
+- **FIN-C2 — dashboard redevelopment:** I rebuilt the four pages around a consistent navigation shell, KPI-first hierarchy, native country bars, a larger USA detail surface, and grouped definitions.
 - **FIN-C3 — visual release:** I verified sizing, chart selection, accessibility metadata, source/PBIX/PBIT consistency, clean captures, and a new FIN-C3 manifest/PDF evidence pack.
 
 ## Limitations you should consider
@@ -230,7 +234,7 @@ I deliberately did not fabricate a native `.pbip`. Microsoft currently documents
 - The snapshot begins on 2010-12-29 and ends on 2014-01-28; 2010 and 2014 cannot be compared as complete fiscal years.
 - When you use `SAMEPERIODLASTYEAR`, remember that it follows the selected calendar window. Base annual interpretations on complete years or aligned partial periods.
 - Currency conversion, budgets, forecasts, accounting-close adjustments, and scenario planning are outside the current model.
-- Maps depend on Power BI geocoding. Explicit country scope reduces ambiguity but does not replace governed latitude/longitude data.
+- Country comparisons use native bars rather than geocoding. The USA page retains its fixed country filter and state/city analysis.
 - You will find standard tooltips and page navigation, but I did not implement a dedicated tooltip page or drillthrough target.
 - Native PBIP export remains outside the committed artifact for the preview/verification reason documented above.
 - Use my independent SQL gate to validate the committed analytical projection; do not interpret it as evidence of source-system availability, permissions, refresh duration, or a production database SLA.

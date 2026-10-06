@@ -47,9 +47,8 @@
             "solid": {
               "color": {
                 "expr": {
-                  "ThemeDataColor": {
-                    "ColorId": 8,
-                    "Percent": 0.2
+                  "Literal": {
+                    "Value": "'#FFFFFF'"
                   }
                 }
               }
@@ -59,6 +58,13 @@
             "expr": {
               "Literal": {
                 "Value": "0D"
+              }
+            }
+          },
+          "fontSize": {
+            "expr": {
+              "Literal": {
+                "Value": "10D"
               }
             }
           }

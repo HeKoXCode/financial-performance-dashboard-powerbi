@@ -85,15 +85,15 @@
       ],
       "OrderBy": [
         {
-          "Direction": 2,
+          "Direction": 1,
           "Expression": {
-            "Measure": {
+            "Column": {
               "Expression": {
                 "SourceRef": {
-                  "Source": "t"
+                  "Source": "d"
                 }
               },
-              "Property": "Ingresos"
+              "Property": "CalendarYear"
             }
           }
         }
@@ -105,17 +105,10 @@
       "valueAxis": [
         {
           "properties": {
-            "gridlineStyle": {
-              "expr": {
-                "Literal": {
-                  "Value": "'dotted'"
-                }
-              }
-            },
             "gridlineThickness": {
               "expr": {
                 "Literal": {
-                  "Value": "3D"
+                  "Value": "1D"
                 }
               }
             }
@@ -125,24 +118,17 @@
       "lineStyles": [
         {
           "properties": {
-            "strokeLineJoin": {
-              "expr": {
-                "Literal": {
-                  "Value": "'round'"
-                }
-              }
-            },
             "strokeWidth": {
               "expr": {
                 "Literal": {
-                  "Value": "3D"
+                  "Value": "2D"
                 }
               }
             },
             "lineChartType": {
               "expr": {
                 "Literal": {
-                  "Value": "'smooth'"
+                  "Value": "'straight'"
                 }
               }
             }
@@ -155,7 +141,7 @@
             "show": {
               "expr": {
                 "Literal": {
-                  "Value": "true"
+                  "Value": "false"
                 }
               }
             }
@@ -189,6 +175,26 @@
               "expr": {
                 "Literal": {
                   "Value": "'Año'"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "legend": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            },
+            "showTitle": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
                 }
               }
             }

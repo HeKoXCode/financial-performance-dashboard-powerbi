@@ -1,0 +1,25 @@
+{
+  "edition": "2026-10-06",
+  "media": [
+    {
+      "path": "DOCS/media/linkedin/financial_p01_contexto_temporal.pdf",
+      "bytes": 46794,
+      "sha256": "2b447c0e385f4720cc38f27c6694d0a6fc7e869d03215670cec84f28775157cb"
+    },
+    {
+      "path": "DOCS/media/linkedin/financial_p04_validacion_contextos.pdf",
+      "bytes": 47027,
+      "sha256": "867b86ab13814b88841bd6ac4aaaa61ff105184f3ee7b56d137d7e2e1541c6be"
+    },
+    {
+      "path": "DOCS/media/linkedin/financial_p08_rutas_de_revision.pdf",
+      "bytes": 45406,
+      "sha256": "ac5278c593371d188c58efbbed5a6f98556893b6edbf3c8cf82c204d20f8a964"
+    },
+    {
+      "path": "DOCS/media/technical/financial_reporte_completo_hq.pdf",
+      "bytes": 516346,
+      "sha256": "14140b430f3dfe42509bffcf16c2b5dec7219254e1cb4d64dab3c432cf566ce7"
+    }
+  ]
+}

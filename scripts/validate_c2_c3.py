@@ -132,7 +132,7 @@ def validate_visual_choices(errors: list[str]) -> None:
         errors.append(f"home: expected four cards and one trend chart; found {dict(home)}")
 
     drivers = visible_type_counts("drivers")
-    expected = {"card": 4, "clusteredColumnChart": 1, "filledMap": 1, "gauge": 0}
+    expected = {"card": 4, "clusteredColumnChart": 1, "clusteredBarChart": 1, "filledMap": 0, "gauge": 0}
     for visual_type, count in expected.items():
         if drivers[visual_type] != count:
             errors.append(f"drivers: expected {count} visible {visual_type}; found {drivers[visual_type]}")
@@ -197,8 +197,8 @@ def png_dimensions(path: Path) -> tuple[int, int] | None:
 def validate_evidence(errors: list[str]) -> None:
     for name in ("executive_overview.png", "overview.png", "usa_detailed.png", "glossary.png"):
         dimensions = png_dimensions(ROOT / "Images" / name)
-        if dimensions != (1920, 1080):
-            errors.append(f"{name}: expected 1920x1080; found {dimensions}")
+        if dimensions != (2880, 1620):
+            errors.append(f"{name}: expected 2880x1620; found {dimensions}")
 
     source = "\n".join(path.read_text(encoding="utf-8-sig") for path in REPORT.rglob("*.json"))
     for token in (
@@ -299,9 +299,9 @@ def main() -> int:
 
     print("FIN-C2/C3 validation PASSED")
     print("  - consistent four-page navigation and 1280x720 fit")
-    print("  - KPI-first overview, one country map, and no visible gauges")
+    print("  - KPI-first overview, native country bars, and no visible gauges")
     print("  - USA analytical views, alt text, and overlap controls verified")
-    print("  - source, PBIX, PBIT, and four 1920x1080 captures are aligned")
+    print("  - source, PBIX, PBIT, and four 2880x1620 previews are aligned")
     return 0
 
 

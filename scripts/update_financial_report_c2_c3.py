@@ -954,10 +954,12 @@ def main() -> int:
     rebuild_usa()
     rebuild_help()
     normalize_page_visuals()
+    from update_financial_report_hq import apply_hq_presentation
+    apply_hq_presentation()
     print("FIN-C2/C3 dashboard redesign applied successfully.")
     print("  - consistent four-page navigation")
     print("  - KPI-first executive and driver pages")
-    print("  - one country map, no gauge wall, focused USA matrix")
+    print("  - native country bars, no gauge wall, focused USA matrix")
     print("  - accessible titles, alt text, spacing, and 16:9 fit")
     return 0
 

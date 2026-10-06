@@ -6,28 +6,7 @@
           "show": {
             "expr": {
               "Literal": {
-                "Value": "true"
-              }
-            }
-          },
-          "showLabels": {
-            "expr": {
-              "Literal": {
                 "Value": "false"
-              }
-            }
-          },
-          "categoryMax": {
-            "expr": {
-              "Literal": {
-                "Value": "1D"
-              }
-            }
-          },
-          "categorySize": {
-            "expr": {
-              "Literal": {
-                "Value": "5723097.942658922D"
               }
             }
           }
@@ -40,14 +19,7 @@
           "show": {
             "expr": {
               "Literal": {
-                "Value": "true"
-              }
-            }
-          },
-          "fontFamily": {
-            "expr": {
-              "Literal": {
-                "Value": "'''Segoe UI'''"
+                "Value": "false"
               }
             }
           }
@@ -124,6 +96,13 @@
                 "Value": "'''Segoe UI'''"
               }
             }
+          },
+          "gridlineThickness": {
+            "expr": {
+              "Literal": {
+                "Value": "1D"
+              }
+            }
           }
         }
       }
@@ -181,7 +160,7 @@
           "gridlineThickness": {
             "expr": {
               "Literal": {
-                "Value": "2D"
+                "Value": "1D"
               }
             }
           }
@@ -201,7 +180,7 @@
           "bubbleSize": {
             "expr": {
               "Literal": {
-                "Value": "-5L"
+                "Value": "-12L"
               }
             }
           }

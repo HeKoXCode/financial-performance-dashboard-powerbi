@@ -87,6 +87,21 @@
                 }
               }
             }
+          ],
+          "OrderBy": [
+            {
+              "Direction": 1,
+              "Expression": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Source": "d"
+                    }
+                  },
+                  "Property": "CalendarYear"
+                }
+              }
+            }
           ]
         },
         "Binding": {

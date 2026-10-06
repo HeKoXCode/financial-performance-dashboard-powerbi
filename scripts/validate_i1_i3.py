@@ -248,8 +248,8 @@ def validate_artifacts(errors: list[str]) -> None:
     for name in EXPECTED_IMAGES:
         path = ROOT / "Images" / name
         dimensions = png_dimensions(path)
-        if dimensions != (1920, 1080):
-            errors.append(f"{name}: expected 1920x1080 PNG; found {dimensions}")
+        if dimensions != (2880, 1620):
+            errors.append(f"{name}: expected 2880x1620 PNG; found {dimensions}")
 
     project_text = "\n".join(
         path.read_text(encoding="utf-8-sig")
@@ -286,7 +286,7 @@ def main() -> int:
     print("FIN-I1 to FIN-I3 validation PASSED")
     print("  - 35 DAX measures and OrderDateKey time path verified")
     print("  - 68 reconciliation contexts passed with zero diagnostic residual")
-    print("  - four-page analytical narrative and 1920x1080 previews verified")
+    print("  - four-page analytical narrative and 2880x1620 native-PDF previews verified")
     print("  - PBIX, PBIT, TMDL/report source, documentation, and privacy checks passed")
     return 0
 

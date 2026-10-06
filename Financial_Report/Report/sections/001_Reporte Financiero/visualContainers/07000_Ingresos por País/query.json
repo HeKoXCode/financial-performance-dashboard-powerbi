@@ -41,6 +41,21 @@
               "Name": "DimCustomer.CountryRegionCode",
               "NativeReferenceName": "CountryRegionCode"
             }
+          ],
+          "OrderBy": [
+            {
+              "Direction": 2,
+              "Expression": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Source": "t"
+                    }
+                  },
+                  "Property": "Ingresos"
+                }
+              }
+            }
           ]
         },
         "Binding": {
@@ -60,22 +75,6 @@
               "Top": {}
             }
           },
-          "Aggregates": [
-            {
-              "Select": 0,
-              "Aggregations": [
-                {
-                  "Min": {}
-                },
-                {
-                  "Max": {}
-                }
-              ]
-            }
-          ],
-          "SuppressedJoinPredicates": [
-            0
-          ],
           "Version": 1
         },
         "ExecutionMetricsKind": 1

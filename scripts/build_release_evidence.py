@@ -53,7 +53,7 @@ def draw_footer(pdf: canvas.Canvas) -> None:
     pdf.setFillColor(GRAY)
     pdf.setFont("Helvetica", 7.5)
     pdf.drawString(28, 14, "AdventureWorksDW2019 synthetic sample | OrderDateKey analytical path")
-    pdf.drawRightString(PAGE[0] - 28, 14, "Generated from verified 1920x1080 embedded-snapshot captures")
+    pdf.drawRightString(PAGE[0] - 28, 14, "Generated from verified 2880x1620 native-PDF previews")
 
 
 def cover(pdf: canvas.Canvas, rows: dict[tuple[str, str], dict[str, str]]) -> None:
@@ -110,7 +110,7 @@ def cover(pdf: canvas.Canvas, rows: dict[tuple[str, str], dict[str, str]]) -> No
 
     pdf.setFillColor(ORANGE)
     pdf.setFont("Helvetica-Bold", 10)
-    pdf.drawString(54, 64, "Release date: 2026-08-12 | Source: Microsoft AdventureWorksDW2019")
+    pdf.drawString(54, 64, "Initial release: 2026-08-12 | Media revision: 2026-10-06 | AdventureWorksDW2019")
     pdf.showPage()
 
 

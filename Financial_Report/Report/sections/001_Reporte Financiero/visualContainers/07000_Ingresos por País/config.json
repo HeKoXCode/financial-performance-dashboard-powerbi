@@ -14,17 +14,17 @@
     }
   ],
   "singleVisual": {
-    "visualType": "filledMap",
+    "visualType": "clusteredBarChart",
     "projections": {
+      "Y": [
+        {
+          "queryRef": "Tablas de Medidas.Ingresos"
+        }
+      ],
       "Category": [
         {
           "queryRef": "DimCustomer.CountryRegionCode",
           "active": true
-        }
-      ],
-      "Tooltips": [
-        {
-          "queryRef": "Tablas de Medidas.Ingresos"
         }
       ]
     },
@@ -67,17 +67,87 @@
           "Name": "DimCustomer.CountryRegionCode",
           "NativeReferenceName": "CountryRegionCode"
         }
+      ],
+      "OrderBy": [
+        {
+          "Direction": 2,
+          "Expression": {
+            "Measure": {
+              "Expression": {
+                "SourceRef": {
+                  "Source": "t"
+                }
+              },
+              "Property": "Ingresos"
+            }
+          }
+        }
       ]
     },
     "drillFilterOtherVisuals": true,
     "objects": {
-      "mapStyles": [
+      "categoryAxis": [
         {
           "properties": {
-            "mapTheme": {
+            "show": {
               "expr": {
                 "Literal": {
-                  "Value": "'canvasLight'"
+                  "Value": "true"
+                }
+              }
+            },
+            "showAxisTitle": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            },
+            "fontSize": {
+              "expr": {
+                "Literal": {
+                  "Value": "11D"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "valueAxis": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            },
+            "showAxisTitle": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            },
+            "start": {
+              "expr": {
+                "Literal": {
+                  "Value": "0D"
+                }
+              }
+            },
+            "labelDisplayUnits": {
+              "expr": {
+                "Literal": {
+                  "Value": "1000000D"
+                }
+              }
+            },
+            "labelPrecision": {
+              "expr": {
+                "Literal": {
+                  "Value": "1L"
                 }
               }
             }
@@ -91,95 +161,70 @@
               "solid": {
                 "color": {
                   "expr": {
-                    "FillRule": {
-                      "Input": {
-                        "Measure": {
-                          "Expression": {
-                            "SourceRef": {
-                              "Entity": "Tablas de Medidas"
-                            }
-                          },
-                          "Property": "Ingresos"
-                        }
-                      },
-                      "FillRule": {
-                        "linearGradient3": {
-                          "min": {
-                            "color": {
-                              "Literal": {
-                                "Value": "'#2F75B5'"
-                              }
-                            }
-                          },
-                          "mid": {
-                            "color": {
-                              "Literal": {
-                                "Value": "'midColor'"
-                              }
-                            }
-                          },
-                          "max": {
-                            "color": {
-                              "Literal": {
-                                "Value": "'#C00000'"
-                              }
-                            }
-                          },
-                          "nullColoringStrategy": {
-                            "strategy": {
-                              "Literal": {
-                                "Value": "'asZero'"
-                              }
-                            }
-                          }
-                        }
-                      }
+                    "Literal": {
+                      "Value": "'#2F75B5'"
                     }
                   }
                 }
               }
             }
-          },
-          "selector": {
-            "data": [
-              {
-                "dataViewWildcard": {
-                  "matchingOption": 1
-                }
-              }
-            ]
           }
-        },
+        }
+      ],
+      "labels": [
         {
           "properties": {
-            "fillRule": {
-              "linearGradient2": {
-                "min": {
-                  "color": {
-                    "expr": {
-                      "Literal": {
-                        "Value": "'minColor'"
-                      }
-                    }
-                  }
-                },
-                "max": {
-                  "color": {
-                    "expr": {
-                      "Literal": {
-                        "Value": "'maxColor'"
-                      }
-                    }
-                  }
-                },
-                "nullColoringStrategy": {
-                  "strategy": {
-                    "expr": {
-                      "Literal": {
-                        "Value": "'asZero'"
-                      }
-                    }
-                  }
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            },
+            "labelDisplayUnits": {
+              "expr": {
+                "Literal": {
+                  "Value": "1000000D"
+                }
+              }
+            },
+            "labelPrecision": {
+              "expr": {
+                "Literal": {
+                  "Value": "2L"
+                }
+              }
+            },
+            "fontSize": {
+              "expr": {
+                "Literal": {
+                  "Value": "10D"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "legend": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "zoom": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
                 }
               }
             }
@@ -201,7 +246,7 @@
             "text": {
               "expr": {
                 "Literal": {
-                  "Value": "'Distribución de ingresos por país'"
+                  "Value": "'Ingresos por país'"
                 }
               }
             },
@@ -341,13 +386,18 @@
             "altText": {
               "expr": {
                 "Literal": {
-                  "Value": "'Mapa único de distribución de ingresos por país; reemplaza tres mapas redundantes.'"
+                  "Value": "'Ingresos por país. Barras con la misma medida y población que el mapa original.'"
                 }
               }
             }
           }
         }
       ]
+    },
+    "columnProperties": {
+      "DimCustomer.CountryRegionCode": {
+        "displayName": "País"
+      }
     }
   }
 }

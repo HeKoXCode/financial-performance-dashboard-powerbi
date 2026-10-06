@@ -24,7 +24,7 @@
               {
                 "textRuns": [
                   {
-                    "value": "AdventureWorks · 60.398 operaciones · 2010–2014 · moneda de reporte USD",
+                    "value": "AdventureWorks · 60.398 operaciones · 2010–2014 · moneda de reporte AdventureWorks",
                     "textStyle": {
                       "fontFamily": "Segoe UI",
                       "fontSize": "9pt",
@@ -59,7 +59,7 @@
             "altText": {
               "expr": {
                 "Literal": {
-                  "Value": "'AdventureWorks · 60.398 operaciones · 2010–2014 · moneda de reporte USD'"
+                  "Value": "'AdventureWorks · 60.398 operaciones · 2010–2014 · moneda de reporte AdventureWorks'"
                 }
               }
             }
